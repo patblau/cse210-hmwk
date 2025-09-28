@@ -136,6 +136,62 @@ public class Journal
             Console.WriteLine("Error loading: " + ex.Message);
         }
     }
+
+    // 🔍 Search for keyword in entries
+    public void SearchEntries(string keyword)
+    {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No entries available to search.");
+            return;
+        }
+
+        bool found = false;
+        Console.WriteLine($"\n=== Search Results for \"{keyword}\" ===");
+
+        for (int i = 0; i < _entries.Count; i++)
+        {
+            Entry entry = _entries[i];
+
+            if (entry.Response.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                entry.Prompt.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                found = true;
+
+                string[] sentences = entry.Response.Split(new[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string sentence in sentences)
+                {
+                    if (sentence.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        Console.WriteLine($"Entry {i + 1} (Date: {entry.Date}):");
+                        Console.WriteLine($"Prompt: {entry.Prompt}");
+
+                        // Highlight keyword in the sentence
+                        string[] words = sentence.Split(' ');
+                        foreach (string word in words)
+                        {
+                            if (word.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Yellow; // highlight
+                                Console.Write(word + " ");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                Console.Write(word + " ");
+                            }
+                        }
+                        Console.WriteLine("\n" + new string('-', 40));
+                    }
+                }
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No matches found.");
+        }
+    }
 }
 
 class Program
@@ -171,8 +227,11 @@ class Program
                     running = false;
                     Console.WriteLine("Goodbye!");
                     break;
+                case "6":
+                    SearchJournal();
+                    break;
                 default:
-                    Console.WriteLine("Invalid choice. Please select 1-5.");
+                    Console.WriteLine("Invalid choice. Please select 1-6.");
                     break;
             }
 
@@ -193,6 +252,7 @@ class Program
         Console.WriteLine("3. Save the journal to a file");
         Console.WriteLine("4. Load the journal from a file");
         Console.WriteLine("5. Quit");
+        Console.WriteLine("6. Search the journal by keyword");
         Console.Write("What would you like to do? ");
     }
 
@@ -224,6 +284,16 @@ class Program
         if (!string.IsNullOrEmpty(filename))
         {
             journal.LoadFromFile(filename);
+        }
+    }
+
+    static void SearchJournal()
+    {
+        Console.Write("Enter a keyword to search: ");
+        string keyword = Console.ReadLine();
+        if (!string.IsNullOrWhiteSpace(keyword))
+        {
+            journal.SearchEntries(keyword);
         }
     }
 }
