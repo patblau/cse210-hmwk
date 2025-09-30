@@ -1,53 +1,50 @@
 using System;
 
+using System;
+using System.Collections.Generic;
+using System.Linq; // for helpful list methods like Min, Max, Average
+
 class Program
 {
     static void Main(string[] args)
     {
+        List<int> numbers = new List<int>();
 
-        Console.WriteLine("Hello Prep4 World!");
+        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
 
-        DisplayWelcome();
-        string name = PromptUserName();
-        int number = PromptUserNumber();
-        int squaredNumber = SquareNumber(number);
-        int birthYear;
-        PromptUserBirthYear(out birthYear);
-        DisplayResult(name, squaredNumber, birthYear);
-    }
-    static void DisplayWelcome()
-    {
-        Console.WriteLine("Welcome to the Program!");
-    }
-    static string PromptUserName()
-    {
-        Console.Write("Please enter your name: ");
-        string name = Console.ReadLine();
-        return name;
-    }
-    static int PromptUserNumber()
-    {   
-        Console.Write("Please enter your favorite number: ");
-        return int.Parse(Console.ReadLine());
-    }
-    // PromptUserBirthYear
-    static void PromptUserBirthYear(out int birthYear)
-    {
-        Console.Write("Please enter the year you were born: ");
-        birthYear = int.Parse(Console.ReadLine());
-    }
-    static int SquareNumber(int number)
-    {
-        return number * number;
-    }
-        // DisplayResult
-    static void DisplayResult(string name, int squaredNumber, int birthYear)
-    {
-        Console.WriteLine($"{name}, the square of your number is {squaredNumber}");
+        int userNumber = -1;
 
-        int currentYear = DateTime.Now.Year;
-        int age = currentYear - birthYear;
-        Console.WriteLine($"{name}, you will turn {age} this year.");
+        // Keep asking for numbers until the user enters 0
+        while (userNumber != 0)
+        {
+            Console.Write("Enter number: ");
+            userNumber = int.Parse(Console.ReadLine());
+
+            if (userNumber != 0)
+            {
+                numbers.Add(userNumber);
+            }
+        }
+
+        // Core requirements
+        int sum = numbers.Sum();
+        double average = numbers.Average();
+        int max = numbers.Max();
+
+        Console.WriteLine($"The sum is: {sum}");
+        Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The largest number is: {max}");
+
+        // Stretch Challenge 1: Find the smallest positive number
+        int smallestPositive = numbers.Where(n => n > 0).Min();
+        Console.WriteLine($"The smallest positive number is: {smallestPositive}");
+
+        // Stretch Challenge 2: Sort and display numbers
+        numbers.Sort();
+        Console.WriteLine("The sorted list is:");
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
     }
 }
-    
