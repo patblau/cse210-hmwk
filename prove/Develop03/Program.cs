@@ -101,3 +101,9 @@ public class Word
             visibleWords.RemoveAt(index);
         }
     }
+
+    public bool AllHidden()
+    {
+        return _words.All(w => w.IsHidden());
+    }
+}
