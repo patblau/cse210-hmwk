@@ -34,4 +34,8 @@ class Program
         Console.Write("Please enter the year you were born: ");
         birthYear = int.Parse(Console.ReadLine());
     }
+    static int SquareNumber(int number)
+    {
+        return number * number;
+    }
     
