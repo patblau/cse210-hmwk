@@ -91,3 +91,13 @@ public class Word
         }
         Console.WriteLine();
     }
+    public void HideRandomWords(int count)
+    {
+        var visibleWords = _words.Where(w => !w.ToString().StartsWith("_")).ToList();
+        for (int i = 0; i < count && visibleWords.Count > 0; i++)
+        {
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
+        }
+    }
