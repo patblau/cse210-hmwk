@@ -6,16 +6,16 @@ class Program
     {
 
         Console.WriteLine("Hello Prep4 World!");
-        }
-            DisplayWelcome();
 
-            string name = PromptUserName();
-            int favoriteNumber = PromptUserNumber();
-
-            PromptUserBirthYear(out int birthYear);
-
-            int squaredNumber = SquareNumber(favoriteNumber);
-
-            DisplayResult(name, squaredNumber, birthYear);
+        DisplayWelcome();
+        string name = PromptUserName();
+        int number = PromptUserNumber();
+        int squaredNumber = SquareNumber(number);
+        DisplayResult(name, squaredNumber);
+    
     }
-}       
+    static void DisplayWelcome()
+    {
+        Console.WriteLine("Welcome to the Program!");
+    }
+    
