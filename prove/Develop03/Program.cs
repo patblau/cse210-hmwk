@@ -26,5 +26,13 @@ public class Reference
         StartVerse = verse;
         EndVerse = verse;
     }
+    // Range constructor
+    public Reference(string book, int chapter, int startVerse, int endVerse)
+    {
+        Book = book;
+        Chapter = chapter;
+        StartVerse = startVerse;
+        EndVerse = endVerse;
+    }   
 
     
