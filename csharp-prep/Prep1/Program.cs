@@ -1,8 +1,11 @@
-internal class NewBaseType
+using System;
+class Program
 {
     static void Main(string[] args)
-    {
-        Console.WriteLine("Hello there!");
+	{
+		// Greet the user
+
+	 	Console.WriteLine("Hello there!");
 
         // Ask for first name
         Console.Write("What is your first name? ");
@@ -17,6 +20,3 @@ internal class NewBaseType
     }
 }
 
-internal class Program : NewBaseType
-{
-}

@@ -46,6 +46,7 @@ public class Journal
             "What did I learn today?",
             "How did I make someone else's day better?",
             "What is one thing I can improve on tomorrow?",
+<<<<<<< HEAD
             "How did I grow as a person today?",
             "What made me smile today?",
             "What is something new I tried today?",
@@ -57,6 +58,19 @@ public class Journal
             "What is something I appreciate about myself?",
             "What is something I can do to take care of myself tomorrow?"
 
+=======
+            "What made me smile today?",
+            "What is a goal I want to achieve this week?",
+            "What is something new I tried today?",
+            "What is a positive habit I want to develop?",
+            "What is something I did today that I'm proud of?",
+            "What is a lesson I learned from a mistake I made today?",
+            "What is something I can do to take care of myself tomorrow?",
+            "What is a way I can show kindness to others tomorrow?",
+            "What is something I can do to be more present in the moment?",
+            "What is a way I can express my creativity tomorrow?",  
+            "What is something I can do to reduce stress tomorrow?"
+>>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
         };
     }
 
@@ -136,6 +150,65 @@ public class Journal
             Console.WriteLine("Error loading: " + ex.Message);
         }
     }
+<<<<<<< HEAD
+=======
+
+    // 🔍 Search for keyword in entries
+    public void SearchEntries(string keyword)
+    {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("No entries available to search.");
+            return;
+        }
+
+        bool found = false;
+        Console.WriteLine($"\n=== Search Results for \"{keyword}\" ===");
+
+        for (int i = 0; i < _entries.Count; i++)
+        {
+            Entry entry = _entries[i];
+
+            if (entry.Response.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                entry.Prompt.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                found = true;
+
+                string[] sentences = entry.Response.Split(new[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string sentence in sentences)
+                {
+                    if (sentence.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        Console.WriteLine($"Entry {i + 1} (Date: {entry.Date}):");
+                        Console.WriteLine($"Prompt: {entry.Prompt}");
+
+                        // Highlight keyword in the sentence
+                        string[] words = sentence.Split(' ');
+                        foreach (string word in words)
+                        {
+                            if (word.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Yellow; // highlight
+                                Console.Write(word + " ");
+                                Console.ResetColor();
+                            }
+                            else
+                            {
+                                Console.Write(word + " ");
+                            }
+                        }
+                        Console.WriteLine("\n" + new string('-', 40));
+                    }
+                }
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No matches found.");
+        }
+    }
+>>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
 }
 
 class Program
@@ -171,8 +244,16 @@ class Program
                     running = false;
                     Console.WriteLine("Goodbye!");
                     break;
+<<<<<<< HEAD
                 default:
                     Console.WriteLine("Invalid choice. Please select 1-5.");
+=======
+                case "6":
+                    SearchJournal();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please select 1-6.");
+>>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
                     break;
             }
 
@@ -193,6 +274,10 @@ class Program
         Console.WriteLine("3. Save the journal to a file");
         Console.WriteLine("4. Load the journal from a file");
         Console.WriteLine("5. Quit");
+<<<<<<< HEAD
+=======
+        Console.WriteLine("6. Search the journal by keyword");
+>>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
         Console.Write("What would you like to do? ");
     }
 
@@ -225,5 +310,18 @@ class Program
         {
             journal.LoadFromFile(filename);
         }
+<<<<<<< HEAD
+=======
+    }
+
+    static void SearchJournal()
+    {
+        Console.Write("Enter a keyword to search: ");
+        string keyword = Console.ReadLine();
+        if (!string.IsNullOrWhiteSpace(keyword))
+        {
+            journal.SearchEntries(keyword);
+        }
+>>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
     }
 }
