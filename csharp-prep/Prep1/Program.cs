@@ -15,8 +15,8 @@ class Program
 		string firstName = Console.ReadLine();
 
 		// Display full name
-		Console.WriteLine($"Your name is, {lastName}!");
-		Console.WriteLine($"{firstName} {lastName}");
+		Console.WriteLine($"Your name is, {lastName}.");
+		Console.WriteLine($"{lastName}, {firstName} {lastName}.");
 	}	
 }
 
