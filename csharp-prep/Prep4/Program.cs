@@ -38,4 +38,14 @@ class Program
     {
         return number * number;
     }
+        // DisplayResult
+    static void DisplayResult(string name, int squaredNumber, int birthYear)
+    {
+        Console.WriteLine($"{name}, the square of your number is {squaredNumber}");
+
+        int currentYear = DateTime.Now.Year;
+        int age = currentYear - birthYear;
+        Console.WriteLine($"{name}, you will turn {age} this year.");
+    }
+}
     
