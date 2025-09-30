@@ -67,3 +67,8 @@ public class Word
         return _isHidden ? new string('_', _text.Length) : _text;
     }
 }
+    public class Scripture
+    {
+        private Reference _reference;
+        private List<Word> _words;
+        private Random _random = new Random();
