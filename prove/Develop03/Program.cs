@@ -22,7 +22,7 @@ public class Reference
     public int StartVerse { get; private set; }
     public int EndVerse { get; private set; }
 
-    // Single-verse constructor
+    // Constructor for single verse
     public Reference(string book, int chapter, int verse)
     {
         Book = book;
@@ -31,7 +31,7 @@ public class Reference
         EndVerse = verse;
     }
 
-    // Range constructor
+    // Constructor for verse range
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
         Book = book;
@@ -48,6 +48,7 @@ public class Reference
             return $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
     }
 }
+
 public class Word
 {
     private string _text;
@@ -58,21 +59,28 @@ public class Word
         _text = text;
         _isHidden = false;
     }
+
     public void Hide()
     {
         _isHidden = true;
     }
+
+    public bool IsHidden()
+    {
+        return _isHidden;
+    }
+
     public override string ToString()
     {
         return _isHidden ? new string('_', _text.Length) : _text;
     }
 }
+
 public class Scripture
 {
     private Reference _reference;
     private List<Word> _words;
     private Random _random = new Random();
-
 
     public Scripture(Reference reference, string text)
     {
@@ -91,9 +99,13 @@ public class Scripture
         }
         Console.WriteLine();
     }
-    public void HideRandomWords(int count)
+
+    public void HideRandomWords(int count = 3)
     {
-        var visibleWords = _words.Where(w => !w.ToString().StartsWith("_")).ToList();
+        var visibleWords = _words.Where(w => !w.IsHidden()).ToList();
+        if (visibleWords.Count == 0)
+            return;
+
         for (int i = 0; i < count && visibleWords.Count > 0; i++)
         {
             int index = _random.Next(visibleWords.Count);
@@ -107,7 +119,8 @@ public class Scripture
         return _words.All(w => w.IsHidden());
     }
 }
-    class Program
+
+class Program
 {
     static void Main(string[] args)
     {
