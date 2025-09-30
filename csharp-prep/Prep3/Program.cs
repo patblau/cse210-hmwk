@@ -23,4 +23,12 @@ class Program
             {
                 numbers.Add(userNumber);
             }
+        // Required calculations: sum, average, largest number
+        int sum = numbers.Sum();
+        double average = numbers.Average();
+        int max = numbers.Max();
+
+        Console.WriteLine($"The sum is: {sum}");
+        Console.WriteLine($"The average is: {average}");
+        Console.WriteLine($"The largest number is: {max}");
         } 
