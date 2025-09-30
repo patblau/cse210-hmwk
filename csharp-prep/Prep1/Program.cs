@@ -1,21 +1,22 @@
-using System;
-
-class Program
+internal class NewBaseType
 {
     static void Main(string[] args)
     {
-		Console.WriteLine("Hello there!");
+        Console.WriteLine("Hello there!");
 
-		// Ask for first name
-		Console.Write("What is your last name? ");
-		string lastName = Console.ReadLine();
+        // Ask for first name
+        Console.Write("What is your first name? ");
+        string firstName = Console.ReadLine();
 
-		// Ask for last name
-		Console.Write("What is your last name? ");
-		string firstName = Console.ReadLine();
+        // Ask for last name
+        Console.Write("What is your last name? ");
+        string lastName = Console.ReadLine();
 
-		// Display full name
-		Console.WriteLine($"Your name is, {lastName}.");
-		Console.WriteLine($"{lastName}, {firstName} {lastName}.");
-	}	
-}		
+        // Display full name in format: "Your name is Last, First Last."
+        Console.WriteLine($"\nYour name is {lastName}, {firstName} {lastName}.");
+    }
+}
+
+internal class Program : NewBaseType
+{
+}
