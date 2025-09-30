@@ -20,5 +20,12 @@ class Program
         string playAgain = "yes";
         while (playAgain.ToLower() == "yes")
         { 
+            // Generate random magic number (1–100)
+            Random randomGenerator = new Random();
+            int magicNumber = randomGenerator.Next(1, 101);
 
-    }   
+            int guess = -1;
+            int guessCount = 0;
+
+            Console.WriteLine("\nI am thinking of a magic number between 1 and 100...");
+}   
