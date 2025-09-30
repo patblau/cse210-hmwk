@@ -136,65 +136,6 @@ public class Journal
             Console.WriteLine("Error loading: " + ex.Message);
         }
     }
-<<<<<<< HEAD
-=======
-
-    // 🔍 Search for keyword in entries
-    public void SearchEntries(string keyword)
-    {
-        if (_entries.Count == 0)
-        {
-            Console.WriteLine("No entries available to search.");
-            return;
-        }
-
-        bool found = false;
-        Console.WriteLine($"\n=== Search Results for \"{keyword}\" ===");
-
-        for (int i = 0; i < _entries.Count; i++)
-        {
-            Entry entry = _entries[i];
-
-            if (entry.Response.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
-                entry.Prompt.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                found = true;
-
-                string[] sentences = entry.Response.Split(new[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string sentence in sentences)
-                {
-                    if (sentence.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                        Console.WriteLine($"Entry {i + 1} (Date: {entry.Date}):");
-                        Console.WriteLine($"Prompt: {entry.Prompt}");
-
-                        // Highlight keyword in the sentence
-                        string[] words = sentence.Split(' ');
-                        foreach (string word in words)
-                        {
-                            if (word.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
-                            {
-                                Console.ForegroundColor = ConsoleColor.Yellow; // highlight
-                                Console.Write(word + " ");
-                                Console.ResetColor();
-                            }
-                            else
-                            {
-                                Console.Write(word + " ");
-                            }
-                        }
-                        Console.WriteLine("\n" + new string('-', 40));
-                    }
-                }
-            }
-        }
-
-        if (!found)
-        {
-            Console.WriteLine("No matches found.");
-        }
-    }
->>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
 }
 
 class Program
