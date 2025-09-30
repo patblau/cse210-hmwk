@@ -15,4 +15,10 @@ class Program
 
         // Display formatted name
         Console.WriteLine($"\nYour name is {lastName}, {firstName} {lastName}.");
+
+        // Main game loop (play again feature)
+        string playAgain = "yes";
+        while (playAgain.ToLower() == "yes")
+        { 
+
     }   
