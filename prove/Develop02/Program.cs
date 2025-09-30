@@ -46,7 +46,6 @@ public class Journal
             "What did I learn today?",
             "How did I make someone else's day better?",
             "What is one thing I can improve on tomorrow?",
-<<<<<<< HEAD
             "How did I grow as a person today?",
             "What made me smile today?",
             "What is something new I tried today?",
@@ -58,19 +57,6 @@ public class Journal
             "What is something I appreciate about myself?",
             "What is something I can do to take care of myself tomorrow?"
 
-=======
-            "What made me smile today?",
-            "What is a goal I want to achieve this week?",
-            "What is something new I tried today?",
-            "What is a positive habit I want to develop?",
-            "What is something I did today that I'm proud of?",
-            "What is a lesson I learned from a mistake I made today?",
-            "What is something I can do to take care of myself tomorrow?",
-            "What is a way I can show kindness to others tomorrow?",
-            "What is something I can do to be more present in the moment?",
-            "What is a way I can express my creativity tomorrow?",  
-            "What is something I can do to reduce stress tomorrow?"
->>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
         };
     }
 
