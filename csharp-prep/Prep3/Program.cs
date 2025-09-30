@@ -6,6 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine("Hello Prep3 World!");
+
         // Request numbers from the user
         List<int> numbers = new List<int>();
 
