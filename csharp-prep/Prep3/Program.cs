@@ -23,12 +23,17 @@ class Program
             {
                 numbers.Add(userNumber);
             }
-        // Required calculations: sum, average, largest number
-        int sum = numbers.Sum();
-        double average = numbers.Average();
-        int max = numbers.Max();
+            // Required calculations: sum, average, largest number
+            int sum = numbers.Sum();
+            double average = numbers.Average();
+            int max = numbers.Max();
 
-        Console.WriteLine($"The sum is: {sum}");
-        Console.WriteLine($"The average is: {average}");
-        Console.WriteLine($"The largest number is: {max}");
+            Console.WriteLine($"The sum is: {sum}");
+            Console.WriteLine($"The average is: {average}");
+            Console.WriteLine($"The largest number is: {max}");
+        
+            //Find the smallest positive number
+            int smallestPositive = numbers.Where(n => n > 0).Min();
+            Console.WriteLine($"The smallest positive number is: {smallestPositive}");
+
         } 
