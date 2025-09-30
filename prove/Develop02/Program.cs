@@ -171,16 +171,8 @@ class Program
                     running = false;
                     Console.WriteLine("Goodbye!");
                     break;
-<<<<<<< HEAD
                 default:
                     Console.WriteLine("Invalid choice. Please select 1-5.");
-=======
-                case "6":
-                    SearchJournal();
-                    break;
-                default:
-                    Console.WriteLine("Invalid choice. Please select 1-6.");
->>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
                     break;
             }
 
