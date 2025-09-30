@@ -18,7 +18,4 @@ class Program
 		Console.WriteLine($"Your name is, {lastName}.");
 		Console.WriteLine($"{lastName}, {firstName} {lastName}.");
 	}	
-}
-
-
-		
+}		
