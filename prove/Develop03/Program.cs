@@ -58,3 +58,8 @@ public class Word
         _text = text;
         _isHidden = false;
     }
+    public void Hide()
+    {
+        _isHidden = true;
+    }
+    public void Show()
