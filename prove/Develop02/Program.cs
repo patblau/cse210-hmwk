@@ -193,10 +193,6 @@ class Program
         Console.WriteLine("3. Save the journal to a file");
         Console.WriteLine("4. Load the journal from a file");
         Console.WriteLine("5. Quit");
-<<<<<<< HEAD
-=======
-        Console.WriteLine("6. Search the journal by keyword");
->>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
         Console.Write("What would you like to do? ");
     }
 
