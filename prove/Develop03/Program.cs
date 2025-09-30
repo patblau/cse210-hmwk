@@ -13,6 +13,7 @@ namespace Develop03
             Reference reference = new Reference("Proverbs", 3, 5, 6);
             string text = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. " +
                           "In all thy ways acknowledge him, and he shall direct thy paths.";
+
             Scripture scripture = new Scripture(reference, text);
 
             while (true)
@@ -36,6 +37,7 @@ namespace Develop03
         }
     }
 
+    // Reference Class  
     public class Reference
     {
         public string Book { get; private set; }
@@ -67,7 +69,8 @@ namespace Develop03
                 return $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
         }
     }
-
+    
+    // Word Class
     public class Word
     {
         private string _text;
@@ -94,7 +97,8 @@ namespace Develop03
             return _isHidden ? new string('_', _text.Length) : _text;
         }
     }
-
+    
+    // Scripture Class
     public class Scripture
     {
         private Reference _reference;
