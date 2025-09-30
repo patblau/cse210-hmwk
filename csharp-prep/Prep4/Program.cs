@@ -11,7 +11,9 @@ class Program
         string name = PromptUserName();
         int number = PromptUserNumber();
         int squaredNumber = SquareNumber(number);
-        DisplayResult(name, squaredNumber);
+        int birthYear;
+        PromptUserBirthYear(out birthYear);
+        DisplayResult(name, squaredNumber, birthYear);
     }
     static void DisplayWelcome()
     {
