@@ -136,6 +136,20 @@ public class Journal
             Console.WriteLine("Error loading: " + ex.Message);
         }
     }
+
+    public List<Entry> SearchEntries(string keyword)
+    {
+        List<Entry> results = new List<Entry>();
+        foreach (Entry entry in _entries)
+        {
+            if ((entry.Prompt != null && entry.Prompt.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                (entry.Response != null && entry.Response.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0))
+            {
+                results.Add(entry);
+            }
+        }
+        return results;
+    }
 }
 
 class Program
@@ -225,8 +239,6 @@ class Program
         {
             journal.LoadFromFile(filename);
         }
-<<<<<<< HEAD
-=======
     }
 
     static void SearchJournal()
@@ -235,8 +247,22 @@ class Program
         string keyword = Console.ReadLine();
         if (!string.IsNullOrWhiteSpace(keyword))
         {
-            journal.SearchEntries(keyword);
+            var results = journal.SearchEntries(keyword);
+            if (results.Count == 0)
+            {
+                Console.WriteLine("No entries found containing the keyword: " + keyword);
+            }
+            else
+            {
+                Console.WriteLine("\n=== SEARCH RESULTS ===");
+                foreach (var entry in results)
+                {
+                    Console.WriteLine(entry);
+                    
+                }   
+        
+            }
         }
->>>>>>> 0bc6786ba6c4377c23d0c07554779ff9773a8f6e
     }
 }
+ 
