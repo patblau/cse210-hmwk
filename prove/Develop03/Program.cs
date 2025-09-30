@@ -67,14 +67,14 @@ public class Word
         return _isHidden ? new string('_', _text.Length) : _text;
     }
 }
-    public class Scripture
-    {
-        private Reference _reference;
-        private List<Word> _words;
-        private Random _random = new Random();
+public class Scripture
+{
+    private Reference _reference;
+    private List<Word> _words;
+    private Random _random = new Random();
 
 
-        public Scripture(Reference reference, string text)
+    public Scripture(Reference reference, string text)
     {
         _reference = reference;
         _words = text.Split(' ').Select(word => new Word(word)).ToList();
@@ -105,5 +105,35 @@ public class Word
     public bool AllHidden()
     {
         return _words.All(w => w.IsHidden());
+    }
+}
+    class Program
+{
+    static void Main(string[] args)
+    {
+        // Example scripture: Proverbs 3:5-6
+        Reference reference = new Reference("Proverbs", 3, 5, 6);
+        string text = "Trust in the Lord with all thine heart; and lean not unto thine own understanding. " +
+                      "In all thy ways acknowledge him, and he shall direct thy paths.";
+        Scripture scripture = new Scripture(reference, text);
+
+        while (true)
+        {
+            scripture.Display();
+            Console.WriteLine("\nPress Enter to hide words or type 'quit' to exit.");
+            string input = Console.ReadLine();
+
+            if (input.ToLower() == "quit")
+                break;
+
+            scripture.HideRandomWords();
+
+            if (scripture.AllHidden())
+            {
+                scripture.Display();
+                Console.WriteLine("\nAll words hidden. Program ending...");
+                break;
+            }
+        }
     }
 }
