@@ -12,7 +12,6 @@ class Program
         int number = PromptUserNumber();
         int squaredNumber = SquareNumber(number);
         DisplayResult(name, squaredNumber);
-    
     }
     static void DisplayWelcome()
     {
@@ -25,5 +24,14 @@ class Program
         return name;
     }
     static int PromptUserNumber()
+    {   
+        Console.Write("Please enter your favorite number: ");
+        return int.Parse(Console.ReadLine());
+    }
+    // PromptUserBirthYear
+    static void PromptUserBirthYear(out int birthYear)
     {
+        Console.Write("Please enter the year you were born: ");
+        birthYear = int.Parse(Console.ReadLine());
+    }
     
