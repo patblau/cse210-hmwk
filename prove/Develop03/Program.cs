@@ -7,18 +7,22 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");       
+        Console.WriteLine("Hello Develop03 World!");
+
+        // Example usage of Reference class
+        Reference reference = new Reference("John", 3, 16);
+        Console.WriteLine(reference);
     }
 }
 
 public class Reference
-{ 
+{
     public string Book { get; private set; }
     public int Chapter { get; private set; }
     public int StartVerse { get; private set; }
     public int EndVerse { get; private set; }
 
-    // Single verse constructor
+    // Single-verse constructor
     public Reference(string book, int chapter, int verse)
     {
         Book = book;
@@ -26,6 +30,7 @@ public class Reference
         StartVerse = verse;
         EndVerse = verse;
     }
+
     // Range constructor
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
@@ -33,6 +38,7 @@ public class Reference
         Chapter = chapter;
         StartVerse = startVerse;
         EndVerse = endVerse;
+    }
 
     public override string ToString()
     {
@@ -41,7 +47,14 @@ public class Reference
         else
             return $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
     }
+}
+public class Word
+{
+    private string _text;
+    private bool _isHidden;
 
-}       
-
-    
+    public Word(string text)
+    {
+        _text = text;
+        _isHidden = false;
+    }
