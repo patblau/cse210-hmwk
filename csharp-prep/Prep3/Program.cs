@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq; // for helpful list methods like Min, Max, Average
+using System.Linq; // for Min, Max, Ave   
 
 class Program
 {
@@ -31,9 +31,19 @@ class Program
             Console.WriteLine($"The sum is: {sum}");
             Console.WriteLine($"The average is: {average}");
             Console.WriteLine($"The largest number is: {max}");
-        
+
             //Find the smallest positive number
             int smallestPositive = numbers.Where(n => n > 0).Min();
             Console.WriteLine($"The smallest positive number is: {smallestPositive}");
 
-        } 
+            // Stretch Challenge 2: Sort and display numbers
+            numbers.Sort();
+            Console.WriteLine("The sorted list is:");
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+}   
+       
