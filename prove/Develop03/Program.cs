@@ -33,6 +33,15 @@ public class Reference
         Chapter = chapter;
         StartVerse = startVerse;
         EndVerse = endVerse;
-    }   
+
+    public override string ToString()
+    {
+        if (StartVerse == EndVerse)
+            return $"{Book} {Chapter}:{StartVerse}";
+        else
+            return $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
+    }
+
+}       
 
     
