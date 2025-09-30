@@ -62,4 +62,8 @@ public class Word
     {
         _isHidden = true;
     }
-    public void Show()
+    public override string ToString()
+    {
+        return _isHidden ? new string('_', _text.Length) : _text;
+    }
+}
