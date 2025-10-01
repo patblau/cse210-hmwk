@@ -1,9 +1,6 @@
 namespace Develop03
 {
-    
-    // Stores a scripture reference (single verse or range).
-    // Examples: John 3:16  |  Proverbs 3:5–6 
-   
+    /// <summary>Stores a scripture reference (single verse or range).</summary>
     public class Reference
     {
         public string Book { get; private set; }
@@ -11,7 +8,7 @@ namespace Develop03
         public int StartVerse { get; private set; }
         public int EndVerse { get; private set; }
 
-        // Single verse constructor
+        // Single verse
         public Reference(string book, int chapter, int verse)
         {
             Book = book;
@@ -20,7 +17,7 @@ namespace Develop03
             EndVerse = verse;
         }
 
-        // Verse range constructor
+        // Verse range
         public Reference(string book, int chapter, int startVerse, int endVerse)
         {
             Book = book;
@@ -32,8 +29,8 @@ namespace Develop03
         public override string ToString()
         {
             return StartVerse == EndVerse
-                ? $"{Book} {Chapter}:{StartVerse}"
-                : $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
+                ? Book + " " + Chapter + ":" + StartVerse
+                : Book + " " + Chapter + ":" + StartVerse + "-" + EndVerse;
         }
     }
 }
