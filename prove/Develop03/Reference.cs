@@ -3,10 +3,10 @@ namespace Develop03
     /// <summary>Stores a scripture reference (single verse or range).</summary>
     public class Reference
     {
-        public string Book { get; private set; }
-        public int Chapter { get; private set; }
-        public int StartVerse { get; private set; }
-        public int EndVerse { get; private set; }
+        public string Book { get; }
+        public int Chapter { get; }
+        public int StartVerse { get; }
+        public int EndVerse { get; }
 
         // Single verse
         public Reference(string book, int chapter, int verse)
@@ -29,8 +29,8 @@ namespace Develop03
         public override string ToString()
         {
             return StartVerse == EndVerse
-                ? Book + " " + Chapter + ":" + StartVerse
-                : Book + " " + Chapter + ":" + StartVerse + "-" + EndVerse;
+                ? $"{Book} {Chapter}:{StartVerse}"
+                : $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Develop03
 {
+    /// <summary>Holds the reference and words; hides words over time.</summary>
     public class Scripture
     {
         private readonly Reference _reference;
