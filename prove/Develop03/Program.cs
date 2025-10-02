@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var repo = new ScriptureRepository();
+        var repo = new ScriptRepository();
         var menu = new Menu(repo);
 
         while (true)
