@@ -86,3 +86,20 @@ public class Scriptures
         }
         return hidden;
     }
+
+    // Requesting a hidden word hint
+    public bool RevealOneRandomHidden()
+    {
+        var hidden = new List<int>();
+        for (int i = 0; i < _words.Count; i++)
+        {
+            if (_words[i].IsHidden()) hidden.Add(i);
+        }
+        if (hidden.Count == 0) return false;
+
+        int pick = _random.Next(hidden.Count);
+        _words[hidden[pick]].Reveal();
+        return true;
+    }
+
+    
