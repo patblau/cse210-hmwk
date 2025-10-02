@@ -32,9 +32,9 @@ public class ScriptureRepository
     {
         if (!_data.ContainsKey(work))
         {
-            _data[work] = new List<ScriptureInfo>();
+            _data[work] = .Add(info); new List<ScriptureInfo>();
         }
-        _data[work].Add(info); // NOTE: capital A
+        _data[work].Add(info); 
     }
 
     private void SeedDefaults()
