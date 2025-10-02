@@ -64,3 +64,19 @@ public class ScriptureRepository
             )
         );
 
+        // ============================
+        // Book of Mormon
+        // Mosiah 4:10–11
+        // Verse 10 is exactly as you provided. Add your preferred verse 11 wording below where marked.
+        // ============================
+        Add(StandardWork.BookOfMormon,
+            new ScriptureInfo(
+                new Reference("Mosiah", 4, 10, 11),
+                "10 And again, believe that ye must repent of your sins and forsake them, and humble yourselves before God; " +
+                "and ask in sincerity of heart that he would forgive you; and now, if you believe all these things see that ye do them. " +
+                "11 [Paste your preferred Mosiah 4:11 wording here.]"
+            )
+        );
+
+
+
