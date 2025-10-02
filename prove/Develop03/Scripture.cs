@@ -7,6 +7,22 @@ public class Scripture
     private readonly List<Word> _words = new List<Word>();
     private readonly Random _random = new Random();
 
+    public Scripture(Random random)
+    {
+        this _radom = random;
+    }
+
+    public class ScriptureInfo
+{
+    public Reference Reference { get; }
+    public string Text { get; }
+
+    public ScriptureInfo(Reference reference, string text)
+    {
+        Reference = reference;
+        Text = text;
+    }
+}
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
