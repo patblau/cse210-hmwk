@@ -49,30 +49,15 @@ class Program
 
                     continue;
                 }
+                input = input.Trim().ToLower();
+                if (input == "quit") return;
+                if (input == "switch") break; // choose a different scripture
 
+                // default: hide more
+                scripture.HideRandomWords(hideCount);
+            }
+        }
+    }
+}
 
-
-
-
-
-                while (true)
-                {
-                    Console.Clear();
-                    Console.WriteLine(reference);
-                    Console.WriteLine();
-                    scripture.DisplayInline();
-                    Console.WriteLine("\nPress Enter to hide words (type 'quit' to exit):");
-                    var input = Console.ReadLine();
-                    if (string.Equals(input, "quit", StringComparison.OrdinalIgnoreCase)) break;
-
-                    scripture.HideRandomWords(3);
-                    if (scripture.AllHidden())
-                    {
-                        Console.Clear();
-                        Console.WriteLine(reference);
-                        Console.WriteLine();
-                        scripture.DisplayInline();
-                        Console.WriteLine("\nAll words hidden. Program ending...");
-                        break;
-                    }
-                }
+              
