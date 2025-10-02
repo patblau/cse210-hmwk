@@ -31,3 +31,14 @@ public class ScriptureRepository
         var rng = new Random();
         return list[rng.Next(list.Count)];
     }
+    private void Add(StandardWork work, ScriptureInfo info)
+    {
+        if (!_data.ContainsKey(work))
+        {
+            _data[work] = new List<ScriptureInfo>();
+        }
+        _data[work].Add(info); 
+    }
+
+    private void SeedDefaults()
+    {
