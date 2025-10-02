@@ -5,14 +5,22 @@ public class Reference
     public int StartVerse { get; }
     public int EndVerse { get; }
 
+    // Single verse
     public Reference(string book, int chapter, int verse)
     {
-        Book = book; Chapter = chapter; StartVerse = verse; EndVerse = verse;
+        Book = book;
+        Chapter = chapter;
+        StartVerse = verse;
+        EndVerse = verse;
     }
 
+    // Verse range
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        Book = book; Chapter = chapter; StartVerse = startVerse; EndVerse = endVerse;
+        Book = book;
+        Chapter = chapter;
+        StartVerse = startVerse;
+        EndVerse = endVerse;
     }
 
     public override string ToString()
