@@ -39,3 +39,25 @@ public class Menu
             if (input == "5") return StandardWork.PearlOfGreatPrice;
         }
     }
+
+    // How many words to hide per step
+    public int PromptDifficulty()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("How many words to hide each step?");
+            Console.WriteLine("1) Easy (1)");
+            Console.WriteLine("2) Normal (3)");
+            Console.WriteLine("3) Hard (5)");
+            Console.WriteLine("Press Enter for Normal.");
+            Console.Write("> ");
+            var input = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(input)) return 3;
+
+            input = input.Trim();
+            if (input == "1") return 1;
+            if (input == "2") return 3;
+            if (input == "3") return 5;
+        }
+    }
