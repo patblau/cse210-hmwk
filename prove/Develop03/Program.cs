@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var repo = new ScriptRepository();
+        var repo = new ScriptureRepository();
         var menu = new Menu(repo);
 
         while (true)
@@ -17,9 +17,10 @@ class Program
 
             // Difficulty = how many words to hide each step
             int hideCount = menu.PromptDifficulty();
-
-            // Pick a scripture from that collection (or random)
             var chosen = menu.PromptScriptureChoice(work);
+
+            // Create the Scripture instance for practice
+            var scripture = new Scripture(chosen.Reference, chosen.Text);
 
             while (true)
             {
@@ -49,11 +50,12 @@ class Program
 
                     continue;
                 }
+
                 input = input.Trim().ToLower();
                 if (input == "quit") return;
                 if (input == "switch") break; // choose a different scripture
 
-                // default: hide more
+                // Hide count more words
                 scripture.HideRandomWords(hideCount);
             }
         }
