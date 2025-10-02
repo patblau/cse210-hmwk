@@ -64,3 +64,25 @@ public class Scriptures
             Console.Write(' ');
         }
     }
+
+    // Hides up to 'count' random words that are still visible (unique picks per round)
+    public int HideRandomWords(int count = 3)
+    {
+        var visible = new List<int>();
+        for (int i = 0; i < _words.Count; i++)
+        {
+            if (!_words[i].IsHidden()) visible.Add(i);
+        }
+        if (visible.Count == 0) return 0;
+
+        int hidden = 0;
+        for (int i = 0; i < count && visible.Count > 0; i++)
+        {
+            int pick = _random.Next(visible.Count);
+            int idx = visible[pick];
+            _words[idx].Hide();
+            visible.RemoveAt(pick); // avoid re-picking the same word this round
+            hidden++;
+        }
+        return hidden;
+    }
