@@ -11,9 +11,12 @@ class Program
 
         while (true)
         {
-            // 1) Pick which collection (Old/New Testament, etc.)
+            // Pick which collection (Old/New Testament, etc.)
             var work = menu.PromptStandardWork();
             if (work == StandardWork.None) return;
+
+            // Difficulty = how many words to hide each step
+            int hideCount = menu.PromptDifficulty();
 var reference = new Reference("John", 3, 16);
 string text = "For God so loved the world, that he gave his only begotten Son, " +
               "that whosoever believeth in him should not perish, but have everlasting life.";
