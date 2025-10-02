@@ -78,5 +78,20 @@ public class ScriptureRepository
             )
         );
 
+        // ============================
+        // Doctrine and Covenants
+        // D&C 8:2–4 (exact text you gave)
+        // ============================
+        Add(StandardWork.DoctrineAndCovenants,
+            new ScriptureInfo(
+                new Reference("Doctrine and Covenants", 8, 2, 4),
+                "2 Yea, behold, I will tell you in your mind and in your heart, by the Holy Ghost, which shall come upon you and which shall dwell in your heart. " +
+                "3 Now, behold, this is the spirit of revelation; behold, this is the spirit by which Moses brought the children of Israel through the Red Sea on dry ground. " +
+                "4 Therefore this is thy gift; apply unto it, and blessed art thou, for it shall deliver you out of the hands of your enemies, " +
+                "when, if it were not so, they would slay you and bring your soul to destruction."
+            )
+        );
+
+
 
 
