@@ -42,3 +42,13 @@ public class ScriptureRepository
 
     private void SeedDefaults()
     {
+        // ============================
+        // Old Testament
+        // ============================
+        Add(StandardWork.OldTestament,
+            new ScriptureInfo(
+                new Reference("Proverbs", 3, 5, 6),
+                "Trust in the LORD with all thine heart; and lean not unto thine own understanding. " +
+                "In all thy ways acknowledge him, and he shall direct thy paths."
+            )
+        );
