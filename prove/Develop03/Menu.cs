@@ -61,3 +61,37 @@ public class Menu
             if (input == "3") return 5;
         }
     }
+
+    // Pick a scripture from that collection (or Random / Back)
+    //    Note: returns null when the user chooses "Back".
+    public ScriptureInfo PromptScriptureChoice(StandardWork work)
+    {
+        var options = _repo.GetByStandardWork(work);
+        if (options.Count == 0) return null;
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine($"Select a scripture ({work}):\n");
+            for (int i = 0; i < options.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}) {options[i].Reference}");
+            }
+            Console.WriteLine("R) Random");
+            Console.WriteLine("B) Back");
+            Console.Write("\nChoice: ");
+            var input = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(input)) continue;
+
+            input = input.Trim().ToLower();
+            if (input == "b" || input == "back") return null;
+            if (input == "r" || input == "random") return _repo.GetRandom(work);
+
+            int idx;
+            if (int.TryParse(input, out idx))
+            {
+                if (idx >= 1 && idx <= options.Count) return options[idx - 1];
+            }
+        }
+    }
+}
