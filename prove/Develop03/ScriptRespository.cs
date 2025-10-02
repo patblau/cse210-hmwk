@@ -90,7 +90,21 @@ public class ScriptureRepository
                 "4 Therefore this is thy gift; apply unto it, and blessed art thou, for it shall deliver you out of the hands of your enemies, " +
                 "when, if it were not so, they would slay you and bring your soul to destruction."
             )
+        );// ============================
+        // Pearl of Great Price
+        // Moses 7:10–11
+        // Verse 10 as you provided. Add your verse 11 wording where marked.
+        // ============================
+        Add(StandardWork.PearlOfGreatPrice,
+            new ScriptureInfo(
+                new Reference("Moses", 7, 10, 11),
+                "10 And the Lord said unto me: Go to this people, and say unto them—Repent, lest I come out and smite them with a curse, and they die. " +
+                "11 [Paste your preferred Moses 7:11 wording here (and any extra lines you want).]"
+            )
         );
+    }
+}
+
 
 
 
