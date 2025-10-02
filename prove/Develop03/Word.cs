@@ -1,36 +1,15 @@
-namespace Develop03
+public class Word
 {
-    // <summary>Stores a scripture reference (single verse or range).</summary>
-    public class Reference
+    private readonly string _text;
+    private bool _isHidden;
+
+    public Word(string text) { _text = text; _isHidden = false; }
+    public void Hide() => _isHidden = true;
+    public void Reveal() => _isHidden = false;
+    public bool IsHidden() => _isHidden;
+
+    public override string ToString()
     {
-        public string Book { get; private set; }
-        public int Chapter { get; private set; }
-        public int StartVerse { get; private set; }
-        public int EndVerse { get; private set; }
-
-        // Single verse
-        public Reference(string book, int chapter, int verse)
-        {
-            Book = book;
-            Chapter = chapter;
-            StartVerse = verse;
-            EndVerse = verse;
-        }
-
-        // Verse range
-        public Reference(string book, int chapter, int startVerse, int endVerse)
-        {
-            Book = book;
-            Chapter = chapter;
-            StartVerse = startVerse;
-            EndVerse = endVerse;
-        }
-
-        public override string ToString()
-        {
-            return StartVerse == EndVerse
-                ? Book + " " + Chapter + ":" + StartVerse
-                : Book + " " + Chapter + ":" + StartVerse + "-" + EndVerse;
-        }
+        return _isHidden ? new string('_', _text.Length) : _text;
     }
 }
