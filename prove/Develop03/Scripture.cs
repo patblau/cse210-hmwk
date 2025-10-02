@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-public class Scripture
+public class Scriptures
 {
     private readonly Reference _reference;
     private readonly List<Word> _words = new List<Word>();
     private readonly Random _random = new Random();
+    private readonly string _originalText;
 
-    public Scripture(Random random)
+    public Scriptures(Random random)
     {
         this _radom = random;
     }
@@ -23,7 +24,7 @@ public class Scripture
         Text = text;
     }
 }
-    public Scripture(Reference reference, string text)
+    public Scriptures(Reference reference, string text)
     {
         _reference = reference;
         // Simple split on spaces; punctuation stays attached
