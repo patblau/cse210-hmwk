@@ -8,7 +8,7 @@ public class Reference
     // Single verse
     public Reference(string book, int chapter, int verse)
     {
-        Book = book;
+        Book = book ?? string.Empty;
         Chapter = chapter;
         StartVerse = verse;
         EndVerse = verse;
@@ -17,7 +17,7 @@ public class Reference
     // Verse range
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        Book = book;
+        Book = book ?? string.Empty;
         Chapter = chapter;
         StartVerse = startVerse;
         EndVerse = endVerse;
