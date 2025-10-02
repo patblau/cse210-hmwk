@@ -23,10 +23,15 @@ public class Reference
         EndVerse = endVerse;
     }
 
+     public bool IsRange()
+    {
+        return StartVerse != EndVerse;
+    }
+
     public override string ToString()
     {
-        return StartVerse == EndVerse
-            ? $"{Book} {Chapter}:{StartVerse}"
-            : $"{Book} {Chapter}:{StartVerse}-{EndVerse}";
+        return IsRange()
+            ? $"{Book} {Chapter}:{StartVerse}-{EndVerse}"
+            : $"{Book} {Chapter}:{StartVerse}";
     }
 }
