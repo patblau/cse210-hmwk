@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public class Scripture
+public class ScriptureInformation
 {
     private readonly Reference _reference;
     private readonly List<Word> _words = new List<Word>();
