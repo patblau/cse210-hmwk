@@ -64,7 +64,7 @@ public class Menu
 
     // Pick a scripture from that collection (or Random / Back)
     //    Note: returns null when the user chooses "Back".
-    public ScriptureInfo PromptScriptureChoice(StandardWork work)
+    public ScriptureInformation PromptScriptureChoice(StandardWork work)
     {
         var options = _repo.GetByStandardWork(work);
         if (options.Count == 0) return null;
@@ -94,4 +94,8 @@ public class Menu
             }
         }
     }
+}
+
+public class ScriptureInformation
+{
 }
