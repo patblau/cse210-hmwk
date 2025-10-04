@@ -12,7 +12,7 @@ public class Menu
 
     // Which collection to pull from?
     // Returns StandardWorks.None if user wants to quit 
-    public StandardWork PromptStandardWorks()
+    public StandardWorks PromptStandardWorks()
     {
         while (true)
         {
@@ -30,13 +30,13 @@ public class Menu
             if (string.IsNullOrWhiteSpace(input)) continue;
 
             input = input.Trim().ToLower();
-            if (input == "q" || input == "quit") return StandardWork.None;
+            if (input == "q" || input == "quit") return StandardWorks.None;
 
-            if (input == "1") return StandardWork.OldTestament;
-            if (input == "2") return StandardWork.NewTestament;
-            if (input == "3") return StandardWork.BookOfMormon;
-            if (input == "4") return StandardWork.Doctrine&Covenants;
-            if (input == "5") return StandardWork.PearlOfGreatPrice;
+            if (input == "1") return StandardWorks.OldTestament;
+            if (input == "2") return StandardWorks.NewTestament;
+            if (input == "3") return StandardWorks.BookOfMormon;
+            if (input == "4") return StandardWorks.Doctrine&Covenants;
+            if (input == "5") return StandardWorks.PearlOfGreatPrice;
         }
     }
 
