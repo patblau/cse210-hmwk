@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 public class Menu
 {
-    private readonly ScriptureRepository _repo;
+    private readonly ScriptRepository _repo;
 
-    public Menu(ScriptureRepository repo)
+    public Menu(ScriptRepository repo)
     {
         _repo = repo;
     }
 
     // Which collection to pull from?
-    // Returns StandardWork.None if user wants to quit 
-    public StandardWork PromptStandardWork()
+    // Returns StandardWorks.None if user wants to quit 
+    public StandardWork PromptStandardWorks()
     {
         while (true)
         {
@@ -64,9 +64,9 @@ public class Menu
 
     // Pick a scripture from that collection (or Random / Back)
     //    Note: returns null when the user chooses "Back".
-    public ScriptInfo PromptScriptureChoice(StandardWork work)
+    public ScriptInfo PromptScriptureChoice(StandardWorks work)
     {
-        var options = _repo.GetByStandardWork(work);
+        var options = _repo.GetByStandardWorks(work);
         if (options.Count == 0) return null;
 
         while (true)

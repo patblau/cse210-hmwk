@@ -1,4 +1,4 @@
-public enum StandardWork
+public enum StandardWorks
 {
     None = 0,
     OldTestament = 1,
