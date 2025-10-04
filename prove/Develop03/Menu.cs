@@ -35,7 +35,7 @@ public class Menu
             if (input == "1") return StandardWorks.OldTestament;
             if (input == "2") return StandardWorks.NewTestament;
             if (input == "3") return StandardWorks.BookOfMormon;
-            if (input == "4") return StandardWorks.Doctrine&Covenants;
+            if (input == "4") return StandardWorks.DoctrineAndCovenants;
             if (input == "5") return StandardWorks.PearlOfGreatPrice;
         }
     }
