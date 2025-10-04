@@ -8,8 +8,8 @@ public class ScriptInfo
 
     public ScriptInfo(Reference reference, string text)
     {
-        Reference = reference ?? new Reference("", 0, 0);
-        Text = text ?? string.Empty;
+        Reference = reference;
+        Text = text;
     }
     private readonly List<Word> _words = new List<Word>();
     private readonly Random _random = new Random();
