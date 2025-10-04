@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 public class ScriptInfo
 {
-    private readonly Reference Reference { get;}
-    public string Text { get; }
-
-    public ScriptInfo(Reference reference, string text)
+    private readonly Reference Reference { get;} //gets only property for Reference 
+    public string Text { get; } //gets only property for Text
+    public ScriptInfo(Reference reference, string text) // constructor
     {
         Reference = reference ?? throw new ArgumentNullException(nameof(reference));
         Text = text ?? string.Empty;
