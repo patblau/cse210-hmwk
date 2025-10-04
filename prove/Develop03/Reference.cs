@@ -1,3 +1,5 @@
+namespace Develop03;
+
 public class Reference
 {
     public string Book { get; }
@@ -23,7 +25,7 @@ public class Reference
         EndVerse = endVerse;
     }
 
-     public bool IsRange()
+    public bool IsRange()
     {
         return StartVerse != EndVerse;
     }
