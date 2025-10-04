@@ -1,9 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-public class ScriptureInformation
+public class ScriptInfo
 {
-    private readonly Reference _reference;
+    private readonly Reference Reference { get;}
+    public string Text { get; }
+
+    public ScriptInfo(Reference reference, string text)
+    {
+        Reference = reference ?? new Reference("", 0, 0);
+        Text = text ?? string.Empty;
+    }
     private readonly List<Word> _words = new List<Word>();
     private readonly Random _random = new Random();
     private readonly string _originalText;

@@ -6,14 +6,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        var repo = new ScriptureRepository();
+        var repo = new ScriptRepository();
         var menu = new Menu(repo);
 
         while (true)
         {
             // Pick which collection from list of StandardWork
-            var work = menu.PromptStandardWork();
-            if (work == StandardWork.None) return;
+            var work = menu.PromptStandardWorks();
+            if (work == StandardWorks.None) return;
 
             // Difficulty = how many words to hide each step
             int hideCount = menu.PromptDifficulty();
