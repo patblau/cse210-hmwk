@@ -22,7 +22,7 @@ public class Menu
             Console.WriteLine("1) Old Testament");
             Console.WriteLine("2) New Testament");
             Console.WriteLine("3) Book of Mormon");
-            Console.WriteLine("4) Doctrine and Covenants");
+            Console.WriteLine("4) Doctrine & Covenants");
             Console.WriteLine("5) Pearl of Great Price");
             Console.WriteLine("Q) Quit");
             Console.Write("\nChoice: ");
@@ -35,7 +35,7 @@ public class Menu
             if (input == "1") return StandardWork.OldTestament;
             if (input == "2") return StandardWork.NewTestament;
             if (input == "3") return StandardWork.BookOfMormon;
-            if (input == "4") return StandardWork.DoctrineAndCovenants;
+            if (input == "4") return StandardWork.Doctrine&Covenants;
             if (input == "5") return StandardWork.PearlOfGreatPrice;
         }
     }
@@ -64,7 +64,7 @@ public class Menu
 
     // Pick a scripture from that collection (or Random / Back)
     //    Note: returns null when the user chooses "Back".
-    public ScriptureInformation PromptScriptureChoice(StandardWork work)
+    public ScriptInfo PromptScriptureChoice(StandardWork work)
     {
         var options = _repo.GetByStandardWork(work);
         if (options.Count == 0) return null;
@@ -96,6 +96,6 @@ public class Menu
     }
 }
 
-public class ScriptureInformation
+public class ScriptInfo
 {
 }

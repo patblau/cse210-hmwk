@@ -11,7 +11,7 @@ class Program
 
         while (true)
         {
-            // Pick which collection (Old/New Testament, etc.)
+            // Pick which collection from list of StandardWork
             var work = menu.PromptStandardWork();
             if (work == StandardWork.None) return;
 
@@ -45,7 +45,7 @@ class Program
                         scripture.DisplayInline();
                         Console.WriteLine("\n\nAll words hidden. Press Enter to continue...");
                         Console.ReadLine();
-                        break; // go back to menu
+                        return; // go back to menu
                     }
 
                     continue;
