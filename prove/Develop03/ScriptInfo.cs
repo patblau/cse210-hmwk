@@ -52,7 +52,25 @@ public class Scripture
                     Console.Write(" ");
                 }
             }
-            
+            public void HideRandomWords(int count)
+            {
+                if (count <= 0) return;
+
+                var available = new List<Word>();
+                foreach (var word in _words)
+                {
+                    if (!word.IsHidden) available.Add(word);
+                }
+
+                if (available.Count == 0) return;
+
+                count = Math.Min(count, available.Count);
+                for (int i = 0; i < count; i++)
+                {
+                    int idx = _random.Next(available.Count);
+                    available[idx].IsHidden = true;
+                    available.RemoveAt(idx);
+                }
             }
 
       
