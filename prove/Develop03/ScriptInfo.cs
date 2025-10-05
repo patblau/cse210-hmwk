@@ -75,4 +75,10 @@ public class Scripture
 
                 _words[hidden[_random.Next(hidden.Count)]].Reveal();
             }
-      
+            public void Reset()
+            {
+                _words.Clear();
+                var parts = _originalText.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var p in parts)
+                    _words.Add(new Word(p));
+            }
