@@ -25,7 +25,8 @@ public class Reference
         EndVerse = endVerse;
     }
 
-    public bool IsRange()
+    public bool IsRange() => StartVerse != EndVerse;
+
     {
         return StartVerse != EndVerse;
     }
