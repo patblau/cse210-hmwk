@@ -44,5 +44,15 @@ public class Scripture
             foreach (var p in parts)
                 _words.Add(new Word(p));
         }
+            public void DisplayInline()
+            {
+                foreach (var word in _words)
+                {
+                    Console.Write(word.IsHidden ? "____" : word.Text);
+                    Console.Write(" ");
+                }
+            }
+            
+            }
 
       
