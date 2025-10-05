@@ -33,6 +33,16 @@ public class Scripture
             return count;
         }           
     }    
-       
+       public double HiddenPercent => _words.Count == 0 ? 0 : HiddenCount * 100.0 / _words.Count;
+
+        public Scripture(Reference reference, string text)
+        {
+            _reference = reference ?? throw new ArgumentNullException(nameof(reference));
+            _originalText = text ?? string.Empty;
+
+            var parts = _originalText.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var p in parts)
+                _words.Add(new Word(p));
+        }
 
       
