@@ -27,10 +27,6 @@ public class Reference
 
     public bool IsRange() => StartVerse != EndVerse;
 
-    {
-        return StartVerse != EndVerse;
-    }
-
     public override string ToString()
     {
         return IsRange()
