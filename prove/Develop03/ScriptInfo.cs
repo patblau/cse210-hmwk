@@ -20,4 +20,19 @@ public class Scripture
     private readonly Random _random = new Random();
     private readonly string _originalText;
 
+    public int TotalWords => _words.Count;
+    public int HiddenWords int _words.Count
+    {
+        get
+        {
+            int count = 0;
+            foreach (var word in _words)
+            {
+                if (word.IsHidden) count++;
+            }
+            return count;
+        }           
+    }    
+       
+
       
