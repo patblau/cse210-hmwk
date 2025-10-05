@@ -54,23 +54,25 @@ public class Scripture
             }
             public void HideRandomWords(int count)
             {
-                if (count <= 0) return;
+                var visible = new List<int>();
+                for (int i = 0; i < _words.Count; i++)
+                    if (!_words[i].IsHidden()) visible.Add(i);
 
-                var available = new List<Word>();
-                foreach (var word in _words)
+                for (int i = 0; i < count && visible.Count > 0; i++)
                 {
-                    if (!word.IsHidden) available.Add(word);
-                }
-
-                if (available.Count == 0) return;
-
-                count = Math.Min(count, available.Count);
-                for (int i = 0; i < count; i++)
-                {
-                    int idx = _random.Next(available.Count);
-                    available[idx].IsHidden = true;
-                    available.RemoveAt(idx);
+                    int pick = _random.Next(visible.Count);
+                    _words[visible[pick]].Hide();
+                    visible.RemoveAt(pick);
                 }
             }
+            public void RevealOneRandomHidden()
+            {
+                var hidden = new List<int>();
+                for (int i = 0; i < _words.Count; i++)
+                    if (_words[i].IsHidden()) hidden.Add(i);
 
+                if (hidden.Count == 0) return;
+
+                _words[hidden[_random.Next(hidden.Count)]].Reveal();
+            }
       
