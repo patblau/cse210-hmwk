@@ -5,8 +5,7 @@ public class ScriptRepository
 {
     // Collection -> list of scriptures
     private readonly Dictionary<StandardWorks, List<ScriptInfo>> _data
-        = new Dictionary<StandardWorks, List<ScriptInfo>>();
-
+    = new Dictionary<StandardWorks, List<ScriptInfo>>();
     public ScriptRepository()
     {
         SeedDefaults();
