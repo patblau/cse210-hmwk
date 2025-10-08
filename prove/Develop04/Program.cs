@@ -1,6 +1,5 @@
 using System;
-namespace Develop04             
-{ 
+{
     public class Assignment
     {
         // member variables
