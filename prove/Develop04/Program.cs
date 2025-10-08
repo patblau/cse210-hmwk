@@ -20,4 +20,10 @@ class Program
             _topic = topic ?? string.Empty;
         }
 
+        // method to return Name and Topic
+        public string GetSummary()
+        {
+            return $"{_studentName} - {_topic}";
+        }
+    }
        
