@@ -11,7 +11,11 @@ public class Assignment
         _topic = topic ?? string.Empty;
     }
 
-    
+    // method getting assignment summary
+    public string GetSummary()
+    {
+        return $"{_studentName} - {_topic}";
+    }
 }
 
     
