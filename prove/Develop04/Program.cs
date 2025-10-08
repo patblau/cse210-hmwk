@@ -1,11 +1,11 @@
 
 using System;
 
-internal class NewBaseType
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        //Test it
-        Assignment a1 = new Assignment("Pat Blau", "Programming");
+        var a1 = new Assignment("Pat Blau", "Programming");
+        Console.WriteLine(a1.GetSummary());
     }
 }

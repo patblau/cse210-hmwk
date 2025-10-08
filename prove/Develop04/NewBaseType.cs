@@ -1,7 +1,7 @@
 
 using System;
 
-public class Program
+public class NewBaseType.cs
 {
     public static void Main(string[] args)
     {
