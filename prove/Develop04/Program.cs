@@ -25,6 +25,8 @@ class Program
         {
             return $"{_studentName} - {_topic}";
         }
+    }
+}
 
         
        
