@@ -25,5 +25,14 @@ class Program
         {
             return $"{_studentName} - {_topic}";
         }
+
+        // test method
+        public static void Test()
+        {
+            Assignment a1 = new Assignment("Pat Blau", "Programming with Classes");
+            Console.WriteLine(a1.GetSummary());
+        }
     }
+}
+
        
