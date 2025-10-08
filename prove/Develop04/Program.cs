@@ -1,12 +1,6 @@
 using System;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Hello Develop04 World!");
-    }
-
+namespace Develop04             
+{ 
     public class Assignment
     {
         // member variables
