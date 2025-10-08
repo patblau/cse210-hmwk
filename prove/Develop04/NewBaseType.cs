@@ -8,6 +8,6 @@ internal class NewBaseType
         Console.WriteLine("Hello Develop04 World!");
 
         //Test it
-        Assignment a1 = new Assignment("Pat Blau", "Encapsulation");
+        Assignment a1 = new Assignment("Pat Blau", "Programming");
     }
 }
