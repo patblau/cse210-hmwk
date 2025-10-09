@@ -12,6 +12,10 @@ class Program
 		string color = Console.ReadLine();
 		Console.WriteLine($"Your favorite color is {color}");
 
+		Console.Write("What is your favorite number? ");
+		string color = Console.ReadLine();
+		Console.WriteLine($"Your favorite color is {color}");
+
 		int number = 5;
 		number = 8;
 		number = number + 3;
