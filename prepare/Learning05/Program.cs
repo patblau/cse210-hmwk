@@ -30,7 +30,12 @@ abstract class Activity
 
     }
 
-   
+    public void Run()
+    {
+        Console.Clear();
+        StartActivity();
+        ExecutionEngineException();
+    }
 
 } 
 }
