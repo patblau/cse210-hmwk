@@ -34,8 +34,10 @@ abstract class Activity
     {
         Console.Clear();
         StartActivity();
-        ExecutionEngineException();
+        Execute();     // implemented by derived classes
+        EndActivity();
     }
 
+    protected abstract void Execute();
 } 
 }
