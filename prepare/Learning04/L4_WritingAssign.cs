@@ -1,17 +1,19 @@
-using System;
-public class L4_WritingAssign : L4_Assignment
+namespace Learning04
 {
-    private string _title;
-
-    public L4_WritingAssign(string studentName, string topic, string title)
-        : base(studentName, topic)
+    public class L4_WritingAssign : L4_Assignment
     {
-        _title = title ?? string.Empty;
-    }
+        private string _title;
 
-    public string GetWritingInfo()
-    {
-        // This line is fine once GetStudentName() exists cleanly in the base class
-        return $"{_title} by {GetStudentName()}";
+        public L4_WritingAssign(string studentName, string topic, string title)
+            : base(studentName, topic)
+        {
+            _title = title ?? string.Empty;
+        }
+
+        // Keep ONLY this one method
+        public string GetWritingInfo()
+        {
+            return $"{_title} by {GetStudentName()}";
+        }
     }
 }
