@@ -4,8 +4,8 @@ namespace Develop04
 {
     public class NewBaseType
     {
-        private string _studentName;
-        private string _topic;
+        private readonly string _studentName;
+        private readonly string _topic;
 
         public NewBaseType(string studentName, string topic)
         {
