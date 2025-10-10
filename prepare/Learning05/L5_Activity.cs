@@ -4,9 +4,9 @@ using System.Threading;
 
 public class Activity
 {
-    public string _activityName;
-    public string  _description;
-    public int _durationSeconds;
+    protected string _activityName;
+    protected string _description;
+    protected int _durationSeconds;
 
     public Activity(string name, string description)
     {
@@ -33,14 +33,14 @@ public class Activity
         EndActivity();
     }
 
-    public virtual void EndActivity()
+    protected virtual void EndActivity()
     {
         Console.Write("\nGood job! ");
         Spinner(2);
         Console.WriteLine($"\nYou completed {_activityName} for {_durationSeconds} seconds.");
     }
 
-    public void Spinner(int seconds)
+    protected void Spinner(int seconds)
     {
         char[] frames = { '|', '/', '-', '\\' };
         var sw = Stopwatch.StartNew();
