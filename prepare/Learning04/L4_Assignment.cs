@@ -1,25 +1,21 @@
 using System;
 
+// Bass class for all assignments
+//Uses private number variiables and exposes a public accessor for the student name so
+//derived classes can be use it.
 
-class L4_Assignment
+public class L4_Assignment
 {
-    // Bass class for all assignments
-    //Uses private number variiables and exposes a public accessor for the student name so
-    //derived classes can be use it.
+    private string _studentName;
+    private string _topic;
 
-    public class Assignment
+    public L4_Assignment(string studentName, string topic)
     {
-        private string _studentName;
-        private string _topic;
-    
-        public Assignment(string studentName, string topic)
-        {
-            _studentName = studentName ?? string.Empty;
-            _topic = topic ?? string.Empty;
-        }
+        _studentName = studentName ?? string.Empty;
+        _topic = topic ?? string.Empty;
+    }
     public string GetStudentName() => _studentName;
     public string GetTopic() => _topic;
-
+    
     public string GetSummary() => $"{_studentName} - {_topic}";
-    }
 }

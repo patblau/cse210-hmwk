@@ -1,15 +1,18 @@
-class WritingAssign
+using System; 
+public class L4_WritingAssign : L4_Assignment
 {
-    //Represents Writing Assignments. Base field from Assignment
-    public class WritingAssign : Assignment
-    {
-        private string _title;
+    private string _title;
 
-        public WritingAssign(string sturdentName, string topic, string section, string problems)
-            : base(sturdentName, topic)
-        {
-            _title = title ?? string.Empty;
-        }
-        public string GetWritingInfo() => $"Section{_title} Problems {GetStudentName()}"; 
+    // Constructor for studentName, topic, and title
+    public L4_WritingAssign(string studentName, string topic, string title)
+        : base(studentName, topic)
+    {
+        _title = title ?? string.Empty;
+    }
+
+    // Return writing info like "The Causes of World War II by Mary Waters"
+    public string GetWritingInfo()
+    {
+        return $"{_title} by {GetStudentName()}";
     }
 }

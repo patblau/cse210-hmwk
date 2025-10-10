@@ -3,7 +3,7 @@ using static L4_Assignment;
 class MathAssign
 {
     //Represents Math Assignments. Base field from Assignment
-    public class L4_MathAssign : Assignment
+    public class L4_MathAssign : L4_Assignment
     {
         private string _section;
         private string _problems;
