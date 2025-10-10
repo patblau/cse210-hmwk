@@ -1,22 +1,33 @@
+using System;
+
 class L4_Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
-
-        //Test base class
-        var a1 = new Assignment("Samuel Bennet", "Multiplaction");
+        // --- Test base class ---
+        var a1 = new Assignment("Samuel Bennett", "Multiplication");
         Console.WriteLine(a1.GetSummary());
-        Console.WriteLIne();
+        // Expected:
+        // Samuel Bennett - Multiplication
 
-        // Test MathAssignment
-        var a1 = new MathAssignment("Pat Blau", "Multiplaction"), "Fractions", "7.3", "8-19";
+        Console.WriteLine();
+
+        // --- Test MathAssignment ---
+        var m1 = new MathAssign("Roberto Rodriguez", "Fractions", "7.3", "8-19");
         Console.WriteLine(m1.GetSummary());
-        Console.WriteLIne(m1.GetHomeworkList());
+        Console.WriteLine(m1.GetHomeworkList());
+        // Expected:
+        // Roberto Rodriguez - Fractions
+        // Section 7.3 Problems 8-19
 
-        //Test WritingAssignment
-        var a1 = new MathAssignment("Shelly Waters", "Multiplaction"), "European History";
+        Console.WriteLine();
+
+        // --- Test WritingAssignment ---
+        var w1 = new WritingAssign("Mary Waters", "European History", "The Causes of World War II");
         Console.WriteLine(w1.GetSummary());
-        Console.WriteLIne(w1.GetWritingInformation())
+        Console.WriteLine(w1.GetWritingInfor());
+        // Expected:
+        // Mary Waters - European History
+        // The Causes of World War II by Mary Waters
     }
 }
