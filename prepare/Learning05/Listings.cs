@@ -11,7 +11,6 @@ public class ListingActivity : Activity
         "Who are people that you have helped this week?",
         "When have you felt the Holy Ghost this month?",
         "Who are some of your personal heroes?",
-        // --- Extra prompts to make it more engaging ---
         "What are some goals you have accomplished recently?",
         "What are things in your life that bring you peace?",
         "What are moments that made you smile this week?",

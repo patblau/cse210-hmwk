@@ -4,31 +4,45 @@ public class BreathingActivity : Activity
 {
     public BreathingActivity() : base(
         "Breathing Activity",
-        "This activity will help you relax by walking you through breathing in and out slowly. " +
+        "This activity will help you relax by walking you through breathing in, holding, and breathing out slowly. " +
         "Clear your mind and focus on your breathing.")
     { }
 
-    // Core breathing loop: alternate "in" and "out" until duration is up
     protected override void RunCore()
     {
-        var end = DateTime.Now.AddSeconds(DurationSeconds);
+        // Settings: 6 full rounds, each phase = 3 seconds
+        int cycles = 6;
+        int inhaleSeconds = 3;
+        int holdSeconds   = 3;
+        int exhaleSeconds = 3;
 
-        // Simple pacing: 4 seconds in, 6 seconds out (adjust as you like)
-        while (DateTime.Now < end)
+        Console.WriteLine($"\nYou will complete {cycles} rounds of deep breathing.");
+        Console.WriteLine($"Each round: inhale {inhaleSeconds}s → hold {holdSeconds}s → exhale {exhaleSeconds}s.\n");
+        ShowSpinner(2);
+
+        for (int i = 1; i <= cycles; i++)
         {
-            int remaining = (int)(end - DateTime.Now).TotalSeconds;
-            if (remaining <= 0) break;
+            Console.WriteLine($"Round {i} of {cycles}:");
 
+            // Inhale
             Console.Write("Breathe in... ");
-            ShowCountdown(Math.Min(4, Math.Max(1, remaining)));
+            ShowCountdown(inhaleSeconds);
             Console.WriteLine();
 
-            if (DateTime.Now >= end) break;
+            // Hold
+            Console.Write("Hold... ");
+            ShowCountdown(holdSeconds);
+            Console.WriteLine();
 
-            remaining = (int)(end - DateTime.Now).TotalSeconds;
+            // Exhale
             Console.Write("Breathe out... ");
-            ShowCountdown(Math.Min(6, Math.Max(1, remaining)));
+            ShowCountdown(exhaleSeconds);
             Console.WriteLine();
+
+            Console.WriteLine(); // spacing between rounds
         }
+
+        Console.WriteLine("Take a moment to notice how you feel...");
+        ShowSpinner(3);
     }
 }
