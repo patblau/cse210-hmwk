@@ -1,16 +1,26 @@
 using System;
 
-public class Square : Shape
+public class Shape
 {
-    private double _side;
+    private string _color;
 
-    public Square(string color, double side) : base(color)
+    public Shape(string color)
     {
-        _side = side;
+        _color = color;
     }
 
-    public override double GetArea()
+    public string GetColor()
     {
-        return _side * _side;
+        return _color;
+    }
+
+    public void SetColor(string color)
+    {
+        _color = color;
+    }
+
+    public virtual double GetArea()
+    {
+        return 0; // base placeholder
     }
 }
