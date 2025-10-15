@@ -14,7 +14,12 @@ class Program
         DisplayResult(name, squaredNumber, birthYear);
     }
 
+        static void DisplayWelcome()
+    {
+        Console.WriteLine("Welcome to this Program!");
+    }
 
+   
 
 
             
