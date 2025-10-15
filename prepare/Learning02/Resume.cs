@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Learning02
 {
     public class Resume
@@ -9,6 +12,7 @@ namespace Learning02
         {
             Console.WriteLine($"Name: {_name}");
             Console.WriteLine("Jobs:");
+
             foreach (Job job in _jobs)
             {
                 job.Display();
