@@ -43,8 +43,19 @@ class Program
     {
         return number * number;
     }
+    static void DisplayResult(string name, int squaredNumber, int birthYear)
+    {
+        int currentYear = DateTime.Now.Year;
+        int age = currentYear - birthYear;
 
-    
+        Console.WriteLine($"{name}, the square of your number is {squaredNumber}");
+        Console.WriteLine($"{name}, you will turn {age} this year.");
+    }
+}
+
+
+
+            
 
 
 
