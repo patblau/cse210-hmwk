@@ -1,12 +1,23 @@
 using System;
 
-namespace game
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello Sandbox World!");
-        }
+        DisplayWelcome();
+
+        string name = PromptUserName();
+        int favoriteNumber = PromptUserNumber();
+        PromtUserBirthYear(out int birthYear);
+
+        int squaredNumber = SquareNumber(favoriteNumber);
+        DisplayResult(name, squaredNumber, birthYear);
     }
-}
+
+
+
+
+            
+
+
+
