@@ -19,9 +19,14 @@ class Program
         Console.WriteLine("Welcome to this Program!");
     }
 
+    static string PromptUserName()
+    {
+        Console.Write("Enter your name: ");
+        string name = Console.ReadLine();
+        return name;
+    }
+
    
-
-
             
 
 
