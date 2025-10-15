@@ -39,7 +39,12 @@ class Program
         birthYear = int.Parse(Console.ReadLine());
     }
 
-   
+    static int SquareNumber(int number)
+    {
+        return number * number;
+    }
+
+    
 
 
 
