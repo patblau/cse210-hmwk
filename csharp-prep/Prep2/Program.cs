@@ -7,14 +7,11 @@ class Program
         Console.WriteLine("Hello there!");
 
         // Ask for first and last name
-        Console.Write("What is your first name? ");
+        Console.Write("What is your name? ");
         string firstName = Console.ReadLine();
 
-        Console.Write("What is your last name? ");
-        string lastName = Console.ReadLine();
-
         // Display formatted name
-        Console.WriteLine($"\nYour name is {lastName}, {firstName} {lastName}.");
+        Console.WriteLine($"\n{firstName}.");
 
         // Main game loop (play again feature)
         string playAgain = "yes";
