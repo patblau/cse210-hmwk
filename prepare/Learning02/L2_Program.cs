@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Learning02;
 
-class Program
+class L2_Program
 {
     static void Main(string[] args)
     {
@@ -60,6 +60,20 @@ class Program
         job9._jobTitle = "Student";
         job9._startYear = 2017;
         job9._endYear = 2025;
+
+        // Build and display the resume
+        Resume resume = new Resume { _name = "Pat Blau" };
+        resume._jobs.Add(job1);
+        resume._jobs.Add(job2);
+        resume._jobs.Add(job3);
+        resume._jobs.Add(job4);
+        resume._jobs.Add(job5);
+        resume._jobs.Add(job6);
+        resume._jobs.Add(job7);
+        resume._jobs.Add(job8);
+        resume._jobs.Add(job9);
+
+        resume.Display();  // <-- prints 
 
     }
 }
