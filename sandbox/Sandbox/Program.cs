@@ -33,9 +33,13 @@ class Program
         return number;
     }
 
-   
+    static void PromtUserBirthYear(out int birthYear)
+    {
+        Console.Write("Enter the year you were born: ");
+        birthYear = int.Parse(Console.ReadLine());
+    }
 
-            
+   
 
 
 
