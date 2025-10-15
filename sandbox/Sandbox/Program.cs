@@ -26,7 +26,15 @@ class Program
         return name;
     }
 
+    static int PromptUserNumber()
+    {
+        Console.Write("Enter your favorite number: ");
+        int number = int.Parse(Console.ReadLine());
+        return number;
+    }
+
    
+
             
 
 
