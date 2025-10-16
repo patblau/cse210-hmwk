@@ -45,7 +45,7 @@ public class Menu
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("How many words to hide each step?");
+            Console.WriteLine("How many words do you want to hide each step?");
             Console.WriteLine("1) Easy (1)");
             Console.WriteLine("2) Normal (3)");
             Console.WriteLine("3) Hard (5)");
@@ -61,7 +61,7 @@ public class Menu
         }
     }
 
-    // Pick a scripture from that collection (or Random / Back)
+    // Pick a scripture from that collection, do Random, go Back)
     //    Note: returns null when the user chooses "Back".
     public ScriptInfo PromptScriptureChoice(StandardWorks work)
     {
@@ -93,8 +93,4 @@ public class Menu
             }
         }
     }
-}
-
-public class ScriptInfo
-{
 }

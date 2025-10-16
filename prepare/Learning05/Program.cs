@@ -1,58 +1,19 @@
 using System;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
 
-internal class Program
+class Program
 {
     static void Main(string[] args)
     {
-        while (true)
+        List<Shape> shapes = new List<Shape>();
+
+        shapes.Add(new Square("Red", 4));
+        shapes.Add(new Rectangle("Blue", 4, 6));
+        shapes.Add(new Circle("Green", 3));
+
+        foreach (Shape s in shapes)
         {
-            Console.Clear();
-            DisplayMenu();
-            string choice = GetUserChoice();
-
-            Activity? activity = choice switch
-            {
-                "1" => new BreathingActivity(),
-                "2" => new ReflectionActivity(),
-                "3" => new ListingActivity(),
-                "4" => null,
-                _   => null
-            };
-
-            if (choice == "4")
-            {
-                Console.WriteLine("Goodbye!");
-                return;
-            }
-
-            if (activity == null)
-            {
-                Console.WriteLine("Please choose 1–4. Press ENTER to try again.");
-                Console.ReadLine();
-                continue;
-            }
-
-            activity.Run();
-
-            Console.WriteLine("\nPress ENTER to return to the main menu…");
-            Console.ReadLine();
+            Console.WriteLine($"The {s.GetColor()} shape has an area of {Math.Round(s.GetArea(), 2)}");
         }
-    }
-
-    private static void DisplayMenu()
-    {
-        Console.WriteLine("Mindfulness Program");
-        Console.WriteLine("-------------------");
-        Console.WriteLine("1) Breathing Activity");
-        Console.WriteLine("2) Reflection Activity");
-        Console.WriteLine("3) Listing Activity");
-        Console.WriteLine("4) Quit");
-        Console.Write("Select a choice from the menu: ");
-    }
-
-    private static string GetUserChoice()
-    {
-        return Console.ReadLine()?.Trim() ?? "";
     }
 }
