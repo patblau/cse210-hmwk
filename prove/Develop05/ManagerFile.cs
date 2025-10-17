@@ -78,5 +78,14 @@ public class GoalManager
                 return;
             }
 
-            
+            ListGoals();
+            Console.Write("\nEnter goal number to record progress: ");
+            int index = int.Parse(Console.ReadLine() ?? "0") - 1;
+
+            if (index < 0 || index >= _goals.Count)
+            {
+                Console.WriteLine("Invalid selection.");
+                return;
+            }
+
         }
