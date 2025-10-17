@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 public class GoalManager
 {
@@ -21,7 +22,7 @@ public class GoalManager
         Console.Write("Name: ");
         string name = Console.ReadLine();
         Console.Write("Disciption: ");
-         string desc = Console.ReadLine();
+        string desc = Console.ReadLine();
         Console.Write("Points: ");
         int points = int.Parse(Console.ReadLine() ?? "0");
 
@@ -50,5 +51,32 @@ public class GoalManager
 
         Console.WriteLine("Goal created successfully!");
     }
-    }
-}
+    
+        public void ListGoals()
+        {
+            Console.Clear();
+            Console.WriteLine("===Your Goals===\n:");
+        if (_goals.Count == 0)
+        {
+            Console.WriteLine("No goals available.");
+        }
+        else
+        {
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {_goals[i].GetStatus()}");
+            }
+        }
+            
+        public void RecordEventInteractive()
+        {
+            Console.Clear();
+            Console.WriteLine("Record an event:");
+            if (_goals.Count == 0)
+            {
+                Console.WriteLine("No goals have been recorded.");
+                return;
+            }
+
+            
+        }
