@@ -7,41 +7,29 @@ namespace Prove.Develop05
     {
         private TimeSpan _reminderTime;
         private bool _isEnabled;
-        private string _message;
 
-        public Reminder(int hour, int minute, string message = "")
+        public Reminder(int hour, int minute, bool enabled = true)
         {
             _reminderTime = new TimeSpan(hour, minute, 0);
-            _isEnabled = true;
+            _isEnabled = enabled;
         }
 
-        public void Enable()
-        {
-            _isEnabled = true;
-        }
-       
-        public void Disable()
-        {   
-            _isEnabled = false;
-        }
-        public void CheckAndNotify()
-        {
-            if (!_isEnabled) return;
-            TimeSpan now = DateTime.Now.TimeOfDay;
-            if (Math.Abs((now - _reminderTime).TotalMinutes) < 1)
-            {
-                ShowReminder();
-            }
-        } 
-        
-        private void ShowReminder()
-        {
-            Console.WriteLine($"\nReminder: Record your Eternal Quest daily goal progress!");
-            Console.WriteLine("  Don’t forget to update your score!\n");
-            Console.ResetColor();
-        } 
+        // Let usser choose to enable/disable reminder
+        public bool IsEnabled => _isEnabled;
+        public TimeSpan ReminderTime => _reminderTime;
+        public int Hour => _reminderTime.Hours;
+        public int Minute => _reminderTime.Minutes;
 
-    }
-}
+        public void Enable() { _isEnabled = true; }
+        public void Disable() { _isEnabled = false; }
+        public void Toggle() { _isEnabled = !_isEnabled; }
+
+        //Daily Reminder time (24 hr clock)
+        public void SetTime(int hour, int minute)
+        {
+            if (hour < 0 || hour > 23) throw new ArgumentOutOfRangeException(nameof(hour));
+            if (minute < 0 || minute > 59) throw new ArgumentOutOfRangeException(nameof(minute));
+            _reminderTime = new TimeSpan(hour, minute, 0);
+        }
 
         
