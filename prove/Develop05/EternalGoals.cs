@@ -1,4 +1,4 @@
-using System;
+using Prove.Develop05;
 
 // Requirements for GoalBase.cs
 // Eternal (repeating) goal: never completes; awards base points each time

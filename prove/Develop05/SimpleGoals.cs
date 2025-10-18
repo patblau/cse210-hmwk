@@ -1,3 +1,5 @@
+using Prove.Develop05;
+
 /// One-and-done goal. Awards points once, then remains completed.
 /// Define base class in GoalsBase.cs as:
 ///   - protected ctor Goal(string name, string description, int points)
@@ -11,8 +13,8 @@ public sealed class SimpleGoal : Goal
     {
         IsComplete = isComplete;
     }
-    / Mark complete on first record; award base points once. If already complete, no points are awarded.
-   
+    // Mark complete on first record; award base points once.If already complete, no points are awarded.
+
     public override int RecordEvent()
     {
         if (IsComplete) return 0;
@@ -37,7 +39,7 @@ public sealed class SimpleGoal : Goal
 
     // Helper used by Goal.Deserialize to rebuild a SimpleGoal from tokens.
     // Expects parts:[0]=Simple [1]=Name [2]=Desc [3]=Points [4]=IsComplete
-    
+
     public static SimpleGoal? Deserialize(string[] parts)
     {
         if (parts == null || parts.Length < 5) return null;

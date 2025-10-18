@@ -1,3 +1,5 @@
+using Prove.Develop05;
+
 //Requirements for Goal base class:
 //  - Abstract base class for all goal types 
 //  -  Shared state: Name, Description, Points, IsComplete
@@ -48,7 +50,7 @@ public abstract class Goal
         s = s.Trim();
         return s == "1" || s.Equals("true", StringComparison.OrdinalIgnoreCase);
     }
-    protected static string Safe(string s) => (s ?? string.Empty).Replace("|", "¦"); 
+    protected static string Safe(string s) => (s ?? string.Empty).Replace("|", "¦");
     protected static string UnSafe(string s) => (s ?? string.Empty).Replace("¦", "|");
     protected static string BoolStr(bool b) => b ? "1" : "0";
     protected static bool ParseBool(string s)
@@ -65,7 +67,7 @@ public abstract class Goal
     //   Eternal|Name|Desc|Points|TimesRecorded
     //   Checklist|Name|Desc|Points|Target|Current|Bonus|IsComplete
     // Returns null if the line is invalid or type is unknown.
-    
+
     public static Goal Deserialize(string line)
     {
         if (string.IsNullOrWhiteSpace(line)) return null;
@@ -90,7 +92,7 @@ public abstract class Goal
                 return null;
         }
     }
-      
+
 }
 
     

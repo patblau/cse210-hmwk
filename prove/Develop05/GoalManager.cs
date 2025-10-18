@@ -1,7 +1,6 @@
-using System;
+using Prove.Develop05;
 using System.Collections.Generic;
 using System.IO;
-namespace Prove.Develop05;
 
 public class GoalManager
 {
@@ -82,7 +81,7 @@ public class GoalManager
             }
         }
 
-        Console.WriteLine($"\nReminder: {(RememberEnabled ? "ON" : "OFF")} at {Reminder.Hour:D2}:{_reminder.Minute:D2}");
+        Console.WriteLine($"\nReminder: {(ReminderEnabled ? "ON" : "OFF")} at {ReminderHour:D2}:{ReminderMinute:D2}");
     }
     public void RecordEventInteractive()
     {
@@ -169,13 +168,12 @@ public class GoalManager
         {
             Console.Clear();
             Console.WriteLine("=== Reminder Settings ===");
-            Console.WriteLine($"Status : {(Reminder.Enabled ? "ON" : "OFF")}");
-            Console.WriteLine($"Time   : {Reminder.Hour:D2}:{_reminder.Minute:D2}");
+            Console.WriteLine($"Status : {(ReminderEnabled ? "ON" : "OFF")}");
+            Console.WriteLine($"Time   : {ReminderHour:D2}:{ReminderMinute:D2}");
             Console.WriteLine();
             Console.WriteLine("1) Toggle ON/OFF");
             Console.WriteLine("2) Set time (HH:MM, 24h)");
             Console.WriteLine("0) Back");
-            Console.Write("\nChoose: ");
             Console.Write("\nChoose: ");
             var choice = (Console.ReadLine() ?? "").Trim();
 
@@ -206,7 +204,7 @@ public class GoalManager
                     }
                     else
                     {
-                        Console.WriteLine("Invalid format. Example: 19:00");
+                        Console.WriteLine("Invalid format. Use AM/PM HH:MM.");
                     }
                     Pause();
                     break;
@@ -218,7 +216,7 @@ public class GoalManager
             }
         }
     }
-    // Utilities for recording events and computing levels
+    // Utilities to record events and computing rewards
     public static int ComputeLevel(int score)
     {
         // Simple level curve: every 500 points = 1 level
@@ -244,7 +242,7 @@ public class GoalManager
         Console.Write("\nPress Enter to continue...");
         Console.ReadLine();
     }
-    // ====== Call at the top of menu loop in ProgramGoals.cs ======
+    // Call at the top of menu loop in ProgramGoals.cs to check reminders
     public void TickReminders()
     {
         _reminder.CheckAndNotify();
