@@ -3,7 +3,7 @@ using System.Reflection.Metadata;
 using System.Xml.Serialization;
 using Microsoft.VisualBasic;
 
-class Dev5Program
+class Dev5.ProgramGoals
 {
     static void Main(string[] args)
     {
