@@ -26,7 +26,7 @@ class ProgramGoals
             Console.WriteLine("===My Eternal Quest===");
             Console.WriteLine($"Score : {manager.Score}   (Level {GoalManager.ComputeLevel(manager.Score)})");
             Console.WriteLine($"Reward: {manager.Score / 100} Dove chocolate square(s)");
-            Console.WriteLine($"Savings from points: ${manager.SavingsDollars}");
+            Console.WriteLine($"Savings from points: ${manager.Score / 10}");
             Console.WriteLine();
             Console.WriteLine("1) Create new goal");
             Console.WriteLine("2) List goals");
@@ -111,9 +111,9 @@ class ProgramGoals
         Console.WriteLine($"Total Score: {manager.Score}");
         Console.WriteLine($"Current Level: {GoalManager.ComputeLevel(manager.Score)}");
         Console.WriteLine($"Total Rewards Earned: {manager.Score / 100} Dove chocolate square(s)");
-        Console.WriteLine($"Total Savings from Points: ${manager.SavingsDollars}");
-
-
+        Console.WriteLine($"Total Savings from Points: ${manager.Score / 10}");
+        
+        
     }
 }
 
