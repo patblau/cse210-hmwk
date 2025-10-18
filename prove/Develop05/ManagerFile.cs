@@ -10,7 +10,6 @@ public class GoalManager
     private int _score = 0;
     private Reminder _reminder = new Reminder(19, 0, true); // default 7:00 PM reminder
 
-
     public int Score => _score;
 
     public GoalManager()
@@ -19,13 +18,14 @@ public class GoalManager
         _score = 0;
     }
 
+    //Menu actions
     public void CreateGoalInteractive()
     {
         Console.WriteLine("Select goal type:");
         Console.WriteLine("1) Simple Goal");
         Console.WriteLine("2) Eternal Goal");
         Console.WriteLine("3) Checklist Goal");
-        Console.Write("Enter choice: ");
+        Console.Write("\nEnter choice: ");
         string choice = Console.ReadLine();
 
         Console.Write("Enter goal name: ");
@@ -34,8 +34,7 @@ public class GoalManager
         string description = Console.ReadLine();
         Console.Write("Enter points for completing the goal: ");
         int points = int.Parse(Console.ReadLine() ?? "0");
-
-        Goal newGoal = null;
+        Goal newGoal;
 
         switch (choice)
         {
@@ -63,18 +62,22 @@ public class GoalManager
 
     public void ListGoals()
     {
+        Console.Clear();
+        Console.WriteLine("=== Your Goals ===\n");
         if (_goals.Count == 0)
         {
             Console.WriteLine("No goals available.");
             return;
         }
-
-        for (int i = 0; i < _goals.Count; i++)
+        else
         {
-            var goal = _goals[i];
-            string status = goal.IsComplete ? "[X]" : "[ ]";
-            Console.WriteLine($"{i + 1}. {status} {goal.Name} ({goal.Description}) - {goal.GetProgress()}");
+            for (int i = 0; i < _goals.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {_goals[i].ToListString()}");
+            }
         }
+
+        Console.WriteLine($"\nReminder: {(ReminderEnabled ? "ON" : "OFF")} at {ReminderTime.Hours:D2}:{ReminderTime.Minutes:D2}");
     }
 
     public void SaveInteractive()
