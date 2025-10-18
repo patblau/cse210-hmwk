@@ -15,7 +15,14 @@ namespace Prove.Develop05
             _isEnabled = true;
         }
 
-       ();
+        public void Enable()
+        {
+            _isEnabled = true;
         }
-    }
-}
+       
+        public void Disable()
+        {   
+            _isEnabled = false;
+        }
+
+        
