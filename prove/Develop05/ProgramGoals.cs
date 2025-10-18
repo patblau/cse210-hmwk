@@ -3,6 +3,7 @@ using System;
 using System.Reflection.Metadata;
 using System.Xml.Serialization;
 using Microsoft.VisualBasic;
+using Prove.Develop05;
 
 class ProgramGoals
 {
@@ -104,6 +105,13 @@ class ProgramGoals
         Console.WriteLine("Example: At 10,000 pts your savings total would be $1,000.");
         Console.WriteLine();
     }
+    static void ShowScoreSummary(GoalManager manager)
+    {
+        WriteHeader("Score Summary");
+        Console.WriteLine($"Total Score: {manager.Score}");
+        Console.WriteLine($"Current Level: {GoalManager.ComputeLevel(manager.Score)}");
+        Console.WriteLine($"Total Rewards Earned: {manager.Score / 100} Dove chocolate square(s)");
+        Console.WriteLine($"Total Savings from Points: ${manager.SavingsDollars}");
 
 
     }
