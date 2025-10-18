@@ -50,3 +50,8 @@ public override string ToListString()
     return $"{mark} {Name} — {Description} (+{Points} pts, bonus {BonusPoints} on {TargetCount})  • Completed {CurrentCount}/{TargetCount}";
 }
     
+    // Save format: Checklist|Name|Description|Points|CurrentCount|TargetCount|BonusPoints|IsComplete
+    public override string Serialize()
+    {
+        return $"Checklist|{Safe(Name)}|{Safe(Description)}|{Points}|{CurrentCount}|{TargetCount}|{BonusPoints}|{BoolStr(IsComplete)}";
+    }
