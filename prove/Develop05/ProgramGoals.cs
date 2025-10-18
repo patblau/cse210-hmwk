@@ -8,8 +8,13 @@ class ProgramGoals
 {
     static void Main(string[] args)
     {
-        //to refer to MangerFile.cs
+        // Refere to Manager to handle goals, score, save/load, reminders, and rewards.
         ManagerFile manager = new ManagerFile();
+
+        // One-time intro about rewards & savings
+        ShowRewardsIntro();
+        Console.Write("Press Enter to continue...");
+        Console.ReadLine();
 
         while (true)
         {
@@ -103,5 +108,8 @@ public class ManagerFile
     {
         Console.WriteLine("ReminderSetingsInteractive() called - implement reminders here.");
     }
+
+   
+    }
 }
-    
+
