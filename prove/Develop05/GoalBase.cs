@@ -58,7 +58,39 @@ public abstract class Goal
         return s == "1" || s.Equals("true", StringComparison.OrdinalIgnoreCase);
     }
 
-    / 
+    // Factory: rebuild a Goal from a serialized line.
+    // Create a concrete Goal from a serialized line.
+    // Expected formats:
+    //   Simple|Name|Desc|Points|IsComplete
+    //   Eternal|Name|Desc|Points|TimesRecorded
+    //   Checklist|Name|Desc|Points|Target|Current|Bonus|IsComplete
+    // Returns null if the line is invalid or type is unknown.
+    
+    public static Goal Deserialize(string line)
+    {
+        if (string.IsNullOrWhiteSpace(line)) return null;
+
+        var parts = line.Split('|');
+        if (parts.Length == 0) return null;
+
+        string type = parts[0];
+
+        switch (type)
+        {
+            case "Simple":
+                return SimpleGoal.Deserialize(parts);
+
+            case "Eternal":
+                return EternalGoal.Deserialize(parts);
+
+            case "Checklist":
+                return ChecklistGoal.Deserialize(parts);
+
+            default:
+                return null;
+        }
+    }
+      
 }
 
     
