@@ -49,6 +49,7 @@ public abstract class Goal
         if (string.IsNullOrWhiteSpace(s)) return false;
         s = s.Trim();
         return s == "1" || s.Equals("true", StringComparison.OrdinalIgnoreCase);
+    }
 
     // Factory: rebuild a Goal from a serialized line.
     // Create a concrete Goal from a serialized line.
@@ -73,7 +74,7 @@ public abstract class Goal
                 return SimpleGoal.Deserialize(parts);
 
             case "Eternal":
-                return EternalGoals.Deserialize(parts);
+                return EternalGoal.Deserialize(parts);
 
             case "Checklist":
                 return ChecklistGoal.Deserialize(parts);

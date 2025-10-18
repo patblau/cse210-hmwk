@@ -34,25 +34,23 @@ public sealed class SimpleGoal : Goal
     //  - (pipes in text are escaped by Safe()/UnSafe() in the base class)
     public override string Serialize()
     {
-        return $"Simple|{base.Safe(Name)}|{base.Safe(Description)}|{Points}|base.BoolStr(IsComplete)";
+        return $"Simple|{Goal.Safe(Name)}|{Goal.Safe(Description)}|{Points}|{Goal.BoolStr(IsComplete)}";
     }
 
     // Helper used by Goal.Deserialize to rebuild a SimpleGoal from tokens.
     // Expects parts:[0]=Simple [1]=Name [2]=Desc [3]=Points [4]=IsComplete
-
     public static SimpleGoal? Deserialize(string[] parts)
     {
-        if (parts == null || parts.Length < 5) return null;
+        if (parts != null && parts.Length >= 5)
+        {
+            string name = Goal.UnSafe(parts[1]);
+            string desc = Goal.UnSafe(parts[2]);
+            int.TryParse(parts[3], out int pts);
+            bool isComplete = parts[4] == "1" || parts[4].Equals("true", StringComparison.OrdinalIgnoreCase);
+            return new SimpleGoal(name, desc, pts, isComplete);
+        }
 
-        string name = UnSafe(parts[1]);
-        string desc = UnSafe(parts[2]);
-
-        int pts = 0;
-        int.TryParse(parts[3], out pts);
-
-        bool isComplete = ParseBool(parts[4]);
-
-        return new SimpleGoal(name, desc, pts, isComplete);
+        return null;
     }
 }
 
