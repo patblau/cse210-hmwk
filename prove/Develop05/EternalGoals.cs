@@ -45,7 +45,7 @@ public sealed class EternalGoal : Goal
     /// </summary>
     public override string Serialize()
     {
-        return $"Eternal|{Safe(Name)}|{Safe(Description)}|{Points}|{TimesRecorded}";
+        return $"Eternal|{base.Safe(Name)}|{base.Safe(Description)}|{Points}|{TimesRecorded}";
     }
 
     /// <summary>

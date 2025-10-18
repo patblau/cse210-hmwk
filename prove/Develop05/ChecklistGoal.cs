@@ -53,7 +53,7 @@ public sealed class ChecklistGoal : Goal
     // Save format: Checklist|Name|Description|Points|CurrentCount|TargetCount|BonusPoints|IsComplete
     public override string Serialize()
     {
-        return $"Checklist|{Safe(Name)}|{Safe(Description)}|{Points}|{CurrentCount}|{TargetCount}|{BonusPoints}|{BoolStr(IsComplete)}";
+        return $"Checklist|{Goal.Safe(Name)}|{Goal.Safe(Description)}|{Points}|{CurrentCount}|{TargetCount}|{BonusPoints}|{Goal.BoolStr(IsComplete)}";
     }
     // Helper used by Goal.Deserialize(...) to rebuild a ChecklistGoal from tokens.
     // Expects parts:
@@ -62,7 +62,8 @@ public sealed class ChecklistGoal : Goal
     {
         if (parts == null || parts.Length < 8) return null;
 
-        string name = UnSafe(parts[1]);             string desc = UnSafe(parts[2]);
+        string name = Goal.UnSafe(parts[1]);
+        string desc = Goal.UnSafe(parts[2]);
 
         int pts = 0;                                int.TryParse(parts[3], out pts);
 
@@ -72,7 +73,7 @@ public sealed class ChecklistGoal : Goal
 
         int bonus = 0;                              int.TryParse(parts[6], out bonus);
 
-        bool isComplete = ParseBool(parts[7]);
+        bool isComplete = Goal.ParseBool(parts[7]);
 
         return new ChecklistGoal(name, desc, pts, target, bonus, current);
     }

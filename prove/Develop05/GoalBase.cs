@@ -31,7 +31,7 @@ public abstract class Goal
     public abstract int RecordEvent();
     public abstract string ToListString();
     public abstract string Serialize();
-
+    
     // protected codes:
     // Helpers for safe save/load: Escape pipe to avoid breaking the save format.
     // Unescape pipe when loading.
@@ -49,16 +49,6 @@ public abstract class Goal
         if (string.IsNullOrWhiteSpace(s)) return false;
         s = s.Trim();
         return s == "1" || s.Equals("true", StringComparison.OrdinalIgnoreCase);
-    }
-    protected static string Safe(string s) => (s ?? string.Empty).Replace("|", "¦");
-    protected static string UnSafe(string s) => (s ?? string.Empty).Replace("¦", "|");
-    protected static string BoolStr(bool b) => b ? "1" : "0";
-    protected static bool ParseBool(string s)
-    {
-        if (string.IsNullOrWhiteSpace(s)) return false;
-        s = s.Trim();
-        return s == "1" || s.Equals("true", StringComparison.OrdinalIgnoreCase);
-    }
 
     // Factory: rebuild a Goal from a serialized line.
     // Create a concrete Goal from a serialized line.

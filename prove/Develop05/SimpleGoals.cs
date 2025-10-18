@@ -34,7 +34,7 @@ public sealed class SimpleGoal : Goal
     //  - (pipes in text are escaped by Safe()/UnSafe() in the base class)
     public override string Serialize()
     {
-        return $"Simple|{Safe(Name)}|{Safe(Description)}|{Points}|{BoolStr(IsComplete)}";
+        return $"Simple|{base.Safe(Name)}|{base.Safe(Description)}|{Points}|base.BoolStr(IsComplete)";
     }
 
     // Helper used by Goal.Deserialize to rebuild a SimpleGoal from tokens.
