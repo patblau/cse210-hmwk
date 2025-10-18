@@ -18,9 +18,12 @@ class ProgramGoals
 
         while (true)
         {
+            // Check for reminder ping (e.g., 7:00 PM) each loop
+            manager.TickReminders();
+
             Console.Clear();
             Console.WriteLine("===My Eternal Quest===");
-            Console.WriteLine($"Score: {manager.Score}");
+            Console.WriteLine($"Score: {manager.Score}" (Level {GoalManager.ComputeLevel(manager.Score)})");
             Console.WriteLine();
             Console.WriteLine("1) Create new goal");
             Console.WriteLine("2) List goals");
