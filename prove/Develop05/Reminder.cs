@@ -32,7 +32,14 @@ namespace Prove.Develop05
             {
                 ShowReminder();
             }
-        }
+        } 
+        
+        private void ShowReminder()
+        {
+            Console.WriteLine($"\nReminder: Record your Eternal Quest daily goal progress!");
+            Console.WriteLine("  Don’t forget to update your score!\n");
+            Console.ResetColor();
+        } 
 
     }
 }
