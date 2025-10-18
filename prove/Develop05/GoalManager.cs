@@ -172,8 +172,10 @@ public class GoalManager
             Console.WriteLine($"Status : {(Reminder.Enabled ? "ON" : "OFF")}");
             Console.WriteLine($"Time   : {Reminder.Hour:D2}:{_reminder.Minute:D2}");
             Console.WriteLine();
+            Console.WriteLine("1) Toggle ON/OFF");
             Console.WriteLine("2) Set time (HH:MM, 24h)");
             Console.WriteLine("0) Back");
+            Console.Write("\nChoose: ");
             Console.Write("\nChoose: ");
             var choice = (Console.ReadLine() ?? "").Trim();
 
