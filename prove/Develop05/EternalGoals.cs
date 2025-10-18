@@ -8,3 +8,19 @@ using System;
 //   - protected ctor Goal(string name, string description, int points)
 //   - protected helpers: Safe(string), UnSafe(string)
 //   - abstract methods: RecordEvent(), ToListString(), Serialize()
+
+
+public sealed class EternalGoal : Goal
+{
+    //Total number of times the user has recorded this goal.
+    // goals never show as complete
+    public int TimesRecorded { get; private set; }
+    public EternalGoal(string name, string description, int points, int timesRecorded = 0)
+        : base(name, description, points)
+    {
+        TimesRecorded = timesRecorded < 0 ? 0 : timesRecorded;
+        IsComplete = false; 
+    }
+
+   
+}
