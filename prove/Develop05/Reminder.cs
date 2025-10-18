@@ -32,4 +32,16 @@ namespace Prove.Develop05
             _reminderTime = new TimeSpan(hour, minute, 0);
         }
 
-        
+        /// <summary>Call this regularly (e.g., once per menu loop) to show the reminder at the target minute.</summary>
+        public void CheckAndNotify()
+        {
+            if (!_isEnabled) return;
+
+            TimeSpan now = DateTime.Now.TimeOfDay;
+
+            // Notify if we're within 60 seconds of the target time.
+            if (Math.Abs((now - _reminderTime).TotalSeconds) < 60)
+            {
+                ShowReminder();
+            }
+        }
