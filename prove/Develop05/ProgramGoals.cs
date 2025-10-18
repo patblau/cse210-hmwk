@@ -77,11 +77,16 @@ class ProgramGoals
     }
 
     // Helpers
-   static void WriteHeader(string title)
+    static void WriteHeader(string title)
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($"=== {title} ===");
         Console.ResetColor();
+    } 
+    static void Pause()
+    {
+        Console.Write("\nPress Enter to continue...");
+        Console.ReadLine();
     }
 
 
