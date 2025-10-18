@@ -11,6 +11,10 @@ public class GoalManager
 
     public int Score => _score;
 
+    // Convenience properties for the UI
+    public bool ReminderEnabled => _reminder.IsEnabled;
+    public int ReminderHour => _reminder.Hour;
+    public int ReminderMinute => _reminder.Minute;
     public GoalManager()
     {
         _goals = new List<Goal>();
@@ -59,7 +63,6 @@ public class GoalManager
         Console.WriteLine("Goal created successfully!");
     }
 
-    public void ListGoals()
     public void ListGoals()
     {
         Console.Clear();
