@@ -20,8 +20,25 @@ public sealed class ChecklistGoal : Goal
                          int targetCount, int bonusPoints, int currentCount = 0)
         : base(name, description, points)
     {
-        TargetCount  = Math.Max(1, targetCount);   // must complete at least once
-        BonusPoints  = Math.Max(0, bonusPoints);
-        CurrentCount = Math.Max(0, currentCount);
-        IsComplete   = CurrentCount >= TargetCount;
+    TargetCount = Math.Max(1, targetCount);   // must complete at least once
+    BonusPoints = Math.Max(0, bonusPoints);
+    CurrentCount = Math.Max(0, currentCount);
+    IsComplete = CurrentCount >= TargetCount;
+    
+    // Adds one completion. Awards base Points each time; when reaching TargetCount,
+    // also awards BonusPoints and marks complete. If already complete, returns 0.
+    public override int RecordEvent()
+    {
+        if (IsComplete) return 0;
+
+        CurrentCount++;
+        int earned = Points;
+
+        if (CurrentCount >= TargetCount)
+        {
+            IsComplete = true;
+            earned += BonusPoints;
+        }
+
+        return earned;
     }
