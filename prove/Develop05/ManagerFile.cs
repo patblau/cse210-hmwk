@@ -41,7 +41,7 @@ public class ManagerFile
                 newGoal = new SimpleGoal(name, description, points);
                 break;
             case "2":
-                newGoal = new EternalGoal(name, description, points);
+                newGoal = new EternalGoals(name, description, points);
                 break;
             case "3":
                 Console.Write("Enter number of times to complete for bonus: ");

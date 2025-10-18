@@ -9,7 +9,7 @@ class ProgramGoals
     static void Main(string[] args)
     {
         //to refer to MangerFile.cs
-        GoalManager manager = new GoalManager();
+        ManagerFile manager = new ManagerFile();
 
         while (true)
         {
@@ -46,17 +46,62 @@ class ProgramGoals
                     manager.LoadInteractive();
                     break;
                 case "6":
-                    Console.WriteLine("\nYour current score is: {manager.Score}");
+                    Console.WriteLine($"\nYour current score is: {manager.Score}");
                     break;
+                case "7":
+                    manager.ReminderSetingsInteractive();
+                    break;    
                 case "0":
                     return;
                 default:
-                    Console.WriteLine("Invalid choice, please try again.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
             Console.Write("\nPress Enter to continue...");
             Console.ReadLine();             
         }
+    }
+}
+
+// Minimal ManagerFile implementation to satisfy references from Dev5Program.
+// Expand and replace with your real implementation as needed.
+public class ManagerFile
+{
+    public int Score { get; set; } = 0;
+
+    public ManagerFile()
+    {
+        // initialize if needed
+    }
+
+    public void CreateGoalInteractive()
+    {
+        Console.WriteLine("CreateGoalInteractive() called - implement goal creation here.");
+    }
+
+    public void ListGoals()
+    {
+        Console.WriteLine("ListGoals() called - implement listing of goals here.");
+    }
+
+    public void RecordEventInteractive()
+    {
+        Console.WriteLine("RecordEventInteractive() called - implement recording here.");
+    }
+
+    public void SaveInteractive()
+    {
+        Console.WriteLine("SaveInteractive() called - implement save logic here.");
+    }
+
+    public void LoadInteractive()
+    {
+        Console.WriteLine("LoadInteractive() called - implement load logic here.");
+    }
+
+    public void ReminderSetingsInteractive()
+    {
+        Console.WriteLine("ReminderSetingsInteractive() called - implement reminders here.");
     }
 }
     

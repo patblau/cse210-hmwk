@@ -81,7 +81,7 @@ public abstract class Goal
                 return SimpleGoal.Deserialize(parts);
 
             case "Eternal":
-                return EternalGoal.Deserialize(parts);
+                return EternalGoals.Deserialize(parts);
 
             case "Checklist":
                 return ChecklistGoal.Deserialize(parts);
