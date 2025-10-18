@@ -89,6 +89,7 @@ class ProgramGoals
         Console.Write("\nPress Enter to continue...");
         Console.ReadLine();
     }
+    static bool _rewardIntroShown = false;
     static void ShowRewardsIntro()
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -103,7 +104,9 @@ class ProgramGoals
         Console.WriteLine();
         Console.WriteLine("Savings rule: For every 100 pts achieved, add $10 to savings.");
         Console.WriteLine("Example: At 10,000 pts your savings total would be $1,000.");
+        Console.WriteLine("Your rewards encourage consistency and progress — great job staying motivated!");
         Console.WriteLine();
+        _rewardIntroShown = true;
     }
     static void ShowScoreSummary(GoalManager manager)
     {

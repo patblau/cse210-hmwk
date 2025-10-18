@@ -216,6 +216,7 @@ public class GoalManager
             }
         }
     }
+
     // Utilities to record events and computing rewards
     public static int ComputeLevel(int score)
     {
@@ -236,6 +237,8 @@ public class GoalManager
         if (!int.TryParse(parts[1], out minute)) return false;
         return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
     }
+
+
 
     private static void Pause()
     {
