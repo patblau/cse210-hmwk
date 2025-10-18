@@ -32,9 +32,10 @@ class ProgramGoals
             Console.WriteLine("3) Record Event");
             Console.WriteLine("4) Save goals");
             Console.WriteLine("5) Load goals");
-            Console.WriteLine("6) Show goals");
+            Console.WriteLine("6) Reminder settings");
+            Console.WriteLine("7) Show score summary");
             Console.WriteLine("0) Exit");
-            Console.WriteLine("1) What do you want to do?: ");
+            Console.Write("\nWhat do you want to do?: ");
 
             string choice = Console.ReadLine();
 
