@@ -92,16 +92,18 @@ class ProgramGoals
     static bool _rewardIntroShown = false;
     static void ShowRewardsIntro()
     {
+        if (_rewardIntroShown) return;
+
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("=== Welcome to Goal Quest ===");
         Console.WriteLine("Rewards & Savings Rules");
         Console.ResetColor();
-        Console.WriteLine("- Every 100 pts = 1 Dove chocolate square  →  \"You did it. Grab a chocolate Dove Square.\"");
-        Console.WriteLine("- Every 500 pts = 2 cookies                →  \"Way to go. Time for some cookies.\"");
-        Console.WriteLine("- Every 1000 pts = a scoop of ice cream    →  \"You did it. Have some ice cream.\"");
-        Console.WriteLine("- Every 5000 pts = a slice of cake/pie     →  \"Way to hang in there. Have a slice of cake/pie. You deserve it.\"");
-        Console.WriteLine("- At 9000 pts: \"9000 points achieved. Start planning your get away.\"");
-        Console.WriteLine("- Every 10,000 pts = weekend get away      →  \"Time to have some fun. Enjoy your week end. You earned it.\"");
+        Console.WriteLine("- For every 100 pts achieved, have 1 Dove chocolate square.");
+        Console.WriteLine("- For every 500 pts achieved, enjoy 2 cookies.");
+        Console.WriteLine("- For every 1000 pts achieved, treat yourself to a scoop of ice cream.");
+        Console.WriteLine("- Every timee 5000 pts is achieved, dig into a slice of cake/pie.");
+        Console.WriteLine("- Once 7500 pts is reached, go out to dinner at a favorite restaurant.");
+        Console.WriteLine("- Once 10,000 pts has been accomplished, relish in a weekend away.");
         Console.WriteLine();
         Console.WriteLine("Savings rule: For every 100 pts achieved, add $10 to savings.");
         Console.WriteLine("Example: At 10,000 pts your savings total would be $1,000.");
@@ -120,4 +122,3 @@ class ProgramGoals
         
     }
 }
-
