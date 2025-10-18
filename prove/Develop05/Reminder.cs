@@ -45,3 +45,18 @@ namespace Prove.Develop05
                 ShowReminder();
             }
         }
+
+        private void ShowReminder()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n⏰ Reminder: Record your Eternal Quest daily goal progress!");
+            Console.WriteLine("   Scriptures, prayer, service — don’t forget to update your score!\n");
+            Console.ResetColor();
+        }
+
+        
+}
+
+
+
+        
