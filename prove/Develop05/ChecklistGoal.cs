@@ -24,7 +24,7 @@ public sealed class ChecklistGoal : Goal
     BonusPoints = Math.Max(0, bonusPoints);
     CurrentCount = Math.Max(0, currentCount);
     IsComplete = CurrentCount >= TargetCount;
-    
+
     // Adds one completion. Awards base Points each time; when reaching TargetCount,
     // also awards BonusPoints and marks complete. If already complete, returns 0.
     public override int RecordEvent()
@@ -42,3 +42,11 @@ public sealed class ChecklistGoal : Goal
 
         return earned;
     }
+
+// Example: "[ ] Ministering Visits — Visit 3 times (+100 pts, bonus 300 on 3)  • Completed 1/3"
+public override string ToListString()
+{
+    string mark = IsComplete ? "[X]" : "[ ]";
+    return $"{mark} {Name} — {Description} (+{Points} pts, bonus {BonusPoints} on {TargetCount})  • Completed {CurrentCount}/{TargetCount}";
+}
+    
