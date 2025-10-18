@@ -24,5 +24,17 @@ namespace Prove.Develop05
         {   
             _isEnabled = false;
         }
+        public void CheckAndNotify()
+        {
+            if (!_isEnabled) return;
+            TimeSpan now = DateTime.Now.TimeOfDay;
+            if (Math.Abs((now - _reminderTime).TotalMinutes) < 1)
+            {
+                ShowReminder();
+            }
+        }
+
+    }
+}
 
         
