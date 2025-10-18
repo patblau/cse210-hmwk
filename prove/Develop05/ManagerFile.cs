@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-namespace Prove.Develop05
-
+namespace Prove.Develop05;
 
 public class GoalManager
 {
@@ -61,6 +60,7 @@ public class GoalManager
     }
 
     public void ListGoals()
+    public void ListGoals()
     {
         Console.Clear();
         Console.WriteLine("=== Your Goals ===\n");
@@ -77,9 +77,8 @@ public class GoalManager
             }
         }
 
-        Console.WriteLine($"\nReminder: {(ReminderEnabled ? "ON" : "OFF")} at {ReminderTime.Hours:D2}:{ReminderTime.Minutes:D2}");
+        Console.WriteLine($"\nReminder: {(_reminder.Enabled ? "ON" : "OFF")} at {_reminder.Hours:D2}:{_reminder.Minutes:D2}");
     }
-
     public void RecordEventInteractive()
     {
         if (_goals.Count == 0)
@@ -109,10 +108,11 @@ public class GoalManager
     }
 
     public void SaveInteractive()
+    public void SaveInteractive()
     {
         Console.Write("Enter filename to save goals: ");
         string filename = Console.ReadLine();
-         using (StreamWriter output = new StreamWriter(file))
+         using (StreamWriter output = new StreamWriter(filename))
         {
             output.WriteLine($"SCORE|{_score}");
             output.WriteLine(_reminder.ToConfigLine());
@@ -124,20 +124,20 @@ public class GoalManager
 
         Console.WriteLine("Goals were saved!");
     }
-
+    public void LoadInteractive()
     public void LoadInteractive()
     {
         Console.Write("Enter filename to load goals: ");
         string filename = Console.ReadLine();
          
-        if (!File.Exists(file))
+        if (!File.Exists(filename))
         {
             Console.WriteLine("File not found.");
             return;
         }
 
         _goals.Clear();
-        string[] lines = File.ReadAllLines(file);
+        string[] lines = File.ReadAllLines(filename);
 
         foreach (string raw in lines)
         {
@@ -160,17 +160,16 @@ public class GoalManager
         }
         Console.WriteLine("Goals loaded successfully!");
     }
-    /// <summary>Interactive reminder configuration menu.</summary>
     public void ReminderSettingsInteractive()
     {
         while (true)
         {
             Console.Clear();
             Console.WriteLine("=== Reminder Settings ===");
-            Console.WriteLine($"Status : {(ReminderEnabled ? "ON" : "OFF")}");
-            Console.WriteLine($"Time   : {ReminderTime.Hours:D2}:{ReminderTime.Minutes:D2}");
+            Console.WriteLine("=== Reminder Settings ===");
+            Console.WriteLine($"Status : {(_reminder.Enabled ? "ON" : "OFF")}");
+            Console.WriteLine($"Time   : {_reminder.Hours:D2}:{_reminder.Minutes:D2}");
             Console.WriteLine();
-            Console.WriteLine("1) Toggle ON/OFF");
             Console.WriteLine("2) Set time (HH:MM, 24h)");
             Console.WriteLine("0) Back");
             Console.Write("\nChoose: ");
@@ -240,5 +239,10 @@ public class GoalManager
     {
         Console.Write("\nPress Enter to continue...");
         Console.ReadLine();
+    }
+    // ====== Call at the top of menu loop in ProgramGoals.cs ======
+    public void TickReminders()
+    {
+        _reminder.CheckAndNotify();
     }
 }
