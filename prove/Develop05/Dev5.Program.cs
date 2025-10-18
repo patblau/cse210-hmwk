@@ -3,12 +3,12 @@ using System.Reflection.Metadata;
 using System.Xml.Serialization;
 using Microsoft.VisualBasic;
 
-class ProgramGoals
+class Dev5.ProgramGoals
 {
     static void Main(string[] args)
     {
         //to refer to MangerFile.cs
-        GoalManager manager = new GoalManager();
+        ManagerFile manager = new ManagerFile();
 
         while (true)
         {
@@ -47,10 +47,13 @@ class ProgramGoals
                 case "6":
                     Console.WriteLine("\nYour current score is: {manager.Score}");
                     break;
+                case "7":
+                    manager.ReminderSetingsInteractive();
+                    break;    
                 case "0":
                     return;
                 default:
-                    Console.WriteLine("Invalid choice, please try again.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
             Console.Write("\nPress Enter to continue...");
