@@ -93,6 +93,7 @@ class ProgramGoals
     static void ShowRewardsIntro()
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("=== Welcome to Goal Quest ===");
         Console.WriteLine("Rewards & Savings Rules");
         Console.ResetColor();
         Console.WriteLine("- Every 100 pts = 1 Dove chocolate square  →  \"You did it. Grab a chocolate Dove Square.\"");
