@@ -80,34 +80,56 @@ public class GoalManager
         Console.WriteLine($"\nReminder: {(ReminderEnabled ? "ON" : "OFF")} at {ReminderTime.Hours:D2}:{ReminderTime.Minutes:D2}");
     }
 
+    public void RecordEventInteractive()
+    {
+        if (_goals.Count == 0)
+        {
+            Console.WriteLine("No goals to record yet.");
+            return;
+        }
+
+        ListGoals();
+        Console.Write("\nEnter goal number to record progress: ");
+        int index = SafeInt(Console.ReadLine(), 0) - 1;
+
+        if (index < 0 || index >= _goals.Count)
+        {
+            Console.WriteLine("Invalid selection.");
+            return;
+        }
+
+        Goal goal = _goals[index];
+        int earned = goal.RecordEvent();
+        _score += earned;
+
+        if (earned > 0)
+            Console.WriteLine($"\nYou earned {earned} points!");
+        else
+            Console.WriteLine("\nGoal already completed — no points earned.");
+    }
+
     public void SaveInteractive()
     {
         Console.Write("Enter filename to save goals: ");
         string filename = Console.ReadLine();
-        SaveToFile(filename);
-    }
-
-    public void LoadInteractive()
-    {
-        Console.Write("Enter filename to load goals: ");
-        string filename = Console.ReadLine();
-        using (StreamWriter output = new StreamWriter(file))
+         using (StreamWriter output = new StreamWriter(file))
         {
             output.WriteLine($"SCORE|{_score}");
+            output.WriteLine(_reminder.ToConfigLine());
             foreach (Goal g in _goals)
             {
                 output.WriteLine(g.Serialize());
             }
         }
 
-        Console.WriteLine("Goals saved successfully!");
+        Console.WriteLine("Goals were saved!");
     }
 
     public void LoadInteractive()
     {
-        Console.Write("Enter filename to load: ");
-        string file = Console.ReadLine();
-
+        Console.Write("Enter filename to load goals: ");
+        string filename = Console.ReadLine();
+         
         if (!File.Exists(file))
         {
             Console.WriteLine("File not found.");
@@ -117,11 +139,18 @@ public class GoalManager
         _goals.Clear();
         string[] lines = File.ReadAllLines(file);
 
-        foreach (string line in lines)
+        foreach (string raw in lines)
         {
+            string line = raw?.Trim() ?? "";
+            if (line.Length == 0) continue;
+
             if (line.StartsWith("SCORE|"))
             {
-                _score = int.Parse(line.Split('|')[1]);
+                _score = SafeInt(line.Split('|')[1], 0);
+            }
+            else if (line.StartsWith("REMINDER|"))
+            {
+                _reminder = Reminder.FromConfigLine(line);
             }
             else
             {
@@ -129,10 +158,63 @@ public class GoalManager
                 if (goal != null) _goals.Add(goal);
             }
         }
-
         Console.WriteLine("Goals loaded successfully!");
     }
+    /// <summary>Interactive reminder configuration menu.</summary>
+    public void ReminderSettingsInteractive()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Reminder Settings ===");
+            Console.WriteLine($"Status : {(ReminderEnabled ? "ON" : "OFF")}");
+            Console.WriteLine($"Time   : {ReminderTime.Hours:D2}:{ReminderTime.Minutes:D2}");
+            Console.WriteLine();
+            Console.WriteLine("1) Toggle ON/OFF");
+            Console.WriteLine("2) Set time (HH:MM, 24h)");
+            Console.WriteLine("0) Back");
+            Console.Write("\nChoose: ");
+            var choice = (Console.ReadLine() ?? "").Trim();
 
+            if (choice == "0") return;
+
+            switch (choice)
+            {
+                case "1":
+                    _reminder.Toggle();
+                    Console.WriteLine($"Reminder is now {(ReminderEnabled ? "ON" : "OFF")}.");
+                    Pause();
+                    break;
+
+                case "2":
+                    Console.Write("Enter time (HH:MM, 24h): ");
+                    var t = (Console.ReadLine() ?? "").Trim();
+                    if (TryParseHm(t, out int h, out int m))
+                    {
+                        try
+                        {
+                            _reminder.SetTime(h, m);
+                            Console.WriteLine($"Reminder time set to {h:D2}:{m:D2}.");
+                        }
+                        catch (ArgumentOutOfRangeException)
+                        {
+                            Console.WriteLine("Hour must be 0–23 and minute 0–59.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format. Example: 19:00");
+                    }
+                    Pause();
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid option.");
+                    Pause();
+                    break;
+            }
+        }
+    }
     // Utilities for recording events and computing levels
     public static int ComputeLevel(int score)
     {
