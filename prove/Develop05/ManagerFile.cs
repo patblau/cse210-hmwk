@@ -221,4 +221,24 @@ public class GoalManager
         // Simple level curve: every 500 points = 1 level
         return Math.Max(1, (score / 500) + 1);
     }
+    private static int SafeInt(string s, int fallback)
+    {
+        return int.TryParse(s, out int val) ? val : fallback;
+    }
+
+    private static bool TryParseHm(string input, out int hour, out int minute)
+    {
+        hour = 0; minute = 0;
+        var parts = input.Split(':');
+        if (parts.Length != 2) return false;
+        if (!int.TryParse(parts[0], out hour)) return false;
+        if (!int.TryParse(parts[1], out minute)) return false;
+        return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
+    }
+
+    private static void Pause()
+    {
+        Console.Write("\nPress Enter to continue...");
+        Console.ReadLine();
+    }
 }
