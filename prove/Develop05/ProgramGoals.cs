@@ -10,7 +10,7 @@ class ProgramGoals
     static void Main(string[] args)
     {
         // Refere to Manager to handle goals, score, save/load, reminders, and rewards.
-        ManagerFile manager = new ManagerFile();
+       GoalManager manager = new GoalManager();
 
         // One-time intro about rewards & savings
         ShowRewardsIntro();

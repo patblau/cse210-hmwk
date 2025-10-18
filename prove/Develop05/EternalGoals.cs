@@ -18,7 +18,7 @@ public sealed class EternalGoal : Goal
         : base(name, description, points)
     {
         TimesRecorded = timesRecorded < 0 ? 0 : timesRecorded;
-        IsComplete = false; 
+        IsComplete = false;
     }
 
     /// Increment count and return base points every time it’s recorded.
@@ -45,7 +45,7 @@ public sealed class EternalGoal : Goal
     /// </summary>
     public override string Serialize()
     {
-        return $"Eternal|{base.Safe(Name)}|{base.Safe(Description)}|{Points}|{TimesRecorded}";
+        return $"Eternal|{Goal.Safe(Name)}|{Goal.Safe(Description)}|{Points}|{TimesRecorded}";
     }
 
     /// <summary>
@@ -56,16 +56,12 @@ public sealed class EternalGoal : Goal
     public static EternalGoal? Deserialize(string[] parts)
     {
         if (parts == null || parts.Length < 5) return null;
-
-        string name = UnSafe(parts[1]);
-        string desc = UnSafe(parts[2]);
-
-        int pts = 0;
-        int.TryParse(parts[3], out pts);
-
-        int times = 0;
-        int.TryParse(parts[4], out times);
-
-        return new EternalGoal(name, desc, pts, times);
+        {
+            string name = Goal.UnSafe(parts[1]);
+            string desc = Goal.UnSafe(parts[2]);
+            int.TryParse(parts[3], out int pts);
+            int.TryParse(parts[4], out int times);
+            return new EternalGoal(name, desc, pts, times);
+        }
     }
 }
