@@ -1,10 +1,15 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
+using System.IO;
+namespace Prove.Develop05
+
 
 public class GoalManager
 {
-    private List<Goal> _goals;
-    private int _score;
+    private List<Goal> _goals = new List<Goal>();
+    private int _score = 0;
+    private Reminder _reminder = new Reminder(19, 0, true); // default 7:00 PM reminder
+
 
     public int Score => _score;
 
