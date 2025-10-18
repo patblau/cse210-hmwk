@@ -21,4 +21,15 @@ public abstract class Goal
         IsComplete = false;
     }
 
-   
+    // Polymorphic contract: Apply progress to this goal and return points earned.
+    public abstract int RecordEvent();
+
+    // One-line display for lists. Must include [ ]/[X] and any progress info.
+    public abstract string ToListString();
+
+    // Return a single-line text used by Save/Load.
+    public abstract string Serialize();
+
+    
+}
+    
