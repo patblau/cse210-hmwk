@@ -76,48 +76,15 @@ class ProgramGoals
         }
     }
 
-// Minimal ManagerFile implementation to satisfy references from Dev5Program.
-// Expand and replace with your real implementation as needed.
-public class ManagerFile
-{
-    public int Score { get; set; } = 0;
-
-    public ManagerFile()
+    // Helpers
+   static void WriteHeader(string title)
     {
-        // initialize if needed
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"=== {title} ===");
+        Console.ResetColor();
     }
 
-    public void CreateGoalInteractive()
-    {
-        Console.WriteLine("CreateGoalInteractive() called - implement goal creation here.");
-    }
 
-    public void ListGoals()
-    {
-        Console.WriteLine("ListGoals() called - implement listing of goals here.");
-    }
-
-    public void RecordEventInteractive()
-    {
-        Console.WriteLine("RecordEventInteractive() called - implement recording here.");
-    }
-
-    public void SaveInteractive()
-    {
-        Console.WriteLine("SaveInteractive() called - implement save logic here.");
-    }
-
-    public void LoadInteractive()
-    {
-        Console.WriteLine("LoadInteractive() called - implement load logic here.");
-    }
-
-    public void ReminderSetingsInteractive()
-    {
-        Console.WriteLine("ReminderSetingsInteractive() called - implement reminders here.");
-    }
-
-   
     }
 }
 
