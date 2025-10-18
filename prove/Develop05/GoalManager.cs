@@ -93,7 +93,7 @@ public class GoalManager
         }
 
         ListGoals();
-        Console.Write("\nEnter goal number to record progress: ");
+        Console.Write("\nTo record progress, enter goal number: ");
         int index = SafeInt(Console.ReadLine(), 0) - 1;
 
         if (index < 0 || index >= _goals.Count)
@@ -113,7 +113,6 @@ public class GoalManager
     }
 
     public void SaveInteractive()
-    public void SaveInteractive()
     {
         Console.Write("Enter filename to save goals: ");
         string filename = Console.ReadLine();
@@ -130,10 +129,9 @@ public class GoalManager
         Console.WriteLine("Goals were saved!");
     }
     public void LoadInteractive()
-    public void LoadInteractive()
     {
         Console.Write("Enter filename to load goals: ");
-        string filename = Console.ReadLine();
+        string filename = Console.ReadLine() ?? "goals.txt";
          
         if (!File.Exists(filename))
         {
