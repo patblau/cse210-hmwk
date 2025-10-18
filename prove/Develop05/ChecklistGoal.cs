@@ -14,11 +14,14 @@ public sealed class ChecklistGoal : Goal
     public int TargetCount { get; private set; }
     public int BonusPoints { get; private set; }
 
-    public ChecklistGoal(string name, string description, int points, int targetCount, int bonusPoints, int currentCount = 0)
+    }
+    // Increment count and return base points; if target reached, award bonus and mark complete.
+    public ChecklistGoal(string name, string description, int points,
+                         int targetCount, int bonusPoints, int currentCount = 0)
         : base(name, description, points)
     {
-        TargetCount = targetCount < 1 ? 1 : targetCount;
-        BonusPoints = bonusPoints < 0 ? 0 : bonusPoints;
-        CurrentCount = currentCount < 0 ? 0 : currentCount;
-        IsComplete = CurrentCount >= TargetCount;
+        TargetCount  = Math.Max(1, targetCount);   // must complete at least once
+        BonusPoints  = Math.Max(0, bonusPoints);
+        CurrentCount = Math.Max(0, currentCount);
+        IsComplete   = CurrentCount >= TargetCount;
     }
