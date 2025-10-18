@@ -1,4 +1,4 @@
-using Prove.Develop05;
+using System;
 
 //Requirements for Goal base class:
 //  - Abstract base class for all goal types 
@@ -22,7 +22,7 @@ public abstract class Goal
         Points = points < 0 ? 0 : points;
         IsComplete = false;
     }
-
+    
     // public codes:
     // Polymorphic contract: Apply progress to this goal and return points earned.
     // One-line display for lists. Must include [ ]/[X] and any progress info.
@@ -33,19 +33,13 @@ public abstract class Goal
     public abstract string Serialize();
     
     // protected codes:
-    // Helpers for safe save/load: Escape pipe to avoid breaking the save format.
-    // Unescape pipe when loading.
-    // Compact bool format (1/0) to keep files readable.
-    // Parse "1"/"0" or "true"/"false". Anything else -> false.
-    // Helpers for safe save/load: Escape pipe to avoid breaking the save format.
-    // Unescape pipe when loading.
-    // Compact bool format (1/0) to keep files readable.
-    // Parse "1"/"0" or "true"/"false". Anything else -> false.
+    // Helpers for safe save/load (KEEP EXACTLY ONCE; call as Goal.Safe/UnSafe/BoolStr/ParseBool)
     protected static string Safe(string s) => (s ?? string.Empty).Replace("|", "¦");
     protected static string UnSafe(string s) => (s ?? string.Empty).Replace("¦", "|");
     protected static string BoolStr(bool b) => b ? "1" : "0";
     protected static bool ParseBool(string s)
-    {
+   
+   {
         if (string.IsNullOrWhiteSpace(s)) return false;
         s = s.Trim();
         return s == "1" || s.Equals("true", StringComparison.OrdinalIgnoreCase);
@@ -70,20 +64,15 @@ public abstract class Goal
 
         switch (type)
         {
-            case "Simple":
-                return SimpleGoal.Deserialize(parts);
+            case "Simple":      return SimpleGoal.Deserialize(parts);
 
-            case "Eternal":
-                return EternalGoal.Deserialize(parts);
+            case "Eternal":     return EternalGoal.Deserialize(parts);
 
-            case "Checklist":
-                return ChecklistGoal.Deserialize(parts);
+            case "Checklist":   return ChecklistGoal.Deserialize(parts);
 
-            default:
-                return null;
+            default:            return null;
         }
     }
 
 }
 
-    

@@ -1,4 +1,4 @@
-using Prove.Develop05;
+using System;
 
 /// One-and-done goal. Awards points once, then remains completed.
 /// Define base class in GoalsBase.cs as:

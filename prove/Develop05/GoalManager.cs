@@ -1,4 +1,4 @@
-using Prove.Develop05;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -83,39 +83,42 @@ public class GoalManager
 
         Console.WriteLine($"\nReminder: {(ReminderEnabled ? "ON" : "OFF")} at {ReminderHour:D2}:{ReminderMinute:D2}");
     }
-    public void RecordEventInteractive()
+public void RecordEventInteractive()
+{
+    if (_goals.Count == 0)
     {
-        if (_goals.Count == 0)
-        {
-            Console.WriteLine("No goals to record yet.");
-            return;
-        }
-
-        ListGoals();
-        Console.Write("\nTo record progress, enter goal number: ");
-        int index = SafeInt(Console.ReadLine(), 0) - 1;
-
-        if (index < 0 || index >= _goals.Count)
-        {
-            Console.WriteLine("Invalid selection.");
-            return;
-        }
-
-        Goal goal = _goals[index];
-        int earned = goal.RecordEvent();
-        _score += earned;
-
-        if (earned > 0)
-            Console.WriteLine($"\nYou earned {earned} points!");
-        else
-            Console.WriteLine("\nGoal already completed — no points earned.");
+        Console.WriteLine("No goals to record yet.");
+        return;
     }
+
+    ListGoals();
+    Console.Write("\nTo record progress, enter goal number: ");
+    int index = SafeInt(Console.ReadLine(), 0) - 1;
+
+    if (index < 0 || index >= _goals.Count)
+    {
+        Console.WriteLine("Invalid selection.");
+        return;
+    }
+
+    Goal goal = _goals[index];
+    int before = _score;
+    int earned = goal.RecordEvent();
+    _score += earned;
+
+    AnnounceMilestones(before, _score);
+
+    if (earned > 0)
+        Console.WriteLine($"\nYou earned {earned} points!");
+    else
+        Console.WriteLine("\nGoal already completed — no points earned.");
+}
 
     public void SaveInteractive()
     {
         Console.Write("Enter filename to save goals: ");
         string filename = Console.ReadLine();
-         using (StreamWriter output = new StreamWriter(filename))
+        using (StreamWriter output = new StreamWriter(filename))
         {
             output.WriteLine($"SCORE|{_score}");
             output.WriteLine(_reminder.ToConfigLine());
@@ -238,8 +241,6 @@ public class GoalManager
         return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
     }
 
-
-
     private static void Pause()
     {
         Console.Write("\nPress Enter to continue...");
@@ -249,5 +250,111 @@ public class GoalManager
     public void TickReminders()
     {
         _reminder.CheckAndNotify();
+    }
+
+    private void AnnounceMilestones(int previousScore, int currentScore)
+    {
+        if (currentScore <= previousScore) return;
+
+        int prevHundreds = previousScore / 100;
+        int currHundreds = currentScore / 100;
+
+        for (int h = prevHundreds + 1; h <= currHundreds; h++)
+        {
+            int pts = h * 100;
+
+            // Every 100 pts
+            Console.WriteLine("You did it. Grab a chocolate Dove Square.");
+            Console.WriteLine("Savings reminder: Add $10 to savings.");
+
+            // Every 500 pts (i.e., when h % 5 == 0)
+            if (h % 5 == 0)
+                Console.WriteLine("Way to go. Time for some cookies.");
+
+            // Every 1000 pts
+            if (h % 10 == 0)
+                Console.WriteLine("You did it. Have some ice cream.");
+
+            // Every 5000 pts
+            if (h % 50 == 0)
+                Console.WriteLine("Way to hang in there. Have a slice of cake/pie. You deserve it.");
+
+            // At 9000 pts exactly
+            if (pts == 9000)
+                Console.WriteLine("9000 points achieved. Start planning your get away.");
+
+            // Every 10,000 pts
+            if (h % 100 == 0)
+                Console.WriteLine("Time to have some fun. Enjoy your week end. You earned it.");
+        }
+
+        Console.WriteLine($"Total Dove chocolates so far: {currentScore / 100}");
+        Console.WriteLine($"Current savings: ${(currentScore / 100) * 10}");
+    }
+}
+public class Reminder
+{
+    public int Hour { get; private set; }
+    public int Minute { get; private set; }
+    public bool IsEnabled { get; private set; }
+
+    // Track last notification to avoid spamming within the same minute
+    private int _lastNotifiedDayOfYear = -1;
+    private int _lastNotifiedMinute = -1;
+
+    public Reminder(int hour, int minute, bool enabled)
+    {
+        SetTime(hour, minute);
+        IsEnabled = enabled;
+    }
+
+    public void Toggle() => IsEnabled = !IsEnabled;
+
+    public void SetTime(int hour, int minute)
+    {
+        if (hour < 0 || hour > 23 || minute < 0 || minute > 59)
+            throw new ArgumentOutOfRangeException(nameof(hour), "Hour must be 0–23 and minute 0–59.");
+        Hour = hour;
+        Minute = minute;
+    }
+
+    public string ToConfigLine()
+    {
+        // Format: REMINDER|{hour}|{minute}|{enabledFlag}
+        return $"REMINDER|{Hour}|{Minute}|{(IsEnabled ? 1 : 0)}";
+    }
+
+    public static Reminder FromConfigLine(string line)
+    {
+        // Expect: REMINDER|H|M|EN where EN is 1/0 or true/false
+        if (string.IsNullOrWhiteSpace(line)) return new Reminder(19, 0, true);
+
+        var parts = line.Split('|');
+        if (parts.Length < 4) return new Reminder(19, 0, true);
+
+        int h = 19, m = 0;
+        bool en = true;
+
+        int.TryParse(parts[1], out h);
+        int.TryParse(parts[2], out m);
+        en = parts[3] == "1" || parts[3].ToLowerInvariant() == "true";
+
+        return new Reminder(h, m, en);
+    }
+
+    public void CheckAndNotify()
+    {
+        if (!IsEnabled) return;
+
+        var now = DateTime.Now;
+        if (now.Hour == Hour && now.Minute == Minute)
+        {
+            // Only notify once per minute
+            if (_lastNotifiedDayOfYear == now.DayOfYear && _lastNotifiedMinute == now.Minute) return;
+            _lastNotifiedDayOfYear = now.DayOfYear;
+            _lastNotifiedMinute = now.Minute;
+
+            Console.WriteLine($"\n=== Reminder ===\nIt's {Hour:D2}:{Minute:D2} — time to review your goals!\n================\n");
+        }
     }
 }
