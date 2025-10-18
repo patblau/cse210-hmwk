@@ -49,14 +49,43 @@ namespace Prove.Develop05
         private void ShowReminder()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\n⏰ Reminder: Record your Eternal Quest daily goal progress!");
+            Console.WriteLine("\nReminder: Record your Eternal Quest daily goal progress!");
             Console.WriteLine("   Scriptures, prayer, service — don’t forget to update your score!\n");
             Console.ResetColor();
         }
 
-        
-}
 
+        // ---------- Save / Load helpers for ManagerFile ----------
+
+        public string ToConfigLine()
+        {
+            // Example: REMINDER|1|19:00
+            string enabled = _isEnabled ? "1" : "0";
+            return $"REMINDER|{enabled}|{Hour:D2}:{Minute:D2}";
+        }
+
+        public static Reminder FromConfigLine(string line)
+        {
+            // Accepts lines starting with REMINDER|{0|1}|HH:MM
+            // Fallback to 19:00 enabled if parse fails.
+            try
+            {
+                var parts = line.Split('|');
+                if (parts.Length >= 3 && parts[0] == "REMINDER")
+                {
+                    bool enabled = parts[1] == "1";
+                    var hm = parts[2].Split(':');
+                    int h = int.Parse(hm[0]);
+                    int m = int.Parse(hm[1]);
+                    return new Reminder(h, m, enabled);
+                }
+            }
+            catch { /* ignore parse errors; fall back below */ }
+
+            return new Reminder(19, 0, true);
+        }
+    }
+}
 
 
         
