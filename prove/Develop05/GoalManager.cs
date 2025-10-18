@@ -15,6 +15,7 @@ public class GoalManager
     public bool ReminderEnabled => _reminder.IsEnabled;
     public int ReminderHour => _reminder.Hour;
     public int ReminderMinute => _reminder.Minute;
+    
     public GoalManager()
     {
         _goals = new List<Goal>();
@@ -37,6 +38,7 @@ public class GoalManager
         string description = Console.ReadLine();
         Console.Write("Enter points for completing the goal: ");
         int points = int.Parse(Console.ReadLine() ?? "0");
+        
         Goal newGoal;
 
         switch (choice)
@@ -45,7 +47,7 @@ public class GoalManager
                 newGoal = new SimpleGoal(name, description, points);
                 break;
             case "2":
-                newGoal = new EternalGoals(name, description, points);
+                newGoal = new EternalGoal(name, description, points);
                 break;
             case "3":
                 Console.Write("Enter number of times to complete for bonus: ");
@@ -67,10 +69,10 @@ public class GoalManager
     {
         Console.Clear();
         Console.WriteLine("=== Your Goals ===\n");
+
         if (_goals.Count == 0)
         {
             Console.WriteLine("No goals available.");
-            return;
         }
         else
         {
@@ -80,7 +82,7 @@ public class GoalManager
             }
         }
 
-        Console.WriteLine($"\nReminder: {(_reminder.Enabled ? "ON" : "OFF")} at {_reminder.Hours:D2}:{_reminder.Minutes:D2}");
+        Console.WriteLine($"\nReminder: {(RememberEnabled ? "ON" : "OFF")} at {Reminder.Hour:D2}:{_reminder.Minute:D2}");
     }
     public void RecordEventInteractive()
     {

@@ -9,12 +9,12 @@ using System;
 //   - protected helpers: Safe(string), UnSafe(string)
 //   - abstract methods: RecordEvent(), ToListString(), Serialize()
 
-public sealed class EternalGoals : Goal
+public sealed class EternalGoal : Goal
 {
     //Total number of times the user has recorded this goal.
     // goals never show as complete
     public int TimesRecorded { get; private set; }
-    public EternalGoals(string name, string description, int points, int timesRecorded = 0)
+    public EternalGoal(string name, string description, int points, int timesRecorded = 0)
         : base(name, description, points)
     {
         TimesRecorded = timesRecorded < 0 ? 0 : timesRecorded;
@@ -53,7 +53,7 @@ public sealed class EternalGoals : Goal
     /// Expects parts:
     ///   [0]=Eternal [1]=Name [2]=Desc [3]=Points [4]=TimesRecorded
     /// </summary>
-    public static EternalGoals? Deserialize(string[] parts)
+    public static EternalGoal? Deserialize(string[] parts)
     {
         if (parts == null || parts.Length < 5) return null;
 
@@ -66,6 +66,6 @@ public sealed class EternalGoals : Goal
         int times = 0;
         int.TryParse(parts[4], out times);
 
-        return new EternalGoals(name, desc, pts, times);
+        return new EternalGoal(name, desc, pts, times);
     }
 }
