@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 namespace Prove.Develop05;
 
-public class ManagerFile
+public class GoalManager
 {
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
@@ -11,7 +11,7 @@ public class ManagerFile
 
     public int Score => _score;
 
-    public ManagerFile()
+    public GoalManager()
     {
         _goals = new List<Goal>();
         _score = 0;

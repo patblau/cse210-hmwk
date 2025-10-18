@@ -23,7 +23,9 @@ class ProgramGoals
 
             Console.Clear();
             Console.WriteLine("===My Eternal Quest===");
-            Console.WriteLine($"Score: {manager.Score}" (Level {GoalManager.ComputeLevel(manager.Score)})");
+            Console.WriteLine($"Score : {manager.Score}   (Level {GoalManager.ComputeLevel(manager.Score)})");
+            Console.WriteLine($"Reward: {manager.Score / 100} Dove chocolate square(s)");
+            Console.WriteLine($"Savings from points: ${manager.SavingsDollars}");
             Console.WriteLine();
             Console.WriteLine("1) Create new goal");
             Console.WriteLine("2) List goals");
