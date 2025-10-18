@@ -35,5 +35,25 @@ public sealed class SimpleGoal : Goal
         return $"Simple|{Safe(Name)}|{Safe(Description)}|{Points}|{BoolStr(IsComplete)}";
     }
 
+    // Helper used by Goal.Deserialize to rebuild a SimpleGoal from tokens.
+    // Expects parts:[0]=Simple [1]=Name [2]=Desc [3]=Points [4]=IsComplete
+    
+    public static SimpleGoal? Deserialize(string[] parts)
+    {
+        if (parts == null || parts.Length < 5) return null;
+
+        string name = UnSafe(parts[1]);
+        string desc = UnSafe(parts[2]);
+
+        int pts = 0;
+        int.TryParse(parts[3], out pts);
+
+        bool isComplete = ParseBool(parts[4]);
+
+        return new SimpleGoal(name, desc, pts, isComplete);
+    }
+}
+
+
    
     
