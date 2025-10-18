@@ -57,22 +57,24 @@ class ProgramGoals
                     manager.LoadInteractive();
                     break;
                 case "6":
-                    Console.WriteLine($"\nYour current score is: {manager.Score}");
+                    manager.ReminderSettingsInteractive();
                     break;
+
                 case "7":
-                    manager.ReminderSetingsInteractive();
-                    break;    
+                    ShowScoreSummary(manager);
+                    Pause();
+                    break;
+
                 case "0":
                     return;
+
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
+                    Pause();
                     break;
             }
-            Console.Write("\nPress Enter to continue...");
-            Console.ReadLine();             
         }
     }
-}
 
 // Minimal ManagerFile implementation to satisfy references from Dev5Program.
 // Expand and replace with your real implementation as needed.
