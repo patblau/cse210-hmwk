@@ -169,9 +169,8 @@ public class GoalManager
         {
             Console.Clear();
             Console.WriteLine("=== Reminder Settings ===");
-            Console.WriteLine("=== Reminder Settings ===");
-            Console.WriteLine($"Status : {(_reminder.Enabled ? "ON" : "OFF")}");
-            Console.WriteLine($"Time   : {_reminder.Hours:D2}:{_reminder.Minutes:D2}");
+            Console.WriteLine($"Status : {(Reminder.Enabled ? "ON" : "OFF")}");
+            Console.WriteLine($"Time   : {Reminder.Hour:D2}:{_reminder.Minute:D2}");
             Console.WriteLine();
             Console.WriteLine("2) Set time (HH:MM, 24h)");
             Console.WriteLine("0) Back");
