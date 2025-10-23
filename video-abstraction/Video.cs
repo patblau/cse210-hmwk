@@ -13,16 +13,20 @@ namespace BFAdventureVideos
         public string Title { get; }
         public string Aughtor { get; }
         public int VideoLength { get; }
-
         
-        //Comment section//
-        //Internal storage//
-        //Customer list (readonly)//
+            //Comment section//
+            //Internal storage//
+        private readonly List<Commemt> _comments = new();
+        private readonly List<string> _keywords = new();
+        }
+            //Customer list (readonly)//
 
-            //Strings for title, author, and videoLength
-            //Add command
-            //Add keyword
+                //Strings for title, author, and videoLength
+                //Add command
+                //Add keyword
             
+        
+       
 
 
 
