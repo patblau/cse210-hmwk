@@ -8,3 +8,7 @@ namespace BFAdventureVideos
     /// <summary>Value object for a video comment.</summary>
     public class Comment
     {
+        public string Author { get; }
+        public string Text { get; }
+
+       
