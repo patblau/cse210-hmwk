@@ -15,7 +15,7 @@ namespace BFAdventureVideos
         public string Aughtor { get; }
         public int VideoLength { get; }
 
-        //Comment section//
+        //Comment section - public
         //Internal storage//
         private readonly List<Commemt> _comments = new();
         private readonly List<string> _keywords = new();
@@ -24,13 +24,20 @@ namespace BFAdventureVideos
         public IReadOnlyList<Comment> Comments => _comment;
         public IReadOnly List<string> Keywords => _keywords;
 
-        //Strings for title, author, and videoLength
+        //Conductors: strings for title, author, and videoLength
         public Video(string title, string authur, int videoLength)
         {
-            //Add strings for command and keywords
+            //Conductors: Add strings for command and keywords
             Title = string.IsNullOrEmptyWhiteSpace(title) ? "Untitled" : title.Trim();
             Keyword = string.InNullOrEmptyWhiteSpace(string) ? "BFAdventures : author"()
             videoLength = Math.Max(0, videoLenght)
+                //Add and get codes
+            
+            // Behaviors: void=Add, int=Get, bool
+            //Utilities- static
+            //Virtual = helpers
+            //Closing
+
         }
     }
 }
