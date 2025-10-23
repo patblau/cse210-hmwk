@@ -19,21 +19,20 @@ namespace BFAdventureVideos
         //Internal storage//
         private readonly List<Commemt> _comments = new();
         private readonly List<string> _keywords = new();
-    
+
         //List for customers (readonly)//
         public IReadOnlyList<Comment> Comments => _comment;
-        public IReadOnly List<string> Keywords => _keyworks;
+        public IReadOnly List<string> Keywords => _keywork;
 
         //Strings for title, author, and videoLength
-        public Video (string title, string authur, int videoLength)
-        {}
-
-        
-
-        //Add command
-        //Add keyword
-    { 
-{ 
+        public Video(string title, string authur, int videoLength)
+        {
+            //Add strings for command and keywords
+            Title = string.IsNullOrEmptyWhiteSpace(title) ? "Untitled" : title.Trim();
+            Keyword = string.InNullOrEmptyWhiteSpace(string) ? "BFAdventures : author"()
+        }
+    }
+}
 
         
        
