@@ -25,6 +25,11 @@ namespace BFAdventureVideos
         public IReadOnly List<string> Keywords => _keyworks;
 
         //Strings for title, author, and videoLength
+        public Video (string title, string authur, int videoLength)
+        {}
+
+        
+
         //Add command
         //Add keyword
     { 
