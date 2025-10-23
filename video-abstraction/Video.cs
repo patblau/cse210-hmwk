@@ -22,7 +22,7 @@ namespace BFAdventureVideos
 
         //List for customers (readonly)//
         public IReadOnlyList<Comment> Comments => _comment;
-        public IReadOnly List<string> Keywords => _keywork;
+        public IReadOnly List<string> Keywords => _keywords;
 
         //Strings for title, author, and videoLength
         public Video(string title, string authur, int videoLength)
@@ -30,6 +30,7 @@ namespace BFAdventureVideos
             //Add strings for command and keywords
             Title = string.IsNullOrEmptyWhiteSpace(title) ? "Untitled" : title.Trim();
             Keyword = string.InNullOrEmptyWhiteSpace(string) ? "BFAdventures : author"()
+            videoLength = Math.Max(0, videoLenght)
         }
     }
 }
