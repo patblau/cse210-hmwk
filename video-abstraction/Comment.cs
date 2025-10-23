@@ -16,6 +16,7 @@ namespace BFAdventureVideos
             Author = string.IsNullOrWhiteSpace(author) ? "Anonymous" : author.Trim();
             Text   = text?.Trim() ?? string.Empty;
         }
-
+         public override string ToString() => $"- {Author}: {Text}";
     }
-}
+}   
+       
