@@ -12,7 +12,24 @@ namespace BFAdventureVideos
     {
         public string Title { get; }
         public string Aughtor { get; }
-        public int LengthSeconds { get; }
+        public int VideoLength { get; }
+
+        
+        //Comment section//
+        //Internal storage//
+        //Customer list (readonly)//
+
+            //Strings for title, author, and videoLength
+            //Add command
+            //Add keyword
+            
+
+
+
+
+
+    }
+}
 
        
     
