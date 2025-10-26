@@ -35,3 +35,11 @@ namespace BFACampingOps
         {
             return base.PointsEarned(); // placeholder
         }
+        
+        public override string Summary()
+        {
+            // Outline: show Y/N for C/I/S and on-time flag
+            return $"{Name} — [C/I/S flags] | Points: {PointsEarned()}";
+        }
+    }
+}
