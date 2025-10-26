@@ -9,13 +9,25 @@ namespace FamilyEvents
     public class ReunionEvent : FamilyEvent
     {
         private readonly HashSet<string> _rsvps = new(StringComparer.OrdinalIgnoreCase);
+
         public int GuestCount => _rsvps.Count;
+
         public ReunionEvent(string title, string desc, DateTime start, string location)
             : base(title, desc, start, location) { }
+
         public bool Rsvp(string name)
         {
             if (string.IsNullOrWhiteSpace(name)) return false;
             return _rsvps.Add(name.Trim());
-
-            public IReadOnlyCollection<string> GetRsvps() => _rsvps;
         }
+
+        public IReadOnlyCollection<string> GetRsvps() => _rsvps;
+
+        protected override string GetEventType() => "Reunion";
+
+        protected override string GetSpecificDetails()
+            => $"RSVPs: {GuestCount}";
+    }
+}
+
+        
