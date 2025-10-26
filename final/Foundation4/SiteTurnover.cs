@@ -27,4 +27,11 @@ namespace BFACampingOps
         public void MarkCleaned(bool v = true)  => Cleaned = v;
         public void MarkInspected(bool v = true)=> Inspected = v;
         public void MarkStocked(bool v = true)  => Stocked = v;
-        public void MarkOnTime(bool v = true)   => OnTime = v;
+        public void MarkOnTime(bool v = true) => OnTime = v;
+
+        // Polymorphic scoring + summary
+        // Outline: time value + per-task points + on-time bonus
+        public override int PointsEarned()
+        {
+            return base.PointsEarned(); // placeholder
+        }
