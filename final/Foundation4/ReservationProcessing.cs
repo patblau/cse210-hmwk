@@ -24,3 +24,19 @@ namespace BFACampingOps
     }       // Behavior (encapsulated updates)
             public void AddBookings(int count)   => BookingsHandled += Math.max(0, count);
             public void SetAccuracy(int percent) => AccuracyPercent = Math.Clamp(percent, 0, 100);
+            
+            // 4) Polymorphic scoring + summary
+        public override int PointsEarned()
+        {
+            // Outline: time component + per-booking score + accuracy bonus tiers
+            // return computed total;
+            return base.PointsEarned(); // placeholder
+        }
+
+        public override string Summary()
+        {
+            // Outline: include bookings + accuracy in the string
+            return $"{Name} — [outline summary here] | Points: {PointsEarned()}";
+        }
+    }
+}
