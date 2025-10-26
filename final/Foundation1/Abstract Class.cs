@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using System.Transactions;
 
 // FacilityVideo.cs
 // Specialized class for facility-related videos.
@@ -30,6 +31,24 @@ namespace BFAdventureVideos
             Title = string.IsNullOrWhiteSpace(title) ? "Untitled" : title.Trim();
             Author = string.IsNullOrWhiteSpace(author) ? "BFAdventure" : author.Trim();
             VideoLength = Math.Max(0, videoLength);
-        } 
+        }
 
+        // Public Methods (The Interface)
+        public void AddComment(Commemt c)
+        {
+            if (c != null)
+                _comments.Add(c);
+        }
+        
+    public void AddKeyword(string word)
+        {
+            if (!string.IsNullOrWhiteSpace(word))
+                _keywords.Add(word.Trim().ToLower());
+        }
+
+        public int GetCommentCount()
+        {
+            return _comments.Count;
+        }
+    
 }
