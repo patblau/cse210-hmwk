@@ -6,12 +6,9 @@ using BFAdventureVideos;   // Gives access to your custom classes
 // Entry point for BFAdventureVideos project
 // Demonstrates Abstraction
 
-
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello Foundation1 World!");
     }
 }
