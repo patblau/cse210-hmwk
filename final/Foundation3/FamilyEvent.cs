@@ -34,6 +34,9 @@ namespace FamilyEvents
         public virtual string GetShortDescription()
             => $"{GetEventType()}: {Title} — {Start:MMM d}";
     
-    
+        // Each subclass supplies its type label and extra details.
+        protected abstract string GetEventType();
+        protected abstract string GetSpecificDetails();
     }
 }
+    
