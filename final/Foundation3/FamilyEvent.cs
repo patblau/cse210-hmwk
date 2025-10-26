@@ -18,12 +18,21 @@ namespace FamilyEvents
 
         protected FamilyEvent(string title, string description, DateTime start, string location)
         {
-            Title       = string.IsNullOrWhiteSpace(title) ? "Untitled Event" : title.Trim();
+            Title = string.IsNullOrWhiteSpace(title) ? "Untitled Event" : title.Trim();
             Description = string.IsNullOrWhiteSpace(description) ? "TBA" : description.Trim();
-            Start       = start;
-            Location    = string.IsNullOrWhiteSpace(location) ? "TBA" : location.Trim();
+            Start = start;
+            Location = string.IsNullOrWhiteSpace(location) ? "TBA" : location.Trim();
         }
 
+        // --- Formatting helpers used by all events ---
+        public virtual string GetStandardDetails()
+            => $"{Title}\nWhen: {Start:dddd, MMM d, yyyy h:mm tt}\nWhere: {Location}";
+
+        public virtual string GetFullDetails()
+            => $"{GetStandardDetails()}\nDetails: {Description}\n{GetSpecificDetails()}";
+
+        public virtual string GetShortDescription()
+            => $"{GetEventType()}: {Title} — {Start:MMM d}";
     
     
     }
