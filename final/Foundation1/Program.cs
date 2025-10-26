@@ -25,4 +25,12 @@ class Program
         v1.AddComment(new Comment("Jamie", "Loved the pavilions!"));
         v1.AddComment(new Comment("Chris", "Facilities look so clean!"));
 
-        
+        var v2 = new CampingSiteVideo(
+            "Glamping Options: Cabins, Yurts, and Treehouses",
+            "BFAdventure",
+            180,
+            "Glamping Cabins");
+        v2.AddComment(new Comment("Ava", "The yurts look cozy!"));
+        v2.AddComment(new Comment("Theo", "Treehouses are awesome."));
+
+       
