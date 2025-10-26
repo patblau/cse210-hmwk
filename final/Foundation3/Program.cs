@@ -40,26 +40,35 @@ class Program
             location: "Heritage Hall",
             weatherForecast: "Sunny, 72°F"
         );
-    fair.AddBooth("DNA Q&A");
+        fair.AddBooth("DNA Q&A");
         fair.AddBooth("Scan Your Photos");
         fair.AddBooth("Youth Pedigree Crafts");
     
-    // List of all events  
-        var events = new List<FamilyEvent> { workshop, reunion, fair };
+        // List of all events  
+            var events = new List<FamilyEvent> { workshop, reunion, fair };
 
-    // Display required formats (standard, Full, short details and discriptions)
-    Console.WriteLine("=== STANDARD DETAILS ===\n");
-        foreach (var e in events)
-        {
-            Console.WriteLine(e.GetStandardDetails());
-            Console.WriteLine(new string ('-', 40));
-       }
+        // Display required formats (standard, Full, short details and discriptions)
+        Console.WriteLine("=== STANDARD DETAILS ===\n");
+            foreach (var e in events)
+            {
+                Console.WriteLine(e.GetStandardDetails());
+                Console.WriteLine(new string ('-', 40));
+        }
 
-    Console.WriteLine("\n=== FULL DETAILS ===\n");
-        foreach (var e in events)
+            Console.WriteLine("\n=== FULL DETAILS ===\n");
+            foreach (var e in events)
         {
             Console.WriteLine(e.GetFullDetails());
-            Console.WriteLine(new string('-', 40));
+            Console.WriteLine(new string('-', 40))
+        }
+    
 
-
+            Console.WriteLine("\n=== SHORT DESCRIPTIONS ===\n");
+            foreach (var e in events)
+        {
+            Console.WriteLine(e.GetShortDescription());
+        }
+    }
 }
+       
+
