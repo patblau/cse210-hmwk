@@ -19,11 +19,18 @@ namespace FamilyEvents
         {
             WeatherForecast = string.IsNullOrWhiteSpace(weatherForecast) ? "TBD" : weatherForecast.Trim();
         }
-    public void UpdateWeather(string forecast)
-    {
-        if (!string.IsNullOrWhiteSpace(forecast))
-            WeatherForecast = forecast.Trim();
+        public void UpdateWeather(string forecast)
+        {
+            if (!string.IsNullOrWhiteSpace(forecast))
+                WeatherForecast = forecast.Trim();
         }
+        public void AddBooth(string name)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+                _booths.Add(name.Trim());
+        }
+
+        
     }
 }
 
