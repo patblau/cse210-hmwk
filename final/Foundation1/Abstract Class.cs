@@ -10,20 +10,8 @@ using System.Transactions;
 
 namespace BFAdventureVideos
 {
-    public class FacilityVideo : ThemedVideo
+    public class Video
     {
-        // Private Fields (Hidden Data) to stor coment and keywords
-
-        private readonly List<Comment> _comments = new();
-        private readonly List<string> _keywords = new();
-
-        //Public Properties (Part of the Interface), ReadOnly title, author, VideoLength)
-        public string Title { get; }
-        public string Author { get; }
-        public int VideoLength { get; }
-        public IReadOnlyList<Comment> Comments => _comments;
-        public IReadOnlyList<string> Keywords => _keywords;
-    }
     
     //Conductors strings for title arthor, and videoLength
     public Video(string title, string author, int videoLength)
@@ -39,8 +27,8 @@ namespace BFAdventureVideos
             if (c != null)
                 _comments.Add(c);
         }
-        
-    public void AddKeyword(string word)
+
+        public void AddKeyword(string word)
         {
             if (!string.IsNullOrWhiteSpace(word))
                 _keywords.Add(word.Trim().ToLower());
@@ -50,5 +38,14 @@ namespace BFAdventureVideos
         {
             return _comments.Count;
         }
-    
+        //Display
+        public void Display()
+        {
+            Console.WriteLine($"Title : {Title}");
+            Console.WriteLine($"Author: {Author}");
+            Console.WriteLine($"Length: {VideoLength} seconds");
+            Console.WriteLine($"Comments: {GetCommentCount()}");
+            Console.WriteLine(new string('-', 40));
+        }
+    }
 }
