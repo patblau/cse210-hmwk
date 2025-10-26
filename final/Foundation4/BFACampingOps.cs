@@ -39,7 +39,13 @@ public class CampActivity
     {    
         return (int)Math.Round(Minutes * 0.2) + GuestsAffected * 1; // time value + guest impact
     }
-    
+    public virtual string Summary()
+    {
+        // Baseline summary used if subclass doesn't customize
+        return $"{Name} — {Minutes} min | Staff: {StaffAssigned} | Guests: {GuestsAffected} | Points: {PointsEarned()}";
+    }
+        
+}
 
 
 
