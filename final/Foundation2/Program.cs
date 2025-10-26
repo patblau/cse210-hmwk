@@ -21,7 +21,14 @@ namespace CardInventory
 
         // Create sets and group related cards (encapsulated)
         var set89UD = collector.CreateSet("1989 Upper Deck Stars");
-        set89UD.AddCard(c1);
+            set89UD.AddCard(c1);
+        
+        var setTopps90s = collector.CreateSet("1990s Topps Favorites");
+        setTopps90s.AddCard(c2);
+        setTopps90s.AddCard(c4);
+        
+
+
 
         }
     }
