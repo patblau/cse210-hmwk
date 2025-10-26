@@ -10,8 +10,7 @@ namespace FamilyEvents
         public string Speaker { get; }
         public int Capacity { get; }
         public int Registered { get; private set; }
-
-    }   
+  
         public WorkShopEvent(string title, string desc, DateTime start, string location, string speaker, int capacity)
             : base(title, desc, start, location)
         {
@@ -19,7 +18,7 @@ namespace FamilyEvents
             Capacity = Math.Max(0, capacity);
             Registered = 0;
         }
-        
+
         public bool Register(int count = 1)
         {
             if (count <= 0) return false;
@@ -27,4 +26,11 @@ namespace FamilyEvents
             Registered += count;
             return true;
         }
+        
+        protected override string GetEventType() => "Workshop";
 
+        protected override string GetSpecificDetails()
+            => $"Speaker: {Speaker}\nCapacity: {Registered}/{Capacity}";
+        
+    }
+}
