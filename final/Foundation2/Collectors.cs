@@ -37,7 +37,7 @@ public class Collector
             s.RemoveCard(card);
         return _inventory.Remove(card);
     }
-    
+
     // Set actions
     public Set CreateSet(string name)
     {
@@ -45,3 +45,10 @@ public class Collector
         _sets.Add(s);
         Return s;
     }
+
+    public bool DeleteSet(Set set)
+    {
+        return set != null && _sets.Remove(set);
+    }
+        
+    
