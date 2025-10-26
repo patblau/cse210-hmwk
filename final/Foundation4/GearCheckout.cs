@@ -14,13 +14,20 @@ namespace BFACampingOps
         public int DamageIncidents { get; private set; }
 
     // Constructor
-        public GearCheckout(EquipmentType type, string notes = "", int minutes = 0, int staff = 0, int guests = 0,
-                            int volume = 0, int damage = 0)
-            : base("Gear Checkout", notes, minutes, staff, guests)
+    public GearCheckout(EquipmentType type, string notes = "", int minutes = 0, int staff = 0, int guests = 0,
+                        int volume = 0, int damage = 0)
+        : base("Gear Checkout", notes, minutes, staff, guests)
+    {
+        Type = type;
+        VolumeCheckedOut = Math.Max(0, volume);
+        DamageIncidents = Math.Max(0, damage);
+    }
+        
+        // Polymorphic scoring + summary
+        public override int PointsEarned()
         {
-            Type = type;
-            VolumeCheckedOut = Math.Max(0, volume);
-            DamageIncidents  = Math.Max(0, damage);
+            // Outline: time value + volume*type multiplier − damage penalties
+            return base.PointsEarned(); // placeholder
         }
     }
 
