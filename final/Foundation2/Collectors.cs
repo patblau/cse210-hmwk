@@ -28,12 +28,20 @@ public class Collector
     {
         if (card != null) _inventory.Add(card);
     }
-    
+
     public bool RemoveCardFromInventory(Card card)
-        {
-            // also remove from any set that contains it
-            if (card == null) return false;
-            foreach (var s in _sets)
-                s.RemoveCard(card);
-            return _inventory.Remove(card);
-        }
+    {
+        // also remove from any set that contains it
+        if (card == null) return false;
+        foreach (var s in _sets)
+            s.RemoveCard(card);
+        return _inventory.Remove(card);
+    }
+    
+    // Set actions
+    public Set CreateSet(string name)
+    {
+        var s = new Set(name);
+        _sets.Add(s);
+        Return s;
+    }
