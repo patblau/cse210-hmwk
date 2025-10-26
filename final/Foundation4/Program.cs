@@ -17,6 +17,20 @@ class Program
     var a5 = new RiverFloat(RiverClass.II, distanceMiles: 5.2, boatsManaged: 6, minutes: 150, staff: 3, guests: 18);
 
     // Polymorphic container — treat them all as CampActivity
-        var activities = new List<CampActivity> { a1, a2, a3, a4, a5 };
+    var activities = new List<CampActivity> { a1, a2, a3, a4, a5 };
+        
+    //Distplay 
+    Console.WriteLine("=== BFA Camping — Operations & Activities Tracker ===\n");
+        int total = 0;
+        foreach (var act in activities)
+        {
+            Console.WriteLine(act.Summary());   // overridden per subclass
+            total += act.PointsEarned();        // overridden per subclass
+        }
+        Console.WriteLine($"\nTotal Points (shift): {total}");
+    }
+}
+
+
 }
 
