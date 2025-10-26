@@ -13,4 +13,13 @@ namespace BFACampingOps
         // Specific fields
         public HikeDifficulty Difficulty { get; private set; }
         public double Miles { get; private set; }
-        
+
+        // Constructor
+        public GuidedHike(HikeDifficulty difficulty, double miles,string notes = "", int minutes = 0, int staff = 0, int guests = 0)
+                          
+            : base("Guided Hike", notes, minutes, staff, guests)
+        {
+            Difficulty = difficulty;
+            Miles = Math.Max(0, miles);
+        }
+
