@@ -11,12 +11,12 @@ class Program
     static void Main()
     {
         // Create a List to hold all video objects.
-       
+
         List<Video> videos = new List<Video>();
 
         // Create different video types.
         // Each class shares the same public interface from Video, while having its own specialized data.
-       
+
         var v1 = new FacilityVideo(
             "Facility Tour: Lodges & Outdoor Kitchens",
             "BFAdventure",
@@ -33,4 +33,15 @@ class Program
         v2.AddComment(new Comment("Ava", "The yurts look cozy!"));
         v2.AddComment(new Comment("Theo", "Treehouses are awesome."));
 
-       
+        var v3 = new ActivityVideo(
+            "Water Sports & Cooking Contests",
+            "BFAdventure",
+            195,
+            "Outdoor Cooking");
+        v3.AddComment(new Comment("Lia", "I want to try the kayak race!"));
+        v3.AddComment(new Comment("Ben", "That cooking contest looked fun!"));
+                {
+            
+        }
+
+    
