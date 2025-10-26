@@ -9,6 +9,13 @@ using System;
 namespace BFAdventureVideos
 {
     public class FacilityVideo : ThemedVideo
-    {
+    { 
+    // Private Fields (Hidden Data) to stor coment and keywords
+        
+    private readonly List<Comment> _comments = new();
+    private readonly List<string> _keywords = new();
+
+    
     }
+
 }
