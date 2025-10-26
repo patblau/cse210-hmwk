@@ -45,6 +45,15 @@ namespace BFAdventureVideos
             if (!string.IsNullOrWhiteSpace(word))
                 _keywords.Add(word.Trim().ToLower());
         }
+         public int GetCommentCount()
+        {
+            return _comments.Count;
+        }
+
+       
+    }
+}
+
 
     }
 
