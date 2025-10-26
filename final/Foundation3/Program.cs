@@ -43,5 +43,15 @@ class Program
         fair.AddBooth("DNA Q&A");
         fair.AddBooth("Scan Your Photos");
         fair.AddBooth("Youth Pedigree Crafts");
+    
+    // List of all events  
+        var events = new List<FamilyEvent> { workshop, reunion, fair };
 
+        // Display required formats (standard, Full, short details and discriptions)
+        Console.WriteLine("=== STANDARD DETAILS ===\n");
+        foreach (var e in events)
+        {
+            Console.WriteLine(e.GetStandardDetails());
+            Console.WriteLine(new string('-', 40));
+        }
 }
