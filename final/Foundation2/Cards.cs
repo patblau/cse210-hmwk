@@ -61,11 +61,11 @@ namespace CardInventory
                 _ => char.ToUpper(c[0]) + c.Trim().ToLowerInvariant()[1..] // Title-ish
             }
 
+        }
 
         public override string ToString()
-        { 
-            => $"{Year} {Brand} — {Player} ({Condition}) ${ValueUsd:0.00}";
-        }
+        
+            => $"{Year} {Brand} — {Player} ({Condition}) ${ValueUsd:0.00}";     
 
     }
 }
