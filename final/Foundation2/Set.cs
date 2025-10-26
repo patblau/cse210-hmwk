@@ -25,7 +25,11 @@ namespace CardInventory
         {
             if (card != null) _cards.Add(card);
         }
-
+    
+     public bool RemoveCard(Card card)
+    {
+        return card != null && _cards.Remove(card);
+    }
        
 
     }
