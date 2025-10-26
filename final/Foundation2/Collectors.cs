@@ -51,4 +51,7 @@ public class Collector
         return set != null && _sets.Remove(set);
     }
         
-    
+    public decimal TotalCollectionValue()
+        {
+            return _inventory.Sum(c => c.ValueUsd);
+        }
