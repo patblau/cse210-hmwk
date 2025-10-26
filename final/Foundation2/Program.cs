@@ -37,6 +37,9 @@ namespace CardInventory
         foreach (var card in collector.Inventory)
             Console.WriteLine(" - " + card);
 
+        // Demonstrate encapsulated updates
+        c2.UpdateCondition("Near Mint");
+        c2.UpdateValue(42.00m);
 
         }
     }
