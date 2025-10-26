@@ -49,7 +49,14 @@ namespace BFAdventureVideos
         {
             return _comments.Count;
         }
-
+     // Utility behavior
+        public void Display()
+        {
+            Console.WriteLine($"Title : {Title}");
+            Console.WriteLine($"Author: {Author}");
+            Console.WriteLine($"Length: {VideoLength} seconds");
+            Console.WriteLine($"Comments: {GetCommentCount()}");
+        }
        
     }
 }
