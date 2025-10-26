@@ -21,6 +21,17 @@ public class Card
     public string Brand      => _brand;
     public string Condition  => _condition;
     public decimal ValueUsd => _valueUsd;
-    
+
+    public Card(string player, int year, string brand, string condition, decimal valueUsd)
+    {
+        // Validation & cleanup (still simple)
+        _player = string.IsNullOrWhiteSpace(player) ? "Unknown Player" : player.Trim();
+        _year = Math.Max(1869, year); // first pro ball ~1869; prevents negatives
+        _brand = string.IsNullOrWhiteSpace(brand) ? "Unknown Brand" : brand.Trim();
+        _condition = NormalizeCondition(condition);
+        _valueUsd = valueUsd < 0 ? 0 : decimal.Round(valueUsd, 2);
+    }
+     
+
 }
 
