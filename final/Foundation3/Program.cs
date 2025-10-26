@@ -33,5 +33,15 @@ class Program
         reunion.Rsvp("Chris Blau");
         reunion.Rsvp("Ava Martin");
 
+    var fair = new CommunityFairEvent(
+            title: "Community Family History Fair",
+            desc: "Booths for DNA basics, digitization, local archive partners, and kids crafts.",
+            start: new DateTime(2025, 9, 28, 9, 0, 0),
+            location: "Heritage Hall",
+            weatherForecast: "Sunny, 72°F"
+        );
+        fair.AddBooth("DNA Q&A");
+        fair.AddBooth("Scan Your Photos");
+        fair.AddBooth("Youth Pedigree Crafts");
 
 }
