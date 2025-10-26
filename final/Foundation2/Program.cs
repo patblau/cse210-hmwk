@@ -28,6 +28,14 @@ namespace CardInventory
         setTopps90s.AddCard(c4);
         
 
+        // Show lists with no direct access to private lists
+        Console.WriteLine(collector);
+        Console.WriteLine(set89UD);
+        Console.WriteLine(setTopps90s);
+        
+        Console.WriteLine("\nInventory:");
+        foreach (var card in collector.Inventory)
+            Console.WriteLine(" - " + card);
 
 
         }
