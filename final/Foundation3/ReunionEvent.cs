@@ -9,3 +9,4 @@ namespace FamilyEvents
     public class ReunionEvent : FamilyEvent
     {
         private readonly HashSet<string> _rsvps = new(StringComparer.OrdinalIgnoreCase);
+        public int GuestCount => _rsvps.Count;
