@@ -16,4 +16,15 @@ namespace FamilyEvents
         public DateTime Start { get; }      // date + time
         public string Location { get; }
 
+        protected FamilyEvent(string title, string description, DateTime start, string location)
+        {
+            Title       = string.IsNullOrWhiteSpace(title) ? "Untitled Event" : title.Trim();
+            Description = string.IsNullOrWhiteSpace(description) ? "TBA" : description.Trim();
+            Start       = start;
+            Location    = string.IsNullOrWhiteSpace(location) ? "TBA" : location.Trim();
+        }
+
+    
+    
+    }
 }
