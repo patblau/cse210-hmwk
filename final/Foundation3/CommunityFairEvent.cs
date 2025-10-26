@@ -16,6 +16,9 @@ namespace FamilyEvents
 
         public CommunityFairEvent(string title, string desc, DateTime start, string location, string weatherForecast)
             : base(title, desc, start, location)
+         {
+            WeatherForecast = string.IsNullOrWhiteSpace(weatherForecast) ? "TBD" : weatherForecast.Trim();
+        }
     }
 }
 
