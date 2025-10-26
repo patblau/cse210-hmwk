@@ -50,8 +50,13 @@ public class Collector
     {
         return set != null && _sets.Remove(set);
     }
-        
+
     public decimal TotalCollectionValue()
-        {
-            return _inventory.Sum(c => c.ValueUsd);
-        }
+    {
+        return _inventory.Sum(c => c.ValueUsd);
+    }
+    
+    public override string ToString()
+            => $"{Name} — {Inventory.Count} cards across {_sets.Count} sets — total ${TotalCollectionValue():0.00}";
+    }
+}
