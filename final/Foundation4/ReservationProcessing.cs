@@ -11,4 +11,13 @@ namespace BFACampingOps
         public int BookingsHandled { get; private set; }
         public int AccuracyPercent { get; private set; } // 0–100
     }
+
+    //Constructor
+        public ReservationProcessing(string notes = "", int minutes = 0, int staff = 0, int guests = 0,
+                                     int bookingsHandled = 0, int accuracyPercent = 100)
+            : base("Reservation Processing", notes, minutes, staff, guests)
+        {
+            BookingsHandled = Math.Max(0, bookingsHandled);
+            AccuracyPercent = Math.Clamp(accuracyPercent, 0, 100);
+        }
 }
