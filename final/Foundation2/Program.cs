@@ -39,7 +39,11 @@ namespace CardInventory
 
         // Demonstrate encapsulated updates
         c2.UpdateCondition("Near Mint");
-        c2.UpdateValue(42.00m);
+            c2.UpdateValue(42.00m);
+        
+        Console.WriteLine("\nAfter updates:");
+        Console.WriteLine(setTopps90s);
+        Console.WriteLine($"Total collection value: ${collector.TotalCollectionValue():0.00}");
 
         }
     }
