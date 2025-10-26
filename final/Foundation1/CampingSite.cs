@@ -10,5 +10,8 @@ namespace BFAdventureVideos
     // Shows a subclass extending the base without revealing its internals processes.
     public class CampingSiteVideo : ThemedVideo
     {
+        // Public Property (New Concept for This Class)
+        public string SiteType { get; }
+
     }
 }
