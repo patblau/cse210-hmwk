@@ -32,6 +32,16 @@ public class Card
         _valueUsd = valueUsd < 0 ? 0 : decimal.Round(valueUsd, 2);
     }
      
+     // Encapsulated updates (no direct field writes from outside)
+    public void UpdateCondition(string newCondition)
+    {
+        _condition = NormalizeCondition(newCondition);
+    }
+
+    public void UpdateValue(decimal newValueUsd)
+    {
+        _valueUsd = newValueUsd < 0 ? 0 : decimal.Round(newValueUsd, 2);
+     }
 
 }
 
