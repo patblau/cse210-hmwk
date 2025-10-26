@@ -32,8 +32,7 @@ namespace FamilyEvents
         protected override string GetEventType() => "Community Fair";
 
         protected override string GetSpecificDetails()
-            => $"Weather: {WeatherForecast}\nBooths: {BoothCount}";
-        }
+            => $"Weather: {WeatherForecast}\nBooths: {BoothCount}";       
     }
 }
         
