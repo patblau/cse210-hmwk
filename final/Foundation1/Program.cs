@@ -46,6 +46,24 @@ class Program
         videos.Add(v2);
         videos.Add(v3);
 
+        // Display the video information.
+        Console.WriteLine("\n=== BFAdventure Video Library ===\n");
+            foreach (var v in videos)
+            {
+                v.Display();
+            }
+
+        Console.WriteLine("\nAll videos displayed successfully!");
+        }
+       static void Main(string[] args)
+    {
+            
+        {   
+        Console.WriteLine("Hello Foundation1 World!");
+        }
+    }
+}      
+
 
         
     
