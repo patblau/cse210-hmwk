@@ -25,12 +25,17 @@ namespace CardInventory
         {
             if (card != null) _cards.Add(card);
         }
-    
-     public bool RemoveCard(Card card)
-    {
-        return card != null && _cards.Remove(card);
-    }
-       
 
+        public bool RemoveCard(Card card)
+        {
+            return card != null && _cards.Remove(card);
+        }
+    
+    public int Count => _cards.Count;
+
+        public decimal TotalValue()
+        {
+            return _cards.Sum(c => c.ValueUsd);
+        }
     }
 }
