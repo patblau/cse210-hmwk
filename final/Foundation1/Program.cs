@@ -40,8 +40,12 @@ class Program
             "Outdoor Cooking");
         v3.AddComment(new Comment("Lia", "I want to try the kayak race!"));
         v3.AddComment(new Comment("Ben", "That cooking contest looked fun!"));
-                {
-            
-        }
+        
+        // Add all videos to the list. 
+        videos.Add(v1);
+        videos.Add(v2);
+        videos.Add(v3);
 
+
+        
     
