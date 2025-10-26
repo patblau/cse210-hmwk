@@ -33,9 +33,13 @@ namespace CardInventory
     
     public int Count => _cards.Count;
 
-        public decimal TotalValue()
-        {
-            return _cards.Sum(c => c.ValueUsd);
-        }
+    public decimal TotalValue()
+    {
+        return _cards.Sum(c => c.ValueUsd);
+    }
+    public override string ToString()
+        => $"{Name}: {Count} cards — total ${TotalValue():0.00}";
     }
 }
+
+   
