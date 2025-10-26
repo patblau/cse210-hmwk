@@ -13,4 +13,17 @@ public class CampActivity
     public int GuestsAffected { get; private set; }
     public DateTime? StartTime { get; private set; }
     public DateTime? EndTime { get; private set; }
+
+    // Constructor (validation + defaults)
+        public CampActivity(string name, string notes = "", int minutes = 0, int staffAssigned = 0, int guestsAffected = 0)
+        {
+            Name = string.IsNullOrWhiteSpace(name) ? "Unnamed Activity" : name.Trim();
+            Notes = notes?.Trim() ?? string.Empty;
+            Minutes = Math.Max(0, minutes);
+            StaffAssigned = Math.Max(0, staffAssigned);
+            GuestsAffected = Math.Max(0, guestsAffected);
+        }
+
+
 }
+
