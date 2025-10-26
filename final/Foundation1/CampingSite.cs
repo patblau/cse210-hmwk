@@ -13,5 +13,14 @@ namespace BFAdventureVideos
         // Public Property (New Concept for This Class)
         public string SiteType { get; }
 
+        //Constructor – Builds on the base and adds SiteType
+        public CampingSiteVideo(string title, string author, int length, string siteType)
+            : base(title, author, length, "Camping Site")
+        {
+            SiteType = string.IsNullOrWhiteSpace(siteType)
+                ? "General Site"
+                : siteType.Trim();
+        }
     }
+
 }
