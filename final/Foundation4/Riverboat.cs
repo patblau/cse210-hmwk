@@ -24,5 +24,30 @@ namespace BFACampingOps
             BoatsManaged = Math.Max(0, boatsManaged);
         }
 
+        // 3) Polymorphic scoring + summary
+        public override int PointsEarned()
+        {
+            // Outline: time + guests + distance + boat count + class bonus
+            return base.PointsEarned(); // placeholder
+        }
+
+        public override string Summary()
+        {
+            // Outline: show class, distance, boats, guests, minutes, points
+            return $"{Name} — [Class/Dist/Boats] | Points: {PointsEarned()}";
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 }
