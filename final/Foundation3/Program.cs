@@ -23,5 +23,15 @@ class Program
     );
     workshop.Register(12);
 
+    var reunion = new ReunionEvent(
+            title: "Blau Family Reunion",
+            desc: "Potluck, photo scanning table, and oral history recording corner.",
+            start: new DateTime(2025, 7, 20, 12, 0, 0),
+            location: "Riverside Park Pavilion"
+        );
+        reunion.Rsvp("Pat Blau");
+        reunion.Rsvp("Chris Blau");
+        reunion.Rsvp("Ava Martin");
+
 
 }
