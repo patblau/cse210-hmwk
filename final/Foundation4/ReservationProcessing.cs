@@ -32,17 +32,18 @@ namespace BFACampingOps
             return base.PointsEarned(); // placeholder
         }
 
+        // Outline: include bookings + accuracy in the string
         public override string Summary()
-        {
-            // Outline: include bookings + accuracy in the string
+        {  
             return $"{Name} — [outline summary here] | Points: {PointsEarned()}";
         }
 
-        {// 4) Polymorphic scoring + summary
+        // Polymorphic scoring + summary
         public override int PointsEarned()
         {
             // Outline: time component + per-booking score + accuracy bonus tiers
             // return computed total;
             return base.PointsEarned(); // placeholder
-        }}
+        }
     }
+}
