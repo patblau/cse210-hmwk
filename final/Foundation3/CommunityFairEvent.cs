@@ -11,7 +11,7 @@ namespace FamilyEvents
 {
     public class CommunityFairEvent : FamilyEvent
     {
-       public string WeatherForecast { get; private set; }
+        public string WeatherForecast { get; private set; }
         private readonly List<string> _booths = new();
 
         public CommunityFairEvent(string title, string desc, DateTime start, string location, string weatherForecast)
@@ -29,9 +29,13 @@ namespace FamilyEvents
             if (!string.IsNullOrWhiteSpace(name))
                 _booths.Add(name.Trim());
         }
+        protected override string GetEventType() => "Community Fair";
 
-        
+        protected override string GetSpecificDetails()
+            => $"Weather: {WeatherForecast}\nBooths: {BoothCount}";
+        }
     }
 }
-
+        
+    
         
