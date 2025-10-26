@@ -11,14 +11,16 @@ namespace BFAdventureVideos
     //Bass class; title, author, length, comments and Keyworkd//
     public class Video
     {
-        public string Title { get; }
-        public string Aughtor { get; }
-        public int VideoLength { get; }
-
         //Comment section - public
         //Internal storage//
         private readonly List<Commemt> _comments = new();
         private readonly List<string> _keywords = new();
+        
+        public string Title { get; }
+        public string Aughtor { get; }
+        public int VideoLength { get; }
+
+        
 
         //List for customers (readonly)//
         public IReadOnlyList<Comment> Comments => _comment;
