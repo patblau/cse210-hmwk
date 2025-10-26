@@ -11,6 +11,13 @@ namespace BFAdventureVideos
         // Public Property for Facility Videos
         public string FacilityType { get; }
 
-        
+        // Constructor 
+        public FacilityVideo(string title, string author, int length, string facilityType)
+            : base(title, author, length, "Facility")
+        {
+            FacilityType = string.IsNullOrWhiteSpace(facilityType)
+                ? "General Facility"
+                : facilityType.Trim();
+        }
     }
 }
