@@ -29,7 +29,7 @@ class Program
             start: new DateTime(2025, 7, 20, 12, 0, 0),
             location: "Riverside Park Pavilion"
         );
-        reunion.Rsvp("Pat Blau");
+    reunion.Rsvp("Pat Blau");
         reunion.Rsvp("Chris Blau");
         reunion.Rsvp("Ava Martin");
 
@@ -40,18 +40,26 @@ class Program
             location: "Heritage Hall",
             weatherForecast: "Sunny, 72°F"
         );
-        fair.AddBooth("DNA Q&A");
+    fair.AddBooth("DNA Q&A");
         fair.AddBooth("Scan Your Photos");
         fair.AddBooth("Youth Pedigree Crafts");
     
     // List of all events  
         var events = new List<FamilyEvent> { workshop, reunion, fair };
 
-        // Display required formats (standard, Full, short details and discriptions)
-        Console.WriteLine("=== STANDARD DETAILS ===\n");
+    // Display required formats (standard, Full, short details and discriptions)
+    Console.WriteLine("=== STANDARD DETAILS ===\n");
         foreach (var e in events)
         {
             Console.WriteLine(e.GetStandardDetails());
+            Console.WriteLine(new string ('-', 40));
+       }
+
+    Console.WriteLine("\n=== FULL DETAILS ===\n");
+        foreach (var e in events)
+        {
+            Console.WriteLine(e.GetFullDetails());
             Console.WriteLine(new string('-', 40));
-        }
+
+
 }
