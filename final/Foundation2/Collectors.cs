@@ -16,4 +16,9 @@ public class Collector
 
     public string Name  { get; }
     public string Email { get; }
+
+    public Collector(string name, string email)
+        {
+            Name  = string.IsNullOrWhiteSpace(name) ? "Unnamed Collector" : name.Trim();
+            Email = string.IsNullOrWhiteSpace(email) ? "unknown@example.com" : email.Trim();
  }
