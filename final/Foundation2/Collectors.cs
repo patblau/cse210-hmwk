@@ -22,9 +22,18 @@ public class Collector
         Name = string.IsNullOrWhiteSpace(name) ? "Unnamed Collector" : name.Trim();
         Email = string.IsNullOrWhiteSpace(email) ? "unknown@example.com" : email.Trim();
     }
- 
+
     // Inventory actions
-        public void AddCardToInventory(Card card)
+    public void AddCardToInventory(Card card)
+    {
+        if (card != null) _inventory.Add(card);
+    }
+    
+    public bool RemoveCardFromInventory(Card card)
         {
-            if (card != null) _inventory.Add(card);
+            // also remove from any set that contains it
+            if (card == null) return false;
+            foreach (var s in _sets)
+                s.RemoveCard(card);
+            return _inventory.Remove(card);
         }
