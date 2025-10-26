@@ -6,6 +6,7 @@ using FamilyEvents;
 // Ceate events, use shared + specific features,
 // show Standard, Full, and Short descriptions.
 
+
 class Program
 {
     static void Main()
@@ -40,15 +41,15 @@ class Program
             location: "Heritage Hall",
             weatherForecast: "Sunny, 72°F"
         );
-        fair.AddBooth("DNA Q&A");
+    fair.AddBooth("DNA Q&A");
         fair.AddBooth("Scan Your Photos");
         fair.AddBooth("Youth Pedigree Crafts");
     
         // List of all events  
             var events = new List<FamilyEvent> { workshop, reunion, fair };
 
-        // Display required formats (standard, Full, short details and discriptions)
-        Console.WriteLine("=== STANDARD DETAILS ===\n");
+    // Display required formats (standard, Full, short details and discriptions)
+    Console.WriteLine("=== STANDARD DETAILS ===\n");
             foreach (var e in events)
             {
                 Console.WriteLine(e.GetStandardDetails());
