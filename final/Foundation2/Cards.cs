@@ -41,7 +41,24 @@ public class Card
     public void UpdateValue(decimal newValueUsd)
     {
         _valueUsd = newValueUsd < 0 ? 0 : decimal.Round(newValueUsd, 2);
-     }
+    }
+    
+     private static string NormalizeCondition(string c)
+        {
+            // Keep it simple: normalize common labels; fall back to trimmed text
+            if (string.IsNullOrWhiteSpace(c)) return "Unknown";
+            var t = c.Trim().ToUpperInvariant();
+            return t switch
+            {
+                "MINT" or "MT" => "Mint",
+                "NM" or "NEAR MINT" => "Near Mint",
+                "EX" or "EXCELLENT" => "Excellent",
+                "VG" or "VERY GOOD" => "Very Good",
+                "G"  or "GOOD"      => "Good",
+                "P"  or "POOR"      => "Poor",
+                _ => char.ToUpper(c[0]) + c.Trim().ToLowerInvariant()[1..] // Title-ish
+            };
+        }
 
 }
 
