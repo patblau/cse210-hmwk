@@ -50,7 +50,10 @@ class Program
         Console.WriteLine("\n=== BFAdventure Video Library ===\n");
             foreach (var v in videos)
             {
-                v.Display();
+                Console.WriteLine($"Title: {v.Title}");
+                Console.WriteLine($"Author: {v.Author}");
+                Console.WriteLine($"Length: {v.LengthSeconds}");
+                Console.WriteLine($"Comments: {v.GetCommentCount()}");
             }
 
         Console.WriteLine("\nAll videos displayed successfully!");

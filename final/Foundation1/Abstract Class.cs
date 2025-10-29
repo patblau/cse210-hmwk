@@ -22,7 +22,7 @@ namespace BFAdventureVideos
         }
 
         // Public Methods (The Interface)
-        public void AddComment(Commemt c)
+        public void AddComment(Comment c)
         {
             if (c != null)
                 _comments.Add(c);
@@ -44,7 +44,7 @@ namespace BFAdventureVideos
             Console.WriteLine($"Title : {Title}");
             Console.WriteLine($"Author: {Author}");
             Console.WriteLine($"Length: {VideoLength} seconds");
-            Console.WriteLine($"Comments: {GetCommentCount()}");
+            Console.WriteLine($"Comments: {v.GetCommentCount()}");
             Console.WriteLine(new string('-', 40));
         }
     }
