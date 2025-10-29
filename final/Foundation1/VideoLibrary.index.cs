@@ -41,6 +41,22 @@ public class VideoLibrary
                 total += v.GetCommentCount();
             return total;
         }
+
+        // ---- Nice-to-haves (optional) ----
+        public IEnumerable<Video> FindByAuthor(string author)
+        {
+            if (string.IsNullOrWhiteSpace(author)) yield break;
+            foreach (var v in _videos)
+                if (v.Author.Equals(author, StringComparison.OrdinalIgnoreCase))
+                    yield return v;
+        }
+
+        public IEnumerable<Video> TopByEngagement(int count)
+        {
+            if (count <= 0) return Enumerable.Empty<Video>();
+            return _videos.OrderByDescending(v => v.GetEngagementScore())
+                          .Take(count);
+        }
         
         
         }
