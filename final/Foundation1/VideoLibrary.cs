@@ -11,3 +11,9 @@ public class VideoLibrary
     {
         if (v != null) _videos.Add(v);
     }
+    // Add a range of videos 
+    public void AddRange(IEnumerable<Video> videos)
+    {
+        if (videos == null) return;
+        foreach (var v in videos) Add(v);
+    }
