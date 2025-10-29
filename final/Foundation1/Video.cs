@@ -26,23 +26,11 @@ using System.Collections.Generic;
     }
 
     // ===== Properties =====
-    public string Title
-    {
-        get => _title;
-        private set => _title = value;
-    }
+    public string Title{get => _title; private set => _title = value;}
 
-    public string Author
-    {
-        get => _author;
-        private set => _author = value;
-    }
+    public string Author{get => _author;private set => _author = value;}
 
-    public int VideoLength
-    {
-        get => _videoLength;
-        private set => _videoLength = value;
-    }
+    public int VideoLength{get => _videoLength;private set => _videoLength = value;}
 
     
     // Public void methods 
@@ -51,12 +39,20 @@ using System.Collections.Generic;
         if (c != null)
             _comments.Add(c);
     }
-    
+
     public void AddKeyword(string word)
     {
         if (!string.IsNullOrWhiteSpace(word))
-         _keywords.Add(word.Trim().ToLower());
+            _keywords.Add(word.Trim().ToLower());
     }
+
+    public void AddEngagement(int views, int likes, int dislikes)
+    {
+        _views = Math.Max(0, views);
+        _likes = Math.Max(0, likes);
+        _dislikes = Math.Max(0, dislikes);
+    }
+    
     public int GetCommentCount()
     {
         return _comments.Count;
