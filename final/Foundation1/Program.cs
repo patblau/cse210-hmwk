@@ -10,6 +10,15 @@ class Program
 {
     static void Main()
     {
+        Console.Clear();
+        Console.WriteLine("==============================================");
+        Console.WriteLine("   YouTube Video Tracker - Foundation 1");
+        Console.WriteLine("==============================================");
+        Console.WriteLine("This program tracks videos and their comments,");
+        Console.WriteLine("allowing you to see engagement totals and counts.");
+        Console.WriteLine("==============================================\n");
+
+        
         // Create a List to hold all video objects.
 
         List<Video> videos = new List<Video>();
