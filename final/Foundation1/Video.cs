@@ -9,7 +9,7 @@ using BFAdventuresVideo;
     // fields
     private string _title;
     private string _author;
-    private int _lengthSeconds;
+    private int _videoLength;
     private int _views;
     private int _likes;
     private int _dislikes;
@@ -27,13 +27,10 @@ using BFAdventuresVideo;
     }
 
     // ===== Properties =====
-    public string Title{get => _title; private set => _title = value;}
-
-    public string Author{get => _author;private set => _author = value;}
-
-    public int VideoLength{get => _videoLength;private set => _videoLength = value;}
-
-    
+    public string Title { get => _title; private set => _title = value; }
+    public string Author { get => _author; private set => _author = value; }
+    public int VideoLength { get => _videoLength; private set => _videoLength = value; }
+        
     // Public void methods 
     public void AddComment(Comment c)
     {
