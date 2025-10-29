@@ -12,19 +12,9 @@ using System.Collections.Generic;
     private int _views;
     private int _likes;
     private int _dislikes;
-    private readonly List<Comment> _comments = new();
 
     private readonly List<Comment> _comments = new();
     private readonly List<string> _keywords = new();
-
-    // Public read-only properties (the “interface”)
-    public string Title { get; }
-     public string Author { get; }
-    public int VideoLength { get; }
-
-    // Read-only views of private data (still safe)
-    public IReadOnlyList<Comment> Comments => _comments;
-    public IReadOnlyList<string> Keywords => _keywords;
 
 
     // Constructor – enforces required info and validates input
@@ -35,6 +25,26 @@ using System.Collections.Generic;
         VideoLength = Math.Max(0, videoLength);
     }
 
+    // ===== Properties =====
+    public string Title
+    {
+        get => _title;
+        private set => _title = value;
+    }
+
+    public string Author
+    {
+        get => _author;
+        private set => _author = value;
+    }
+
+    public int VideoLength
+    {
+        get => _videoLength;
+        private set => _videoLength = value;
+    }
+
+    
     // Public void methods 
     public void AddComment(Comment c)
     {
