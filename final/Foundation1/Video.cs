@@ -52,6 +52,12 @@ using System.Collections.Generic;
         _likes = Math.Max(0, likes);
         _dislikes = Math.Max(0, dislikes);
     }
+
+    // Count number of comments
+    public int GetCommentCount() => _comments.Count;
+
+    // Bonus: simple engagement score for fun display
+    public double GetEngagementScore() => _likes - _dislikes + GetCommentCount()
     
     public int GetCommentCount()
     {
