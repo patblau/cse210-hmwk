@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BFAdventureVideos;   // Gives access to your custom classes
+using BFAdventureVideos;   
 
 // Program.cs
 // Entry point for BFAdventureVideos project

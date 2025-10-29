@@ -1,8 +1,10 @@
-using System;using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using BFAdventureVideos;
 
-public class VideoLibrary
+
+namespace BFAdventureVideos
 {
     public class VideoLibrary
     {
@@ -12,6 +14,7 @@ public class VideoLibrary
         public void Add(Video v)
         {
             if (v != null) _videos.Add(v);
+        }
 
         // Add many at once (optional convenience)
         public void AddRange(IEnumerable<Video> videos)
@@ -21,17 +24,6 @@ public class VideoLibrary
         }
 
         // ---- Counts (your main goal) ----
-        public int GetVideoCount() => _videos.Count;
-
-        public int GetTotalComments()
-        {
-            int total = 0;
-            foreach (var v in _videos)
-                total += v.GetCommentCount();
-            return total;
-        }
-        
-        // ---- Counts for main goal ----
         public int GetVideoCount() => _videos.Count;
 
         public int GetTotalComments()
@@ -57,11 +49,17 @@ public class VideoLibrary
             return _videos.OrderByDescending(v => v.GetEngagementScore())
                           .Take(count);
         }
-        
-        
+
+        public void DisplayAll()
+        {
+            foreach (var v in _videos)
+                v.Display();
         }
 
-        
-
+        public void PrintSummary()
+        {
+            Console.WriteLine($"Total videos tracked: {GetVideoCount()}");
+            Console.WriteLine($"Total comments across all videos: {GetTotalComments()}");
+        }
     }
 }
