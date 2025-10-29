@@ -14,7 +14,7 @@ using BFAdventuresVideo;
     private int _likes;
     private int _dislikes;
     
-     private readonly List<Comment> _comments = new();
+    private readonly List<Comment> _comments = new();
     private readonly List<string> _keywords = new();
 
 

@@ -1,25 +1,22 @@
 using System;
-using System.ComponentModel;
-using System.Dynamic;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-namespace BFAdventureVideos
+using System.Collections.Generic;
+using BFAdventureVideos;  
+
+
+///Value object for a video comment</summary>
+public class Comment
 {
-    //Value object for a video comment</summary>
-    public class Comment
-    {
-        public string CommenterName { get; }
-        public string Text { get; }
+    public string CommenterName { get; }
+    public string Text { get; }
 
-        public Comment(string commenterName, string text)
-        {
-            CommenterName = string.IsNullOrWhiteSpace(commenterName)
-                ? "Anonymous"
-                : commenterName.Trim();
+    public Comment(string commenterName, string text)
+       {
+        CommenterName = string.IsNullOrWhiteSpace(commenterName)
+            ? "Anonymous"
+            : commenterName.Trim();
 
-            Text = string.IsNullOrWhiteSpace(text)
-                ? "(no comment)"
-                : text.Trim();
+        Text = string.IsNullOrWhiteSpace(text)
+            ? "(no comment)"
+            : text.Trim();
         }
-    }
 }
