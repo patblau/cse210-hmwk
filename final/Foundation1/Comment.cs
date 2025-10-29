@@ -14,12 +14,12 @@ namespace BFAdventureVideos
         public Comment(string commenterName, string text)
         {
             CommenterName = string.IsNullOrWhiteSpace(commenterName)
-            ? "Anonymous"
-            : commenterName.Trim();
+                ? "Anonymous"
+                : commenterName.Trim();
 
             Text = string.IsNullOrWhiteSpace(text)
                 ? "(no comment)"
                 : text.Trim();
         }
     }
- }
+}

@@ -18,21 +18,21 @@ class Program
         Console.WriteLine("allowing you to see engagement totals and counts.");
         Console.WriteLine("==============================================\n");
 
-        
         // Create a List to hold all video objects.
 
-        List<Video> videos = new List<Video>();
+       // Create a video library
+        var library = new VideoLibrary();
 
         // Create different video types.
         // Each class shares the same public interface from Video, while having its own specialized data.
 
-        var v1 = new FacilityVideo(
-            "Facility Tour: Lodges & Outdoor Kitchens",
-            "BFAdventure",
-            210,
-            "Main Lodge and Outdoor Kitchen");
-        v1.AddComment(new Comment("Jamie", "Loved the pavilions!"));
-        v1.AddComment(new Comment("Chris", "Facilities look so clean!"));
+        // --- Video 1 ---
+        var video1 = new Video("Guided Hike — Lookout Loop", "BFA Camping LLC", 720);
+        video1.AddEngagement(2400, 310, 5);
+        video1.AddComment(new Comment("Jamie", "Beautiful scenery!"));
+        video1.AddComment(new Comment("Chris", "Love this trail!"));
+        video1.AddComment(new Comment("Taylor", "Can’t wait to visit next season."));
+        library.Add(video1);
 
         var v2 = new CampingSiteVideo(
             "Glamping Options: Cabins, Yurts, and Treehouses",
