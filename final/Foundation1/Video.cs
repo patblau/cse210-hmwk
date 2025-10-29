@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BFAdventuresVideo;
 
 
     // Base class; title, author, length, comments, and keywords.
@@ -12,8 +13,8 @@ using System.Collections.Generic;
     private int _views;
     private int _likes;
     private int _dislikes;
-
-    private readonly List<Comment> _comments = new();
+    
+     private readonly List<Comment> _comments = new();
     private readonly List<string> _keywords = new();
 
 
@@ -57,12 +58,7 @@ using System.Collections.Generic;
     public int GetCommentCount() => _comments.Count;
 
     // Bonus: simple engagement score for fun display
-    public double GetEngagementScore() => _likes - _dislikes + GetCommentCount()
-    
-    public int GetCommentCount()
-    {
-        return _comments.Count;
-    }
+    public double GetEngagementScore() => _likes - _dislikes + GetCommentCount();
     
     // Utility behavior
     public void Display()
@@ -70,8 +66,8 @@ using System.Collections.Generic;
         Console.WriteLine($"Title : {Title}");
         Console.WriteLine($"Author: {Author}");
         Console.WriteLine($"Length: {VideoLength} seconds");
-        Console.WriteLine($"Comments: {ValidationType.GetCommentCount()}");
-       
+        Console.WriteLine($"Views: {_views}, Likes: {_likes}, Dislikes: {_dislikes}");
+        Console.WriteLine($"Engagement Score: {GetEngagementScore():0.0}");
     }
 }
 

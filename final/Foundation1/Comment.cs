@@ -5,18 +5,21 @@ using System.Net;
 using System.Security.Cryptography.X509Certificates;
 namespace BFAdventureVideos
 {
-    /// <summary>Value object for a video comment.</summary>
+    //Value object for a video comment</summary>
     public class Comment
     {
-        public string Author { get; }
+        public string CommenterName { get; }
         public string Text { get; }
 
-        public Comment(string author, string text)
+        public Comment(string commenterName, string text)
         {
-            Author = string.IsNullOrWhiteSpace(author) ? "Anonymous" : author.Trim();
-            Text   = text?.Trim() ?? string.Empty;
+            CommenterName = string.IsNullOrWhiteSpace(commenterName)
+            ? "Anonymous"
+            : commenterName.Trim();
+
+            Text = string.IsNullOrWhiteSpace(text)
+                ? "(no comment)"
+                : text.Trim();
         }
-         public override string ToString() => $"- {Author}: {Text}";
     }
-}   
-       
+ }
